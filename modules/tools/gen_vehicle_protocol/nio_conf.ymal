@@ -1,0 +1,9 @@
+dbc_file: es6.dbc
+protocol_conf: es6.yml
+car_type: nio
+sender_list: []
+sender: []
+black_list: []
+
+output_dir: output_nio/
+

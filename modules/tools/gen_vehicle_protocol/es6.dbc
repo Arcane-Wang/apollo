@@ -1,0 +1,546 @@
+VERSION "v1.0"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: CHASSIS_PCAN_STATUS VCU_PCAN_STATUS MCU_control EPS CGW BCU ASDM ACM ADC BCM_R CCU SCM VCU
+VAL_TABLE_ ViSig_AvpNBSSts 7 "Description for the value '0x7'" 6 "Description for the value '0x6'" 5 "NBS Fail" 4 "NBS Abort" 3 "NBS Moving" 2 "NBS Standby" 1 "NBS Initial" 0 "NBS off" ;
+VAL_TABLE_ VCUGear 4 "P" 3 "N" 2 "R" 1 "D" 0 "none" ;
+
+
+BO_ 590 DriverStatus: 8 CGW
+ SG_ EPBsts : 10|3@0+ (1,0) [0|7] ""  CGW
+ SG_ VCUAccrPedlOvrd : 29|1@0+ (1,0) [0|1] ""  ADC
+ SG_ iBESP2_Warning : 28|2@0+ (1,0) [0|3] ""  CGW,BCU
+ SG_ AirbWarnReq : 26|2@0+ (1,0) [0|3] ""  CGW
+ SG_ DriverSts_MsgCntr : 15|4@0+ (1,0) [0|15] ""  BCU,CGW,ADC
+ SG_ SeatBltMidRowRiSts : 19|1@0+ (1,0) [0|1] ""  BCU,CGW
+ SG_ SeatBltMidRowMidSts : 20|1@0+ (1,0) [0|1] ""  CGW,BCU
+ SG_ SeatBltFrntLeSts : 23|1@0+ (1,0) [0|1] ""  BCU,ADC
+ SG_ PassAirbgInhbnLampReq : 31|2@0+ (1,0) [0|3] ""  CGW
+ SG_ SeatOccptFrntRiSts : 18|1@0+ (1,0) [0|1] ""  BCU,CGW
+ SG_ CrashDetd : 11|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ SeatBltFrntRiSts : 22|1@0+ (1,0) [0|1] ""  CGW,BCU
+ SG_ DriverSts_CRC : 7|8@0+ (1,0) [0|255] ""  CGW,BCU
+ SG_ SeatBltMidRowLeSts : 21|1@0+ (1,0) [0|1] ""  CGW,BCU
+ SG_ BMSSOC : 39|8@0+ (0.5,0) [0|100] ""  VCU,CGW
+
+BO_ 589 Bodystatus: 8 CGW
+ SG_ DoorAjarFrntLeSts : 25|2@0+ (1,0) [0|3] ""  BCM_R,CGW
+ SG_ DoorAjarFrntRiSts : 19|2@0+ (1,0) [0|3] ""  BCM_R,CGW
+ SG_ DoorAjarReLeSts : 31|2@0+ (1,0) [0|3] ""  CGW,BCM_R
+ SG_ BCM_CLOSURE_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+ SG_ SeatOccpFrntLeFail : 11|2@0+ (1,0) [0|3] ""  CGW
+ SG_ SteerWhlHeatSts : 37|2@0+ (1,0) [0|3] ""  CGW
+ SG_ BCM_CLOSURE_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ TrAjarSts : 29|2@0+ (1,0) [0|3] ""  BCM_R,CGW
+ SG_ HoodAjarSts : 39|2@0+ (1,0) [0|3] ""  BCM_R,CGW
+ SG_ DoorAjarReRiSts : 23|2@0+ (1,0) [0|3] ""  CGW,BCM_R
+ SG_ SeatOccpFrntLeSts : 47|2@0+ (1,0) [0|3] ""  CCU,CGW
+ SG_ CooltLvlLowWarnReq : 21|2@0+ (1,0) [0|3] ""  CGW
+ SG_ VehSpd : 55|13@0+ (0.05625,0) [0|360] "km/h"  CGW,ADC,ACM,SCM
+
+BO_ 214 EPSstatus02: 8 CGW
+ SG_ EPS_TqReqAvl : 61|1@0+ (1,0) [0|1] ""  CGW
+ SG_ EPS_PinionAngReqAvl : 60|1@0+ (1,0) [0|1] ""  CGW
+ SG_ EPS_EstRackForce : 35|10@0+ (0.04,-20.48) [-20.48|20.44] "KN"  CGW,ADC
+ SG_ EPS_HandsOffDetnConfidence : 39|4@0+ (1,0) [0|15] ""  CGW,ADC
+ SG_ EPS_02_MsgCntr : 15|4@0+ (1,0) [0|15] ""  ADC,CGW
+ SG_ EPS_PinionAgValid : 9|2@0+ (1,0) [0|3] ""  CGW,ADC
+ SG_ EPS_DrvOverRideDetn : 11|2@0+ (1,0) [0|3] ""  ADC,CGW
+ SG_ EPS_02_CRC : 7|8@0+ (1,0) [0|255] ""  ADC,CGW
+ SG_ EPS_MotorTq : 55|10@0+ (0.02,-10.24) [-10.24|10.22] "Nm"  ADC,CGW
+ SG_ EPS_MotorTqValid : 59|2@0+ (1,0) [0|3] ""  CGW
+ SG_ EPS_PinionAg : 23|15@0+ (0.1,-1638.4) [-1638.4|1638.2] "Deg"  ADC,CGW
+ SG_ EPS_EstRackForceValid : 57|2@0+ (1,0) [0|3] ""  CGW
+
+BO_ 74 AcmBody: 8 CGW
+ SG_ ACM_MsgCntr : 15|4@0+ (1,0) [0|15] "0"  CGW
+ SG_ ACM_CRC : 7|8@0+ (1,0) [0|255] "0"  CGW
+ SG_ LatitudeA : 23|16@0+ (0.001,-2) [-2|2] ""  CGW
+ SG_ YawRate : 39|16@0+ (0.01,-180) [-180|180] "Deg/sec"  CGW
+ SG_ SeatOccptFrntLeSts : 11|1@0+ (1,0) [0|1] ""  CGW
+
+BO_ 588 BrkDrvstatus: 8 CHASSIS_PCAN_STATUS
+ SG_ Brk_Msgcntr : 61|4@0+ (1,0) [0|16] ""  CGW
+ SG_ BrkpressureSts : 15|2@0+ (1,0) [0|3] ""  CGW
+ SG_ Brkpressure : 55|10@0+ (0.3,-30) [-30|276.6] "bar"  CGW
+ SG_ LongAccValue : 39|16@0+ (0.001,-2) [2|2] "g"  CGW
+ SG_ Vehspdsts : 23|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Vehspddir : 25|2@0+ (1,0) [0|3] ""  CGW
+ SG_ Vehspd : 22|13@0+ (1,0) [0|360] "km/h"  CGW
+ SG_ EPBswsts : 1|2@0+ (1,0) [0|3] ""  CGW
+ SG_ Drv_state : 12|4@0+ (1,0) [0|15] ""  CGW
+ SG_ BrkPedlSts : 3|2@0+ (1,0) [0|3] ""  CGW
+ SG_ BrkLists : 57|2@0+ (1,0) [0|3] ""  CGW
+ SG_ EPBfaillamp : 5|2@0+ (1,0) [0|3] ""  CGW
+ SG_ EPBwarnlamp : 7|2@0+ (1,0) [0|3] ""  CGW
+
+BO_ 213 EPSstatus01: 8 CHASSIS_PCAN_STATUS
+ SG_ EPSwarnLamp : 26|2@0+ (1,0) [0|3] ""  CGW
+ SG_ ABS_AgreqAvl : 8|1@0+ (1,0) [0|1] ""  CGW
+ SG_ TorsBarTq : 47|10@0+ (0.02,-10) [-10|10] "Nm"  CGW
+ SG_ EPSsts : 36|3@0+ (1,0) [0|7] ""  CGW
+ SG_ EPSMod : 39|3@0+ (1,0) [0|7] ""  CGW
+ SG_ Steeragspddir : 11|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Steeragspd : 52|9@0+ (5,0) [0|2550] "Deg/sec"  CGW
+ SG_ Steer_angledir : 10|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Steer_angleandspdvalid : 9|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Steer_angle : 23|13@0+ (0.1,0) [0|800] "Deg"  CGW
+ SG_ EPS_D_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ EPS_D_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+
+BO_ 101 PulseCnt: 8 CHASSIS_PCAN_STATUS
+ SG_ whlplscntRRvld : 63|1@0+ (1,0) [0|1] ""  CGW
+ SG_ whlplscntRR : 55|8@0+ (1,0) [0|254] "pulse"  CGW
+ SG_ whlplscntRLvld : 47|1@0+ (1,0) [0|1] ""  CGW
+ SG_ whlplscntRL : 39|8@0+ (1,0) [0|254] "pulse"  CGW
+ SG_ whlplscntFRvld : 31|1@0+ (1,0) [0|1] ""  CGW
+ SG_ whlplscntFR : 23|8@0+ (1,0) [0|254] "pulse"  CGW
+ SG_ whlplscntFLvld : 15|1@0+ (1,0) [0|1] ""  CGW
+ SG_ whlplscntFL : 7|8@0+ (1,0) [0|254] "pulse"  CGW
+
+BO_ 82 WHLspdRear: 8 CHASSIS_PCAN_STATUS
+ SG_ WR_CRC : 7|8@0+ (1,0) [0|15] ""  CGW
+ SG_ WR_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ WhlspdRRsts : 47|2@0+ (1,0) [0|3] ""  CGW
+ SG_ WhlspdRRdir : 42|2@0+ (1,0) [0|3] ""  CGW
+ SG_ WhlspdRR : 31|13@0+ (0.05625,0) [0|360] "km/h"  CGW
+ SG_ WhlspdRLsts : 23|2@0+ (1,0) [0|3] ""  CGW
+ SG_ WhlspdRLdir : 18|2@0+ (1,0) [0|3] ""  CGW
+ SG_ WhlspdRL : 55|13@0+ (0.05625,0) [0|360] "km/h"  CGW
+
+BO_ 81 WHLspdFront: 8 CHASSIS_PCAN_STATUS
+ SG_ WF_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ WF_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+ SG_ WhlspdFRsts : 47|2@0+ (1,0) [0|3] ""  CGW
+ SG_ WhlspdFRdir : 42|2@0+ (1,0) [0|3] ""  CGW
+ SG_ WhlspdFR : 31|13@0+ (0.05625,0) [0|360] "km/h"  CGW
+ SG_ WhlspdFLsts : 23|2@0+ (1,0) [0|3] ""  CGW
+ SG_ WhlspdFLdir : 18|2@0+ (1,0) [0|3] ""  CGW
+ SG_ WhlspdFL : 55|13@0+ (0.05625,0) [0|360] "km/h"  CGW
+
+BO_ 711 Vehiclelights: 4 CHASSIS_PCAN_STATUS
+ SG_ FogFrntlightSts : 2|2@0+ (1,0) [0|3] ""  CGW
+ SG_ LeftTurnlightsts : 9|2@0+ (1,0) [0|3] ""  CGW
+ SG_ RightTurnlightsts : 13|2@0+ (1,0) [0|3] ""  CGW
+ SG_ LobeamlightSts : 19|2@0+ (1,0) [0|3] ""  CGW
+ SG_ HibeamlightSts : 23|2@0+ (1,0) [0|3] ""  CGW
+ SG_ EmergcyLightSts : 31|2@0+ (1,0) [0|3] ""  CGW
+ SG_ FrntwiperSts : 7|3@0+ (1,0) [0|7] ""  CGW
+
+BO_ 134 Motorsts_02: 7 VCU_PCAN_STATUS
+ SG_ Motor02_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ Motor02_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+ SG_ FrntMotTqValid : 39|1@0+ (1,0) [0|1] ""  CGW
+ SG_ FrntMotTq : 23|15@0- (0.125,0) [-2048|2047.875] "Nm"  CGW
+ SG_ FrntMotSpdValid : 11|1@0+ (1,0) [0|1] ""  CGW
+ SG_ FrntMotSpd : 47|16@0- (1,0) [-32768|32767] "rpm"  CGW
+
+BO_ 142 Motorsts_01: 7 VCU_PCAN_STATUS
+ SG_ Motor01_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ Motor01_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+ SG_ RearMotTqValid : 39|1@0+ (1,0) [0|1] ""  CGW
+ SG_ RearMotTq : 23|15@0- (0.125,0) [-2048|2047.875] "Nm"  CGW
+ SG_ RearMotSpdValid : 11|1@0+ (1,0) [0|1] ""  CGW
+ SG_ RearMotSpd : 47|16@0- (1,0) [-32768|32767] "rpm"  CGW
+
+BO_ 540 VCUsts_02: 6 VCU_PCAN_STATUS
+ SG_ Accpedelftravelvalid : 47|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Accpedelftravel : 39|8@0+ (0.392,0) [0|99.96] ""  CGW
+ SG_ Accpedacttravelvalid : 31|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Accpedacttravel : 23|8@0+ (0.392,0) [0|99.96] ""  CGW
+ SG_ VCU_4_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ VCU_4_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+
+BO_ 536 VCUsts_01: 6 VCU_PCAN_STATUS
+ SG_ VCUNBSSTs : 39|3@0+ (1,0) [0|7] ""  CGW
+ SG_ VCU_VLCSts : 28|2@0+ (1,0) [0|4] ""  CGW
+ SG_ VCU_LLCSts : 25|2@0+ (1,0) [0|4] ""  CGW
+ SG_ Tag_Gearvalid : 16|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Tag_Gear : 19|3@0+ (1,0) [0|7] ""  CGW
+ SG_ Actual_Gearvalid : 20|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Actual_Gear : 23|3@0+ (1,0) [0|7] ""  CGW
+ SG_ VCU_17_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ VCU_17_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+ SG_ VCU_EPFail : 47|2@0+ (1,0) [0|1] ""  CGW
+ SG_ VCUmodind : 31|3@0+ (1,0) [0|3] ""  CGW
+
+BO_ 198 EPS_Req: 8 MCU_control
+ SG_ EPSPAIReq : 55|15@0+ (0.1,-1638.4) [-1638.4|1638.3] "Deg"  EPS,CGW
+ SG_ EPSDAIReq : 39|15@0+ (0.1,-1638.4) [-1638.4|1638.3] "Deg"  CGW,EPS
+ SG_ EPSTOIReq : 19|10@0+ (0.02,-10.24) [-10.24|10.22] "Nm"  EPS,CGW
+ SG_ EPSReqTyp : 23|4@0+ (1,0) [0|15] ""  EPS
+ SG_ SysValid : 40|1@0+ (1,0) [0|1] ""  EPS,CGW
+ SG_ PilotSym : 25|2@0+ (1,0) [0|3] ""  CGW
+ SG_ EPS_CRC : 7|8@0+ (1,0) [0|255] ""  EPS,CGW
+ SG_ EPS_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW,EPS
+ SG_ ADC_ACCSym : 11|2@0+ (1,0) [0|3] ""  CGW
+
+BO_ 127 ACCReq: 8 MCU_control
+ SG_ Acc_DrvOff : 31|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Acc_De_stop : 28|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Acc_MaxJerk : 47|7@0+ (0.2,0) [0|25.4] ""  CGW
+ SG_ Acc_MinJerk : 63|7@0+ (0.2,-25.4) [-25.4|0] ""  CGW
+ SG_ Acc_Mode : 11|3@0+ (1,0) [0|7] ""  CGW
+ SG_ Acc_ComforLow : 55|8@0+ (0.05,-7) [-7|5.75] "m/s2"  CGW
+ SG_ Acc_ComforUp : 39|8@0+ (0.05,-7) [-7|5.75] "m/s2"  CGW
+ SG_ Acc_HvyDecel : 27|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Acc_HeavyMode : 30|2@0+ (1,0) [0|3] ""  CGW
+ SG_ Acc_TarA : 23|8@0+ (0.05,-7) [-7|5.75] "m/s2"  CGW
+ SG_ Acc_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ Acc_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+
+BO_ 350 AVP_Req: 8 MCU_control
+ SG_ Avp_ApaParkMod : 39|3@0+ (1,0) [0|7] ""  CGW
+ SG_ Avp_NBSSts : 19|3@0+ (1,0) [0|7] ""  CGW
+ SG_ Avp_ADCVCUNBSSTs : 23|4@0+ (1,0) [0|15] ""  CGW
+ SG_ Avp_ApaSts : 11|4@0+ (1,0) [0|15] ""  CGW
+ SG_ Avp_BrkModSts : 59|3@0+ (1,0) [0|7] ""  CGW
+ SG_ Avp_SpdLmt : 31|6@0+ (0.1,-3.2) [-3.2|3.1] ""  CGW
+ SG_ Avp_GearReqAcTv : 25|1@0+ (1,0) [0|1] ""  CGW
+ SG_ Avp_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW
+ SG_ Avp_CRC : 7|8@0+ (1,0) [0|255] ""  CGW
+ SG_ Avp_DstReq : 36|13@0+ (1,-4095) [-4095|4096] "cm"  CGW
+ SG_ Avp_TarGearReq : 63|3@0+ (1,0) [0|7] ""  CGW
+ SG_ AvP_CrtlMode : 55|4@0+ (1,0) [0|15] ""  CGW
+
+BO_ 123 SCMsts: 8 Vector__XXX
+ SG_ SCMFailSts : 41|2@0+ (1,0) [0|3] ""  BCU,ADC
+ SG_ HiLowBeamPushSwtSts : 39|2@0+ (1,0) [0|3] ""  BCU,ADC
+ SG_ FrntWiprSwtSts : 23|3@0+ (1,0) [0|7] ""  ADC,BCU
+ SG_ TurnIndcrSwtSts : 47|2@0+ (1,0) [0|3] ""  ADC,BCU
+ SG_ FogLiPushSwtSts : 37|2@0+ (1,0) [0|3] ""  BCU
+ SG_ FrntWiprInterSpd : 19|3@0+ (1,0) [0|7] ""  BCU
+ SG_ MenuOrVolDwnPushSwtSts : 55|2@0+ (1,0) [0|3] ""  CGW
+ SG_ AccSpdIncOrResuSwtSts : 59|2@0+ (1,0) [0|3] ""  BCU,ADC
+ SG_ AccTimeGapIncSwtSts : 10|2@0+ (1,0) [0|3] ""  ADC
+ SG_ SelnPushSwtSts : 63|2@0+ (1,0) [0|3] ""  CGW
+ SG_ ModeTogDecSwtSts : 25|2@0+ (1,0) [0|3] ""  ADC
+ SG_ ModeTogIncSwtSts : 44|2@0+ (1,0) [0|3] ""  ADC
+ SG_ MenuPushSwtSts : 31|2@0+ (1,0) [0|3] ""  CGW
+ SG_ SWCFailSts : 57|2@0+ (1,0) [0|3] ""  BCU,ADC
+ SG_ AccSpdDecSwtSts : 34|2@0+ (1,0) [0|3] ""  BCU,ADC
+ SG_ SCM_CRC : 7|8@0+ (1,0) [0|255] ""  ADC,BCU
+ SG_ MenuLePushSwtSts : 61|2@0+ (1,0) [0|3] ""  CGW
+ SG_ MenuOrVolUpPushSwtSts : 51|2@0+ (1,0) [0|3] ""  CGW
+ SG_ SCM_MsgCntr : 15|4@0+ (1,0) [0|15] ""  ADC,BCU
+ SG_ AccTimeGapDecSwtSts : 53|2@0+ (1,0) [0|3] ""  ADC
+ SG_ MenuRiPushSwtSts : 49|2@0+ (1,0) [0|3] ""  CGW
+ SG_ AccSetSwtSts : 28|2@0+ (1,0) [0|3] ""  ADC,BCU
+
+BO_ 94 BCUsts: 7 Vector__XXX
+ SG_ TCSActv : 4|1@0+ (1,0) [0|1] ""  ASDM,ACM,CGW,ADC
+ SG_ SCMAvl : 27|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ HFCActv : 34|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ VDCActv : 6|1@0+ (1,0) [0|1] ""  ACM,ADC,CGW
+ SG_ AVHSts : 31|2@0+ (1,0) [0|3] ""  CGW,ADC
+ SG_ AutoBrkgActv : 41|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ VDCDeactv : 5|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ ABAActv : 9|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ AutoBrkgAvl : 42|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ HBAActv : 39|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ AEBAvl : 12|1@0+ (1,0) [0|1] ""  ACM,ADC,CGW
+ SG_ AEBActv : 14|1@0+ (1,0) [0|1] ""  ADC,CGW,ACM
+ SG_ CDPAvail : 54|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ ABAAvl : 16|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ HDCSts : 18|2@0+ (1,0) [0|3] ""  CGW,ADC
+ SG_ TCSDeactv : 3|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ AWBAvl : 46|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ ABPAvl : 10|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ AWBActv : 47|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ EBAAvl : 28|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ QDCACCFail : 38|2@0+ (1,0) [0|3] ""  CGW,ADC
+ SG_ ABPActv : 11|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ PEDPAvl : 20|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ CDDSAvl : 24|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ StandstillSts : 52|3@0+ (1,0) [0|7] ""  ADC,CGW
+ SG_ HHCAvail : 53|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ ABSActv : 15|1@0+ (1,0) [0|1] ""  ACM,ASDM,ADC,CGW
+ SG_ PEDPActv : 21|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ EBAActv : 23|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ CDPActv : 45|1@0+ (1,0) [0|1] ""  CGW,ADC,ASDM
+ SG_ EBDActv : 2|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ SCMActv : 19|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ DTCActv : 0|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ HRBActv : 35|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ ECDTTempOffs : 55|1@0+ (1,0) [0|1] ""  ADC,CGW
+ SG_ CDDSActv : 26|1@0+ (1,0) [0|1] ""  CGW,ADC
+ SG_ HHCActv : 40|1@0+ (1,0) [0|1] ""  ADC,CGW
+
+BO_ 121 AEBReq: 7 MCU_control
+ SG_ AEBTarDecel : 35|16@0+ (0.0004882,-16) [-16|15.99] "m/s2"  CGW,BCU
+ SG_ ABAReq : 28|1@0+ (1,0) [0|1] ""  CGW,BCU
+ SG_ ABASnvtyLvl : 26|2@0+ (1,0) [0|3] ""  CGW,BCU
+ SG_ AWBSnvtyLvl : 38|2@0+ (1,0) [0|3] ""  CGW,BCU
+ SG_ AWBReq : 30|1@0+ (1,0) [0|1] ""  CGW,BCU
+ SG_ SCMDecelReq : 18|1@0+ (1,0) [0|1] ""  BCU,CGW
+ SG_ AEB_MsgCntr : 15|4@0+ (1,0) [0|15] ""  CGW,BCU
+ SG_ AEBDecelReq : 22|1@0+ (1,0) [0|1] ""  CGW,BCU
+ SG_ EBADecelReq : 31|1@0+ (1,0) [0|1] ""  BCU,CGW
+ SG_ ABPReq : 16|1@0+ (1,0) [0|1] ""  CGW,BCU
+ SG_ PEDPDecReq : 20|1@0+ (1,0) [0|1] ""  CGW,BCU
+ SG_ AEB_CRC : 7|8@0+ (1,0) [0|255] ""  CGW,BCU
+
+BO_ 822 Light_Req: 3 MCU_control
+ SG_ BrkLiReq : 23|2@0+ (1,0) [0|3] ""  CGW
+ SG_ Frntwiprsts : 15|3@0+ (1,0) [0|7] ""  CGW
+ SG_ Turnlightind : 3|2@0+ (1,0) [0|3] ""  CGW
+ SG_ BeamactiveSts : 12|3@0+ (1,0) [0|7] ""  CGW
+ SG_ Beamlightreq : 4|1@0+ (1,0) [0|1] ""  CGW
+ SG_ EmeglampReq : 7|2@0+ (1,0) [0|3] ""  CGW
+
+BO_ 1558 BrkDiag: 8 CGW
+
+BO_ 1544 DrivDiag: 8 CGW
+
+BO_ 1559 SteerDiag: 8 CGW
+
+BO_TX_BU_ 711 : CHASSIS_PCAN_STATUS,BCU;
+
+
+CM_ SG_ 127 Acc_DrvOff "drive off request";
+CM_ SG_ 127 Acc_De_stop "decelerate to stop";
+CM_ SG_ 127 Acc_HvyDecel "unstable Decel";
+CM_ SG_ 350 Avp_BrkModSts "0 No 1 Comfort 2 Emergency 3 Reseved";
+CM_ SG_ 94 AEBAvl "Automatic Emergency Braking (AEB) available (Reserved and BCU should send value 0) ";
+CM_ SG_ 94 AEBActv "Automatic Emergency Braking (AEB) active (Reserved and BCU should send value 0)  ";
+CM_ SG_ 94 CDPAvail "Controlled Deceleration for Parking brake (CDP) available      ";
+CM_ SG_ 94 ABAAvl "Adaptive Brake Assist (ABA) available      ";
+CM_ SG_ 94 HDCSts "Hill Descent Control (HDC) status";
+CM_ SG_ 94 TCSDeactv "Traction Control System (TCS) active   ";
+CM_ SG_ 94 AWBAvl "Automatic Warn Braking (AWB) available      ";
+CM_ SG_ 94 ABPAvl "Automatic Brake Prefill (EBP) available   ";
+CM_ SG_ 94 AWBActv "Automatic Warn Braking (AWB) active      ";
+CM_ SG_ 94 EBAAvl "Emergency Brake Assist (EBA) available      ";
+CM_ SG_ 94 QDCACCFail "Error detected by ESC for MRR (ACC and AEB) in CAN frame information  such as Timeout, invalid values, CRC or alive counter.  ";
+CM_ SG_ 94 ABPActv "Automatic Brake Prefill (EBP) active   ";
+CM_ SG_ 94 PEDPAvl "Pedestrian Protection (PEDP) available (Reserved and BCU should send value 0)";
+CM_ SG_ 94 CDDSAvl "Controlled Deceleration for DAS (Driver Assistant System) available     ";
+CM_ SG_ 94 StandstillSts "Styandstill status from Brake (not wheel speed)   ";
+CM_ SG_ 94 HHCAvail "Hill Hold Control (HHC) available      ";
+CM_ SG_ 94 ABSActv "Antilock Brake System (ABS) active      ";
+CM_ SG_ 94 PEDPActv "Pedestrian Protection (PEDP) active (Reserved and BCU should send value 0)";
+CM_ SG_ 94 EBAActv "Emergency Brake Assist (EBA) active      ";
+CM_ SG_ 94 CDPActv "Controled Deceleration for Parking brake (CDP) active      ";
+CM_ SG_ 94 EBDActv "Electronic Brake Distribution (EBD) active      ";
+CM_ SG_ 94 SCMActv "Secondary Colision Mitigation (SCM) active (Reserved and BCU should send value 0)";
+CM_ SG_ 94 DTCActv "Drag Torque Control (DTC) active    ";
+CM_ SG_ 94 HRBActv "Hydraulic Rear wheel Boost (HRB) active      ";
+CM_ SG_ 94 ECDTTempOffs "ECDT temperature offset      ";
+CM_ SG_ 94 CDDSActv "Controlled Deceleration for DAS (Driver Assistant System) active   ";
+CM_ SG_ 94 HHCActv "Hill Hold Control (HHC) active ";
+CM_ BO_ 1558 "CH CAN  read brake ECU DTC";
+CM_ BO_ 1544 "PT CAN   read driven ECU DTC";
+CM_ BO_ 1559 "CH CAN  read steering ECU DTC";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 589 100;
+BA_ "GenMsgCycleTime" BO_ 711 100;
+BA_ "GenMsgCycleTime" BO_ 134 20;
+BA_ "GenMsgCycleTime" BO_ 142 20;
+BA_ "GenMsgCycleTime" BO_ 540 20;
+BA_ "GenMsgCycleTime" BO_ 536 20;
+BA_ "GenMsgCycleTime" BO_ 198 20;
+BA_ "GenMsgCycleTime" BO_ 127 20;
+BA_ "GenMsgCycleTime" BO_ 350 20;
+BA_ "GenMsgCycleTime" BO_ 94 20;
+BA_ "GenMsgCycleTime" BO_ 121 20;
+BA_ "GenMsgCycleTime" BO_ 822 20;
+VAL_ 590 EPBsts 7 "reserved7" 6 "reserved6" 5 "reserved4" 4 "applying" 3 "not applied" 2 "releasing" 1 "applied" 0 "unknow" ;
+VAL_ 590 VCUAccrPedlOvrd 1 " request" 0 " no request" ;
+VAL_ 590 iBESP2_Warning 3 "iBooster in diagnosis or plant mode" 2 "iBooster Deactivated (Yellow Lamp)" 1 "iBooster in Reduced Performance (Yellow Lamp)" 0 "iBooster System OK " ;
+VAL_ 590 AirbWarnReq 3 " Warning lamp on(system initialization)" 2 " Warning lamp is blinking" 1 " Warning lamp on (fault detected)" 0 " Warning lamp off" ;
+VAL_ 590 SeatBltMidRowRiSts 1 " Seatbelt middle row right buckled" 0 " Seabelt middle row right not buckled" ;
+VAL_ 590 SeatBltMidRowMidSts 1 " Seatbelt middle row middle buckled" 0 " Seabelt middle row middle not buckled" ;
+VAL_ 590 SeatBltFrntLeSts 1 " Seatbelt front left buckled" 0 " Seabelt front left not buckled" ;
+VAL_ 590 PassAirbgInhbnLampReq 3 "Reserved" 2 "Passenger airbag Inhibition lamp On (system initialization)" 1 "Passenger airbag inhibition lamp On" 0 "Passenger airbag inhibition lamp Off" ;
+VAL_ 590 SeatOccptFrntRiSts 1 " Occupant" 0 " No occupant" ;
+VAL_ 590 CrashDetd 1 " Crash detected" 0 " Crash not detected" ;
+VAL_ 590 SeatBltFrntRiSts 1 " Seatbelt front right buckled" 0 " Seabelt front right not buckled" ;
+VAL_ 590 SeatBltMidRowLeSts 1 " Seatbelt middle row left buckled" 0 " Seabelt middle row left not buckled" ;
+VAL_ 589 DoorAjarFrntLeSts 3 " Invalid" 2 " Reserved" 1 " Closed" 0 " Opened" ;
+VAL_ 589 DoorAjarFrntRiSts 3 " Invalid" 2 " Reserved" 1 " Closed" 0 " Opened" ;
+VAL_ 589 DoorAjarReLeSts 3 " Invalid" 2 " Reserved" 1 " Closed" 0 " Opened" ;
+VAL_ 589 SeatOccpFrntLeFail 3 "Invalid" 2 "Reserved" 1 "Failure" 0 "No failure" ;
+VAL_ 589 SteerWhlHeatSts 3 " Invalid" 2 " Reserved" 1 " Heater on" 0 " Heater off" ;
+VAL_ 589 TrAjarSts 3 " Invalid" 2 " Reserved" 1 " Closed" 0 " Opened" ;
+VAL_ 589 HoodAjarSts 3 " Invalid" 2 " Reserved" 1 " Closed" 0 " Opened" ;
+VAL_ 589 DoorAjarReRiSts 3 " Invalid" 2 " Reserved" 1 " Closed" 0 " Opened" ;
+VAL_ 589 SeatOccpFrntLeSts 3 " Invalid" 2 " Reserved" 1 " Occupant" 0 " No occupant" ;
+VAL_ 589 CooltLvlLowWarnReq 3 "Invalid" 2 "Reserved" 1 "Request" 0 "No request" ;
+VAL_ 214 EPS_TqReqAvl 1 "Available" 0 "Not Available" ;
+VAL_ 214 EPS_PinionAngReqAvl 1 "Available" 0 "Not Available" ;
+VAL_ 214 EPS_HandsOffDetnConfidence 15 "Signal not avalible" 14 "Hands-off confidence level14" 13 "Hands-off confidence level13" 12 "Hands-off confidence level12" 11 "Hands-off confidence level11" 10 "Hands-off confidence level10" 9 "Hands-off confidence level9" 8 "Hands-off confidence level8" 7 "Hands-off confidence level7" 6 "Hands-off confidence level6" 5 "Hands-off confidence level5" 4 "Hands-off confidence level4" 3 "Hands-off confidence level3" 2 "Hands-off confidence level2" 1 "Hands-off confidence level1" 0 "Hands-on" ;
+VAL_ 214 EPS_PinionAgValid 3 "Reserved" 2 "Signal not available" 1 "Invalid" 0 "Valid" ;
+VAL_ 214 EPS_DrvOverRideDetn 3 "No active ADC request" 2 "Signal not available" 1 "Override not detected" 0 "Override detected" ;
+VAL_ 214 EPS_MotorTqValid 3 "Reserved" 2 "Signal not available" 1 "Invalid" 0 "Valid" ;
+VAL_ 214 EPS_EstRackForceValid 3 "Reserved" 2 "Signal not available" 1 "Invalid" 0 "Valid" ;
+VAL_ 588 BrkpressureSts 2 "fault" 1 "normal" 0 "not init" ;
+VAL_ 588 Vehspdsts 1 "invalid" 0 "valid" ;
+VAL_ 588 Vehspddir 3 "reserved" 2 "backward" 1 "forward" 0 "standstill" ;
+VAL_ 588 EPBswsts 3 "invalid" 2 "reserved" 1 "pressed" 0 "not pressed" ;
+VAL_ 588 Drv_state 15 "invalid, other values reserved" 3 "invalid" 2 "driving" 1 "ready for drving" 0 "Parked" ;
+VAL_ 588 BrkPedlSts 3 "invalid" 2 "reserved" 1 "pressed" 0 "not pressed" ;
+VAL_ 588 BrkLists 3 "invalid" 2 "reserved" 1 "request" 0 "no request" ;
+VAL_ 588 EPBfaillamp 3 "invalid" 2 "blinking" 1 "on" 0 "off" ;
+VAL_ 588 EPBwarnlamp 3 "door open and belt unbuckled" 2 "seat belt unbuckled" 1 "Door open during auto" 0 "only ready during function" ;
+VAL_ 213 EPSwarnLamp 3 "reserved" 2 "not available" 1 "on" 0 "off" ;
+VAL_ 213 ABS_AgreqAvl 1 "available" 0 "Not available" ;
+VAL_ 213 EPSsts 7 "invalid" 6 "reserved6" 5 "reserved5" 4 "permamemt error" 3 "temporary error" 2 "degraded(due to temp or vol)" 1 "normal" 0 "init" ;
+VAL_ 213 EPSMod 7 "invalid" 3 "TOI" 2 "DAI" 1 "PAI " 0 "None" ;
+VAL_ 213 Steeragspddir 1 "Right(minus)" 0 "Left(plus)" ;
+VAL_ 213 Steer_angledir 1 "Right(minus)" 0 "Left(plus)" ;
+VAL_ 213 Steer_angleandspdvalid 1 "invalid" 0 "valid" ;
+VAL_ 101 whlplscntRRvld 1 "invalid" 0 "valid" ;
+VAL_ 101 whlplscntRLvld 1 "invalid" 0 "valid" ;
+VAL_ 101 whlplscntFRvld 1 "invalid" 0 "valid" ;
+VAL_ 101 whlplscntFLvld 1 "invalid" 0 "valid" ;
+VAL_ 82 WhlspdRRsts 3 "reserved" 2 "initial" 1 "invalid" 0 "valid" ;
+VAL_ 82 WhlspdRRdir 3 "invalid" 2 "backward" 1 "forward" 0 "standstill" ;
+VAL_ 82 WhlspdRLsts 3 "reserved" 2 "initial" 1 "invalid" 0 "valid" ;
+VAL_ 82 WhlspdRLdir 3 "invalid" 2 "backward" 1 "forward" 0 "standstill" ;
+VAL_ 81 WhlspdFRsts 3 "reserved" 2 "initial" 1 "invalid" 0 "valid" ;
+VAL_ 81 WhlspdFRdir 3 "invalid" 2 "backward" 1 "forward" 0 "standstill" ;
+VAL_ 81 WhlspdFLsts 3 "reserved" 2 "initial" 1 "invalid" 0 "valid" ;
+VAL_ 81 WhlspdFLdir 3 "invalid" 2 "backward" 1 "forward" 0 "standstill" ;
+VAL_ 711 FogFrntlightSts 3 "invalid" 2 "reserved" 1 "on" 0 "off" ;
+VAL_ 711 LeftTurnlightsts 3 "invalid" 2 "reserved" 1 "on" 0 "off" ;
+VAL_ 711 RightTurnlightsts 3 "invalid" 2 "reserved" 1 "on" 0 "off" ;
+VAL_ 711 LobeamlightSts 3 "invalid" 2 "reserved" 1 "on" 0 "off" ;
+VAL_ 711 HibeamlightSts 3 "invalid" 2 "reserved" 1 "on" 0 "off" ;
+VAL_ 711 EmergcyLightSts 3 "invalid" 2 "1Hz" 1 "1.25Hz" 0 "off" ;
+VAL_ 711 FrntwiperSts 7 "invalid" 6 "reserved6" 5 "reserved5" 4 "reserved3" 3 "reserved2" 2 "high speed" 1 "low speed" 0 "off" ;
+VAL_ 134 FrntMotTqValid 1 "invalid" 0 "valid" ;
+VAL_ 134 FrntMotSpdValid 1 "invalid" 0 "valid" ;
+VAL_ 142 RearMotTqValid 1 "invalid" 0 "valid" ;
+VAL_ 142 RearMotSpdValid 1 "invalid" 0 "valid" ;
+VAL_ 540 Accpedelftravelvalid 1 "invalid" 0 "valid" ;
+VAL_ 540 Accpedacttravelvalid 1 "invalid" 0 "valid" ;
+VAL_ 536 VCUNBSSTs 7 "Res" 6 "Gearshift allowed" 5 "Obstacle detected " 4 "NBS inhibit" 3 "NBS override" 2 "NBS active" 1 "NBS Standby" 0 "NBS initial" ;
+VAL_ 536 Tag_Gearvalid 1 "invalid" 0 "valid" ;
+VAL_ 536 Actual_Gearvalid 1 "invalid" 0 "valid" ;
+VAL_ 536 Actual_Gear 4 "P" 3 "N" 2 "R" 1 "D" 0 "none" ;
+VAL_ 536 VCU_EPFail 2 "Fault" 1 "Normal" 0 "Init" ;
+VAL_ 536 VCUmodind 7 "Invalid" 6 "Reserved6" 5 "Reserved5" 4 "Reserved4" 3 "Sport" 2 "Comfort" 1 "Economy" 0 "Auto" ;
+VAL_ 198 EPSReqTyp 15 "Signal not available" 14 "Reserved_14" 13 "Reserved_13" 12 "Reserved_12" 11 "Reserved_11" 10 "Reserved_10" 9 "Reserved_9" 8 "Reserved_8" 7 "Reserved_7" 6 "HI_2 request" 5 "HI_1 request" 4 "DAI request" 3 "PAI request" 2 "TOI request" 1 "Reserved_1(DSR)" 0 "No request" ;
+VAL_ 198 SysValid 1 "Valid" 0 "Invalid" ;
+VAL_ 198 PilotSym 3 "reserved" 2 "white symbol" 1 "gray symbol" 0 "no symbol" ;
+VAL_ 198 ADC_ACCSym 3 "reserved" 2 "white symbol" 1 "gray symbol" 0 "no symbol" ;
+VAL_ 127 Acc_DrvOff 1 "Request" 0 "No request" ;
+VAL_ 127 Acc_De_stop 1 "request" 0 "No request" ;
+VAL_ 127 Acc_Mode 7 "failure mode" 6 "standstill mode" 5 "override mode" 4 "brake only mode" 3 "active control mode" 2 "standby mode" 1 "passive mode" 0 "off mode" ;
+VAL_ 127 Acc_HvyDecel 1 "request" 0 "not request" ;
+VAL_ 127 Acc_HeavyMode 3 "active" 2 "reserved2" 1 "reserved1" 0 "inactive" ;
+VAL_ 350 Avp_ApaParkMod 7 "Description for the value 0x7" 6 "Description for the value 0x6" 5 "Description for the value 0x5" 4 "Description for the value 0x4" 3 "NBS" 2 "Vpps" 1 "Sapa" 0 "off" ;
+VAL_ 350 Avp_NBSSts 7 "Description for the value 0x7" 6 "Description for the value 0x6-" 5 "NBS Fail" 4 "NBS Abort" 3 "NBS Moving" 2 "NBS Standby" 1 "NBS Initial" 0 "NBS off" ;
+VAL_ 350 Avp_ADCVCUNBSSTs 15 "Description for the value 0xF" 14 "Description for the value 0xE" 13 "Description for the value 0xD" 12 "Description for the value 0xC" 11 "Description for the value 0xB" 10 "Description for the value 0xA" 9 "Description for the value 0x9" 8 "Description for the value 0x8" 7 "Description for the value 0x7" 6 "Description for the value 0x6" 5 "NBS Fail" 4 "NBS Abort" 3 "NBS Moving" 2 "NBS Standby" 1 "NBS Intial" 0 "NBS OFF" ;
+VAL_ 350 Avp_ApaSts 15 "Reserved15" 14 "Reserved14" 13 "Reserved13" 12 "Reserved12" 11 "Reserved11" 10 "Reserved10" 9 "OffMode" 8 "Pub-Road" 7 "Fault" 6 "Abort" 5 "Reserved" 4 "Guidance" 3 "Pre-Guidence" 2 "Search" 1 "Standby" 0 "initial" ;
+VAL_ 350 Avp_BrkModSts 3 "Reserved" 2 "Emergency" 1 "Comfort" 0 "No Brake" ;
+VAL_ 350 Avp_TarGearReq 4 "P" 3 "N" 2 "R" 1 "D" 0 "no gear request" ;
+VAL_ 350 AvP_CrtlMode 3 "Res" 2 "Spd Crtl" 1 "Dist Crtl" 0 "No" ;
+VAL_ 123 SCMFailSts 3 " Invalid" 2 " Reserved" 1 " Fail" 0 " Normal" ;
+VAL_ 123 HiLowBeamPushSwtSts 3 " Invalid" 2 " Low beam or high beam command" 1 " Flash command" 0 " No command (Default position)" ;
+VAL_ 123 FrntWiprSwtSts 7 " Invalid" 6 " Reserved6" 5 " Reserved5" 4 " Front wiper wipe one time" 3 " Front wiper intermediate speed" 2 " Front wiper high speed" 1 " Front wiper low speed" 0 " Front wiper off" ;
+VAL_ 123 TurnIndcrSwtSts 3 " Invalid" 2 " Turn indicator right" 1 " Turn indicator left" 0 " No turn indicator" ;
+VAL_ 123 FogLiPushSwtSts 3 " Invalid" 2 " Reserved" 1 " Push switch pressed" 0 " Push switch not pressed" ;
+VAL_ 123 FrntWiprInterSpd 7 " Invalid" 6 " Reserved6" 5 " Reserved5" 4 " Intermediate speed 4" 3 " Intermediate speed 3" 2 " Intermediate speed 2" 1 " Intermediate speed 1" 0 " Reserved" ;
+VAL_ 123 MenuOrVolDwnPushSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 AccSpdIncOrResuSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 AccTimeGapIncSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 SelnPushSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 ModeTogDecSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 ModeTogIncSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 MenuPushSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 SWCFailSts 3 " Invalid" 2 " Reserved" 1 " Fail" 0 " Normal" ;
+VAL_ 123 AccSpdDecSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 MenuLePushSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 MenuOrVolUpPushSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 AccTimeGapDecSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 MenuRiPushSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 123 AccSetSwtSts 3 " Invalid" 2 " Reserved" 1 " Pressed" 0 " Not pressed" ;
+VAL_ 94 TCSActv 1 " Active" 0 " Not active" ;
+VAL_ 94 SCMAvl 1 "available" 0 "Not available" ;
+VAL_ 94 HFCActv 1 " Active" 0 " Not active" ;
+VAL_ 94 VDCActv 1 " Active" 0 " Not active" ;
+VAL_ 94 AVHSts 3 "Reserved" 2 "Active(AVH lamp on with green color)" 1 "Standby(AVH lamp off)" 0 "Failure(AVH lamp on with yellow color)" ;
+VAL_ 94 AutoBrkgActv 1 " Active" 0 " Not active" ;
+VAL_ 94 VDCDeactv 1 " Deactivated" 0 " Not deactivated" ;
+VAL_ 94 ABAActv 1 " Active" 0 " Not active" ;
+VAL_ 94 AutoBrkgAvl 1 "Available" 0 "Not available" ;
+VAL_ 94 HBAActv 1 "Active" 0 "Not active" ;
+VAL_ 94 AEBAvl 1 " available" 0 " Not available" ;
+VAL_ 94 AEBActv 1 " Active" 0 " Not active" ;
+VAL_ 94 CDPAvail 1 " available" 0 " Not available" ;
+VAL_ 94 ABAAvl 1 " available" 0 " Not available" ;
+VAL_ 94 HDCSts 3 "Active" 2 "Standby" 1 "Failure" 0 "Off" ;
+VAL_ 94 TCSDeactv 1 " Deactivated" 0 " Not deactivated" ;
+VAL_ 94 AWBAvl 1 " available" 0 " Not available" ;
+VAL_ 94 ABPAvl 1 " available" 0 " Not available" ;
+VAL_ 94 AWBActv 1 " Active" 0 " Not active" ;
+VAL_ 94 EBAAvl 1 " available" 0 " Not available" ;
+VAL_ 94 QDCACCFail 3 "Reserved3" 2 "Reserved2" 1 "Error" 0 "No error" ;
+VAL_ 94 ABPActv 1 " Active" 0 " Not active" ;
+VAL_ 94 PEDPAvl 1 "available" 0 "Not available" ;
+VAL_ 94 CDDSAvl 1 " available" 0 " Not available" ;
+VAL_ 94 StandstillSts 7 "Reserved7" 6 "Reserved6" 5 "Parked vehicle (autonomous park brake)" 4 "Transition to a non-hold" 3 "Hold by service brakes" 2 "Temporary Hold by service brakes" 1 "Soft-Stop" 0 "Non hold" ;
+VAL_ 94 HHCAvail 1 " available" 0 " Not available" ;
+VAL_ 94 ABSActv 1 " Active" 0 " Not active" ;
+VAL_ 94 PEDPActv 1 "Active" 0 "Not active" ;
+VAL_ 94 EBAActv 1 " Active" 0 " Not active" ;
+VAL_ 94 CDPActv 1 " Active" 0 " Not active" ;
+VAL_ 94 EBDActv 1 " Active" 0 " Not active" ;
+VAL_ 94 SCMActv 1 "Active" 0 "Not active" ;
+VAL_ 94 DTCActv 1 " Active" 0 " Not active" ;
+VAL_ 94 HRBActv 1 " Active" 0 " Not active" ;
+VAL_ 94 ECDTTempOffs 1 " Temeprature too high" 0 " Temperature not high" ;
+VAL_ 94 CDDSActv 1 " Active" 0 " Not active" ;
+VAL_ 94 HHCActv 1 " Active" 0 " Not active" ;
+VAL_ 121 ABAReq 1 " Request" 0 " No request" ;
+VAL_ 121 ABASnvtyLvl 3 " Level 3" 2 " Level 2" 1 " Level 1" 0 " Level 0" ;
+VAL_ 121 AWBSnvtyLvl 3 " Level 3" 2 " Level 2" 1 " Level 1" 0 " Level 0" ;
+VAL_ 121 AWBReq 1 " Request" 0 " No request" ;
+VAL_ 121 SCMDecelReq 1 " Request" 0 " No request" ;
+VAL_ 121 AEBDecelReq 1 " Request" 0 " No request" ;
+VAL_ 121 EBADecelReq 1 " Request" 0 " No request" ;
+VAL_ 121 ABPReq 1 " Request" 0 " No request" ;
+VAL_ 121 PEDPDecReq 1 " Request" 0 " No request" ;
+VAL_ 822 BrkLiReq 3 "invalid" 2 "reserved" 1 "request" 0 "no request" ;
+VAL_ 822 Frntwiprsts 7 "invalid" 6 "reserved6" 5 "reserved5" 4 "reserved4" 3 "reserved3" 2 "high speed" 1 "low speed" 0 "off" ;
+VAL_ 822 Turnlightind 3 "invalid" 2 "Turn right" 1 "Turn left" 0 "No turn" ;
+VAL_ 822 BeamactiveSts 7 "invalid" 6 "reserved6" 5 "reserved5" 4 "reserved4" 3 "reserved3" 2 "beam status active" 1 "beam status passive" 0 "beam status off" ;
+VAL_ 822 Beamlightreq 1 "High beam request" 0 "Low beam request" ;
+VAL_ 822 EmeglampReq 3 "invalid" 2 "1Hz" 1 "1.25Hz" 0 "off" ;
+

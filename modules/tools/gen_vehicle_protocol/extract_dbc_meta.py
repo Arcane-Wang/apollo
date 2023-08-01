@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 ###############################################################################
+# Copyright 2022 Pegasus Technology Holdings, Inc.
 # Copyright 2017 The Apollo Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,10 +22,9 @@ import shlex
 import sys
 
 import yaml
+import bf
 
-
-MAX_CAN_ID = 4096000000  # include can extended ID
-STANDARD_CAN_ID = 2048
+MAX_CAN_ID = 4096000000  # 2048
 
 
 def extract_var_info(items):
@@ -53,12 +53,12 @@ def extract_var_info(items):
     car_var["physical_range"] = items[5]
     car_var["physical_unit"] = items[6].replace('_', ' ')
     if car_var["len"] == 1:
-        car_var["type"] = "bool"
+        car_var["type"] = "Bool"
     elif car_var["physical_range"].find(
             ".") != -1 or car_var["precision"] != 1.0:
-        car_var["type"] = "double"
+        car_var["type"] = "Float64"
     else:
-        car_var["type"] = "int"
+        car_var["type"] = "Int32"
 
     return car_var
 
@@ -88,8 +88,6 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                 if int(items[1]) > MAX_CAN_ID:
                     continue
                 protocol["id"] = "%x" % int(items[1])
-                if int(items[1]) > STANDARD_CAN_ID:
-                    protocol["id"] = gen_can_id_extended(protocol["id"])
                 protocol["name"] = "%s_%s" % (p_name, protocol["id"])
                 protocol["sender"] = items[4]
                 if protocol["id"] in black_list:
@@ -118,8 +116,6 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                 protocol_id = "%x" % int(items[2])
                 if int(items[2]) > MAX_CAN_ID:
                     continue
-                if int(items[2]) > STANDARD_CAN_ID:
-                    protocol_id = gen_can_id_extended(protocol_id)
                 for var in protocols[protocol_id]["vars"]:
                     if var["name"] == items[3]:
                         var["description"] = items[4][:-1]
@@ -128,18 +124,16 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                 protocol_id = "%x" % int(items[1])
                 if int(items[1]) > MAX_CAN_ID:
                     continue
-                if int(items[1]) > STANDARD_CAN_ID:
-                    protocol_id = gen_can_id_extended(protocol_id)
                 for var in protocols[protocol_id]["vars"]:
                     if var["name"] == items[2]:
                         var["type"] = "enum"
                         var["enum"] = {}
                         for idx in range(3, len(items) - 1, 2):
-                            enumtype = re.sub('\W+', ' ', items[idx + 1])
-                            enumtype = enumtype.strip().replace(" ",
-                                                                "_").upper()
-                            enumtype = items[2].upper() + "_" + enumtype
-                            var["enum"][int(items[idx])] = enumtype
+                            enumtype = re.sub('\\W+', ' ', items[idx + 1])
+                            enumtype = enumtype.strip().replace("_", "")
+                            enumtype = bf.remove_underline(items[2]) + bf.remove_underline(enumtype)
+                            # print(enumtype)
+                            var["enum"][int(items[idx])] = bf.convert_first_letter_upper(enumtype)
 
         cpp_reserved_key_words = ['minor', 'major', 'long', 'int']
         for key in protocols:
@@ -151,6 +145,11 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
         config = {}
         config["car_type"] = car_type
         config["protocols"] = protocols
+        # remove name underline
+        for key in protocols:
+            protocols[key]["name"] = bf.remove_underline(protocols[key]["name"])
+            for var in protocols[key]["vars"]:
+                var["name"] = bf.convert_first_letter_upper(bf.remove_underline(var["name"]))
         with open(out_file, 'w') as fp_write:
             fp_write.write(yaml.dump(config))
 
@@ -166,15 +165,6 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
         print("Control protocols: %d" % control_protocol_num)
         print("Report protocols: %d" % report_protocol_num)
         return True
-
-def gen_can_id_extended(str):
-    """
-        id string:
-    """
-    int_id = int(str, 16)
-    int_id &= 0x1FFFFFFF
-    str = hex(int_id).replace('0x', '')
-    return str
 
 
 if __name__ == "__main__":

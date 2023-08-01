@@ -4,7 +4,7 @@ package apollo.canbus;
 
 import "modules/common_msgs/basic_msgs/vehicle_id.proto";
 import "modules/common_msgs/chassis_msgs/chassis.proto";
-
+import "modules/canbus/proto/nio.proto"
 
 message ChassisDetail {
   enum Type {
@@ -28,6 +28,7 @@ message ChassisDetail {
   optional CheckResponseSignal check_response = 15;
   optional License license = 16 [deprecated = true];  // License info
   optional Surround surround = 17;                    // Surround information
+  optional Nio nio = 18;
   // Reserve fields for other vehicles
   optional apollo.common.VehicleID vehicle_id = 101;
 }

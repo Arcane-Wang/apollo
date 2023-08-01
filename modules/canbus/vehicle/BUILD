@@ -7,7 +7,6 @@ CANBUS_COPTS = ["-DMODULE_NAME=\\\"canbus\\\""]
 
 cc_library(
     name = "vehicle_controller_base",
-    srcs = ["vehicle_controller.cc"],
     hdrs = ["vehicle_controller.h"],
     copts = CANBUS_COPTS,
     deps = [

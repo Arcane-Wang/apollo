@@ -89,11 +89,11 @@ ErrorCode VehicleController<SensorType>::Update(
     AINFO << "Canbus received pad msg: "
           << control_command.pad_msg().ShortDebugString();
     if (control_command.pad_msg().action() == control::DrivingAction::VIN_REQ) {
-      if (!VerifyID()) {
-        AINFO << "Response vid failed, please request again.";
-      } else {
-        AINFO << "Response vid success!";
-      }
+    //   if (!VerifyID()) {
+    //     AINFO << "Response vid failed, please request again.";
+    //   } else {
+    //     AINFO << "Response vid success!";
+    //   }
     } else {
       Chassis::DrivingMode mode = Chassis::COMPLETE_MANUAL;
       switch (control_command.pad_msg().action()) {

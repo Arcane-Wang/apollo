@@ -26,5 +26,7 @@ void AbstractVehicleFactory::SetVehicleParameter(
   vehicle_parameter_ = vehicle_parameter;
 }
 
+
+
 }  // namespace canbus
 }  // namespace apollo

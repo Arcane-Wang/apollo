@@ -64,8 +64,8 @@ Epsstatus02d6::EpspinionangreqavlType Epsstatus02d6::epspinionangreqavl(const st
   return ret;
 }
 
-// config detail: {'bit': 35, 'is_signed_var': False, 'len': 10, 'name': 'epsestrackforce', 'offset': -20.48, 'order': 'motorola', 'physical_range': '[-20.48|20.44]', 'physical_unit': 'KN', 'precision': 0.04, 'type': 'Float64'}
-Float64 Epsstatus02d6::epsestrackforce(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 35, 'is_signed_var': False, 'len': 10, 'name': 'epsestrackforce', 'offset': -20.48, 'order': 'motorola', 'physical_range': '[-20.48|20.44]', 'physical_unit': 'KN', 'precision': 0.04, 'type': 'double'}
+double Epsstatus02d6::epsestrackforce(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 4);
 
@@ -74,7 +74,7 @@ Float64 Epsstatus02d6::epsestrackforce(const std::uint8_t* bytes, int32_t length
   x <<= 6;
   x |= t;
 
-  Float64 ret = x * 0.040000 + -20.480000;
+  double ret = x * 0.040000 + -20.480000;
   return ret;
 }
 
@@ -87,12 +87,12 @@ Epsstatus02d6::EpshandsoffdetnconfidenceType Epsstatus02d6::epshandsoffdetnconfi
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'eps02msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Epsstatus02d6::eps02msgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'eps02msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Epsstatus02d6::eps02msgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -114,17 +114,17 @@ Epsstatus02d6::EpsdrvoverridedetnType Epsstatus02d6::epsdrvoverridedetn(const st
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'eps02crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Epsstatus02d6::eps02crc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'eps02crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Epsstatus02d6::eps02crc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 55, 'is_signed_var': False, 'len': 10, 'name': 'epsmotortq', 'offset': -10.24, 'order': 'motorola', 'physical_range': '[-10.24|10.22]', 'physical_unit': 'Nm', 'precision': 0.02, 'type': 'Float64'}
-Float64 Epsstatus02d6::epsmotortq(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 55, 'is_signed_var': False, 'len': 10, 'name': 'epsmotortq', 'offset': -10.24, 'order': 'motorola', 'physical_range': '[-10.24|10.22]', 'physical_unit': 'Nm', 'precision': 0.02, 'type': 'double'}
+double Epsstatus02d6::epsmotortq(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 6);
   int32_t x = t0.get_byte(0, 8);
 
@@ -133,7 +133,7 @@ Float64 Epsstatus02d6::epsmotortq(const std::uint8_t* bytes, int32_t length) con
   x <<= 2;
   x |= t;
 
-  Float64 ret = x * 0.020000 + -10.240000;
+  double ret = x * 0.020000 + -10.240000;
   return ret;
 }
 
@@ -146,8 +146,8 @@ Epsstatus02d6::EpsmotortqvalidType Epsstatus02d6::epsmotortqvalid(const std::uin
   return ret;
 }
 
-// config detail: {'bit': 23, 'is_signed_var': False, 'len': 15, 'name': 'epspinionag', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.2]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'Float64'}
-Float64 Epsstatus02d6::epspinionag(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 23, 'is_signed_var': False, 'len': 15, 'name': 'epspinionag', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.2]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'double'}
+double Epsstatus02d6::epspinionag(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 8);
 
@@ -156,7 +156,7 @@ Float64 Epsstatus02d6::epspinionag(const std::uint8_t* bytes, int32_t length) co
   x <<= 7;
   x |= t;
 
-  Float64 ret = x * 0.100000 + -1638.400000;
+  double ret = x * 0.100000 + -1638.400000;
   return ret;
 }
 

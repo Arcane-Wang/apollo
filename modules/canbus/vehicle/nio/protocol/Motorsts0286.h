@@ -33,23 +33,23 @@ class Motorsts0286 : public ::apollo::drivers::canbus::ProtocolData<
 
  private:
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'Motor02Msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 motor02msgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'Motor02Msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t motor02msgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'Motor02Crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 motor02crc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'Motor02Crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t motor02crc(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 39, 'enum': {0: 'FrntMotTqValidvalid', 1: 'FrntMotTqValidinvalid'}, 'is_signed_var': False, 'len': 1, 'name': 'FrntMotTqValid', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Motorsts0286::FrntmottqvalidType frntmottqvalid(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 23, 'is_signed_var': True, 'len': 15, 'name': 'FrntMotTq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[-2048|2047.875]', 'physical_unit': 'Nm', 'precision': 0.125, 'type': 'Float64'}
-  Float64 frntmottq(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 23, 'is_signed_var': True, 'len': 15, 'name': 'FrntMotTq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[-2048|2047.875]', 'physical_unit': 'Nm', 'precision': 0.125, 'type': 'double'}
+  double frntmottq(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 11, 'enum': {0: 'FrntMotSpdValidvalid', 1: 'FrntMotSpdValidinvalid'}, 'is_signed_var': False, 'len': 1, 'name': 'FrntMotSpdValid', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Motorsts0286::FrntmotspdvalidType frntmotspdvalid(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 47, 'is_signed_var': True, 'len': 16, 'name': 'FrntMotSpd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[-32768|32767]', 'physical_unit': 'rpm', 'precision': 1.0, 'type': 'Int32'}
-  Int32 frntmotspd(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 47, 'is_signed_var': True, 'len': 16, 'name': 'FrntMotSpd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[-32768|32767]', 'physical_unit': 'rpm', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t frntmotspd(const std::uint8_t* bytes, const int32_t length) const;
 };
 
 }  // namespace nio

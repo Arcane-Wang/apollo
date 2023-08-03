@@ -54,21 +54,21 @@ Vcusts01218::VcunbsstsType Vcusts01218::vcunbssts(const std::uint8_t* bytes, int
   return ret;
 }
 
-// config detail: {'bit': 28, 'is_signed_var': False, 'len': 2, 'name': 'vcuvlcsts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|4]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Vcusts01218::vcuvlcsts(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 28, 'is_signed_var': False, 'len': 2, 'name': 'vcuvlcsts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|4]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Vcusts01218::vcuvlcsts(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 3);
   int32_t x = t0.get_byte(3, 2);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 25, 'is_signed_var': False, 'len': 2, 'name': 'vcullcsts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|4]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Vcusts01218::vcullcsts(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 25, 'is_signed_var': False, 'len': 2, 'name': 'vcullcsts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|4]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Vcusts01218::vcullcsts(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 3);
   int32_t x = t0.get_byte(0, 2);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -81,12 +81,12 @@ Vcusts01218::TaggearvalidType Vcusts01218::taggearvalid(const std::uint8_t* byte
   return ret;
 }
 
-// config detail: {'bit': 19, 'is_signed_var': False, 'len': 3, 'name': 'taggear', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|7]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Vcusts01218::taggear(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 19, 'is_signed_var': False, 'len': 3, 'name': 'taggear', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|7]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Vcusts01218::taggear(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(1, 3);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -108,21 +108,21 @@ Vcusts01218::ActualgearType Vcusts01218::actualgear(const std::uint8_t* bytes, i
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'vcu17msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Vcusts01218::vcu17msgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'vcu17msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Vcusts01218::vcu17msgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'vcu17crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Vcusts01218::vcu17crc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'vcu17crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Vcusts01218::vcu17crc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 

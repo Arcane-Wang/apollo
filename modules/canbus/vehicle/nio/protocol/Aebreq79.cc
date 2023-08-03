@@ -46,8 +46,8 @@ void Aebreq79::Parse(const std::uint8_t* bytes, int32_t length,
   chassis->mutable_nio()->mutable_Aebreq79()->set_aebcrc(aebcrc(bytes, length));
 }
 
-// config detail: {'bit': 35, 'is_signed_var': False, 'len': 16, 'name': 'aebtardecel', 'offset': -16.0, 'order': 'motorola', 'physical_range': '[-16|15.99]', 'physical_unit': 'm/s2', 'precision': 0.0004882, 'type': 'Float64'}
-Float64 Aebreq79::aebtardecel(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 35, 'is_signed_var': False, 'len': 16, 'name': 'aebtardecel', 'offset': -16.0, 'order': 'motorola', 'physical_range': '[-16|15.99]', 'physical_unit': 'm/s2', 'precision': 0.0004882, 'type': 'double'}
+double Aebreq79::aebtardecel(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 4);
 
@@ -61,7 +61,7 @@ Float64 Aebreq79::aebtardecel(const std::uint8_t* bytes, int32_t length) const {
   x <<= 4;
   x |= t;
 
-  Float64 ret = x * 0.000488 + -16.000000;
+  double ret = x * 0.000488 + -16.000000;
   return ret;
 }
 
@@ -110,12 +110,12 @@ Aebreq79::ScmdecelreqType Aebreq79::scmdecelreq(const std::uint8_t* bytes, int32
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'aebmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Aebreq79::aebmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'aebmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Aebreq79::aebmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -155,12 +155,12 @@ Aebreq79::PedpdecreqType Aebreq79::pedpdecreq(const std::uint8_t* bytes, int32_t
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'aebcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Aebreq79::aebcrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'aebcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Aebreq79::aebcrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 }  // namespace nio

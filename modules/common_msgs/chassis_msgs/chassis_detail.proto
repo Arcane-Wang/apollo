@@ -4,7 +4,7 @@ package apollo.canbus;
 
 import "modules/common_msgs/basic_msgs/vehicle_id.proto";
 import "modules/common_msgs/chassis_msgs/chassis.proto";
-import "modules/canbus/proto/nio.proto"
+import "modules/canbus/proto/nio.proto";
 
 message ChassisDetail {
   enum Type {

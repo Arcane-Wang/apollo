@@ -42,8 +42,8 @@ class Bodystatus24d : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 31, 'enum': {0: 'DoorAjarReLeStsOpened', 1: 'DoorAjarReLeStsClosed', 2: 'DoorAjarReLeStsReserved', 3: 'DoorAjarReLeStsInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'DoorAjarReLeSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Bodystatus24d::DoorajarrelestsType doorajarrelests(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'BcmClosureCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 bcmclosurecrc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'BcmClosureCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t bcmclosurecrc(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 11, 'enum': {0: 'SeatOccpFrntLeFailNoFailure', 1: 'SeatOccpFrntLeFailFailure', 2: 'SeatOccpFrntLeFailReserved', 3: 'SeatOccpFrntLeFailInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'SeatOccpFrntLeFail', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Bodystatus24d::SeatoccpfrntlefailType seatoccpfrntlefail(const std::uint8_t* bytes, const int32_t length) const;
@@ -51,8 +51,8 @@ class Bodystatus24d : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 37, 'enum': {0: 'SteerWhlHeatStsHeaterOff', 1: 'SteerWhlHeatStsHeaterOn', 2: 'SteerWhlHeatStsReserved', 3: 'SteerWhlHeatStsInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'SteerWhlHeatSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Bodystatus24d::SteerwhlheatstsType steerwhlheatsts(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'BcmClosureMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 bcmclosuremsgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'BcmClosureMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t bcmclosuremsgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 29, 'enum': {0: 'TrAjarStsOpened', 1: 'TrAjarStsClosed', 2: 'TrAjarStsReserved', 3: 'TrAjarStsInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'TrAjarSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Bodystatus24d::TrajarstsType trajarsts(const std::uint8_t* bytes, const int32_t length) const;
@@ -69,8 +69,8 @@ class Bodystatus24d : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 21, 'enum': {0: 'CooltLvlLowWarnReqNoRequest', 1: 'CooltLvlLowWarnReqRequest', 2: 'CooltLvlLowWarnReqReserved', 3: 'CooltLvlLowWarnReqInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'CooltLvlLowWarnReq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Bodystatus24d::CooltlvllowwarnreqType cooltlvllowwarnreq(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 55, 'is_signed_var': False, 'len': 13, 'name': 'VehSpd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'Float64'}
-  Float64 vehspd(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 55, 'is_signed_var': False, 'len': 13, 'name': 'VehSpd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'double'}
+  double vehspd(const std::uint8_t* bytes, const int32_t length) const;
 };
 
 }  // namespace nio

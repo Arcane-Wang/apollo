@@ -78,8 +78,8 @@ class Scmsts7b : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 34, 'enum': {0: 'AccSpdDecSwtStsNotPressed', 1: 'AccSpdDecSwtStsPressed', 2: 'AccSpdDecSwtStsReserved', 3: 'AccSpdDecSwtStsInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'AccSpdDecSwtSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Scmsts7b::AccspddecswtstsType accspddecswtsts(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'ScmCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 scmcrc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'ScmCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t scmcrc(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 61, 'enum': {0: 'MenuLePushSwtStsNotPressed', 1: 'MenuLePushSwtStsPressed', 2: 'MenuLePushSwtStsReserved', 3: 'MenuLePushSwtStsInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'MenuLePushSwtSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Scmsts7b::MenulepushswtstsType menulepushswtsts(const std::uint8_t* bytes, const int32_t length) const;
@@ -87,8 +87,8 @@ class Scmsts7b : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 51, 'enum': {0: 'MenuOrVolUpPushSwtStsNotPressed', 1: 'MenuOrVolUpPushSwtStsPressed', 2: 'MenuOrVolUpPushSwtStsReserved', 3: 'MenuOrVolUpPushSwtStsInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'MenuOrVolUpPushSwtSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Scmsts7b::MenuorvoluppushswtstsType menuorvoluppushswtsts(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'ScmMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 scmmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'ScmMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t scmmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 53, 'enum': {0: 'AccTimeGapDecSwtStsNotPressed', 1: 'AccTimeGapDecSwtStsPressed', 2: 'AccTimeGapDecSwtStsReserved', 3: 'AccTimeGapDecSwtStsInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'AccTimeGapDecSwtSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Scmsts7b::AcctimegapdecswtstsType acctimegapdecswtsts(const std::uint8_t* bytes, const int32_t length) const;

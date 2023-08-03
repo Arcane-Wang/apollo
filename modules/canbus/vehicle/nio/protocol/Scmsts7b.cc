@@ -191,12 +191,12 @@ Scmsts7b::AccspddecswtstsType Scmsts7b::accspddecswtsts(const std::uint8_t* byte
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'scmcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Scmsts7b::scmcrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'scmcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Scmsts7b::scmcrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -218,12 +218,12 @@ Scmsts7b::MenuorvoluppushswtstsType Scmsts7b::menuorvoluppushswtsts(const std::u
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'scmmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Scmsts7b::scmmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'scmmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Scmsts7b::scmmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 

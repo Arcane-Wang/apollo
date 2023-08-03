@@ -47,12 +47,12 @@ void Brkdrvstatus24c::Parse(const std::uint8_t* bytes, int32_t length,
   chassis->mutable_nio()->mutable_Brkdrvstatus24c()->set_epbwarnlamp(epbwarnlamp(bytes, length));
 }
 
-// config detail: {'bit': 61, 'is_signed_var': False, 'len': 4, 'name': 'brkmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|16]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Brkdrvstatus24c::brkmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 61, 'is_signed_var': False, 'len': 4, 'name': 'brkmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|16]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Brkdrvstatus24c::brkmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 7);
   int32_t x = t0.get_byte(2, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -65,8 +65,8 @@ Brkdrvstatus24c::BrkpressurestsType Brkdrvstatus24c::brkpressurests(const std::u
   return ret;
 }
 
-// config detail: {'bit': 55, 'is_signed_var': False, 'len': 10, 'name': 'brkpressure', 'offset': -30.0, 'order': 'motorola', 'physical_range': '[-30|276.6]', 'physical_unit': 'bar', 'precision': 0.3, 'type': 'Float64'}
-Float64 Brkdrvstatus24c::brkpressure(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 55, 'is_signed_var': False, 'len': 10, 'name': 'brkpressure', 'offset': -30.0, 'order': 'motorola', 'physical_range': '[-30|276.6]', 'physical_unit': 'bar', 'precision': 0.3, 'type': 'double'}
+double Brkdrvstatus24c::brkpressure(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 6);
   int32_t x = t0.get_byte(0, 8);
 
@@ -75,12 +75,12 @@ Float64 Brkdrvstatus24c::brkpressure(const std::uint8_t* bytes, int32_t length) 
   x <<= 2;
   x |= t;
 
-  Float64 ret = x * 0.300000 + -30.000000;
+  double ret = x * 0.300000 + -30.000000;
   return ret;
 }
 
-// config detail: {'bit': 39, 'is_signed_var': False, 'len': 16, 'name': 'longaccvalue', 'offset': -2.0, 'order': 'motorola', 'physical_range': '[2|2]', 'physical_unit': 'g', 'precision': 0.001, 'type': 'Float64'}
-Float64 Brkdrvstatus24c::longaccvalue(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 39, 'is_signed_var': False, 'len': 16, 'name': 'longaccvalue', 'offset': -2.0, 'order': 'motorola', 'physical_range': '[2|2]', 'physical_unit': 'g', 'precision': 0.001, 'type': 'double'}
+double Brkdrvstatus24c::longaccvalue(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 8);
 
@@ -89,7 +89,7 @@ Float64 Brkdrvstatus24c::longaccvalue(const std::uint8_t* bytes, int32_t length)
   x <<= 8;
   x |= t;
 
-  Float64 ret = x * 0.001000 + -2.000000;
+  double ret = x * 0.001000 + -2.000000;
   return ret;
 }
 
@@ -111,8 +111,8 @@ Brkdrvstatus24c::VehspddirType Brkdrvstatus24c::vehspddir(const std::uint8_t* by
   return ret;
 }
 
-// config detail: {'bit': 22, 'is_signed_var': False, 'len': 13, 'name': 'vehspd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 1.0, 'type': 'Int32'}
-Int32 Brkdrvstatus24c::vehspd(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 22, 'is_signed_var': False, 'len': 13, 'name': 'vehspd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Brkdrvstatus24c::vehspd(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 7);
 
@@ -121,7 +121,7 @@ Int32 Brkdrvstatus24c::vehspd(const std::uint8_t* bytes, int32_t length) const {
   x <<= 6;
   x |= t;
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 

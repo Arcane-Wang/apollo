@@ -32,18 +32,18 @@ const int32_t Epsstatus01d5::ID = 0xD5;
 
 void Epsstatus01d5::Parse(const std::uint8_t* bytes, int32_t length,
                          ChassisDetail* chassis) const {
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_epswarnlamp(epswarnlamp(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_absagreqavl(absagreqavl(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_torsbartq(torsbartq(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_epssts(epssts(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_epsmod(epsmod(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_steeragspddir(steeragspddir(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_steeragspd(steeragspd(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_steerangledir(steerangledir(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_steerangleandspdvalid(steerangleandspdvalid(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_steerangle(steerangle(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_epsdmsgcntr(epsdmsgcntr(bytes, length));
-  chassis->mutable_nio()->mutable_Epsstatus01D5()->set_epsdcrc(epsdcrc(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_epswarnlamp(epswarnlamp(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_absagreqavl(absagreqavl(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_torsbartq(torsbartq(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_epssts(epssts(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_epsmod(epsmod(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_steeragspddir(steeragspddir(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_steeragspd(steeragspd(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_steerangledir(steerangledir(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_steerangleandspdvalid(steerangleandspdvalid(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_steerangle(steerangle(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_epsdmsgcntr(epsdmsgcntr(bytes, length));
+  chassis->mutable_nio()->mutable_epsstatus01D5()->set_epsdcrc(epsdcrc(bytes, length));
 }
 
 // config detail: {'bit': 26, 'enum': {0: 'EPSwarnLampoff', 1: 'EPSwarnLampon', 2: 'EPSwarnLampNotAvailable', 3: 'EPSwarnLampreserved'}, 'is_signed_var': False, 'len': 2, 'name': 'epswarnlamp', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
@@ -64,8 +64,8 @@ Epsstatus01d5::AbsagreqavlType Epsstatus01d5::absagreqavl(const std::uint8_t* by
   return ret;
 }
 
-// config detail: {'bit': 47, 'is_signed_var': False, 'len': 10, 'name': 'torsbartq', 'offset': -10.0, 'order': 'motorola', 'physical_range': '[-10|10]', 'physical_unit': 'Nm', 'precision': 0.02, 'type': 'Float64'}
-Float64 Epsstatus01d5::torsbartq(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 47, 'is_signed_var': False, 'len': 10, 'name': 'torsbartq', 'offset': -10.0, 'order': 'motorola', 'physical_range': '[-10|10]', 'physical_unit': 'Nm', 'precision': 0.02, 'type': 'double'}
+double Epsstatus01d5::torsbartq(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 5);
   int32_t x = t0.get_byte(0, 8);
 
@@ -74,7 +74,7 @@ Float64 Epsstatus01d5::torsbartq(const std::uint8_t* bytes, int32_t length) cons
   x <<= 2;
   x |= t;
 
-  Float64 ret = x * 0.020000 + -10.000000;
+  double ret = x * 0.020000 + -10.000000;
   return ret;
 }
 
@@ -105,8 +105,8 @@ Epsstatus01d5::SteeragspddirType Epsstatus01d5::steeragspddir(const std::uint8_t
   return ret;
 }
 
-// config detail: {'bit': 52, 'is_signed_var': False, 'len': 9, 'name': 'steeragspd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|2550]', 'physical_unit': 'Deg/sec', 'precision': 5.0, 'type': 'Float64'}
-Float64 Epsstatus01d5::steeragspd(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 52, 'is_signed_var': False, 'len': 9, 'name': 'steeragspd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|2550]', 'physical_unit': 'Deg/sec', 'precision': 5.0, 'type': 'double'}
+double Epsstatus01d5::steeragspd(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 6);
   int32_t x = t0.get_byte(0, 5);
 
@@ -115,7 +115,7 @@ Float64 Epsstatus01d5::steeragspd(const std::uint8_t* bytes, int32_t length) con
   x <<= 4;
   x |= t;
 
-  Float64 ret = x * 5.000000;
+  double ret = x * 5.000000;
   return ret;
 }
 
@@ -137,8 +137,8 @@ Epsstatus01d5::SteerangleandspdvalidType Epsstatus01d5::steerangleandspdvalid(co
   return ret;
 }
 
-// config detail: {'bit': 23, 'is_signed_var': False, 'len': 13, 'name': 'steerangle', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|800]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'Float64'}
-Float64 Epsstatus01d5::steerangle(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 23, 'is_signed_var': False, 'len': 13, 'name': 'steerangle', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|800]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'double'}
+double Epsstatus01d5::steerangle(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 8);
 
@@ -147,25 +147,25 @@ Float64 Epsstatus01d5::steerangle(const std::uint8_t* bytes, int32_t length) con
   x <<= 5;
   x |= t;
 
-  Float64 ret = x * 0.100000;
+  double ret = x * 0.100000;
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'epsdmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Epsstatus01d5::epsdmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'epsdmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Epsstatus01d5::epsdmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'epsdcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Epsstatus01d5::epsdcrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'epsdcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Epsstatus01d5::epsdcrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 }  // namespace nio

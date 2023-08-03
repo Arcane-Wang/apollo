@@ -32,33 +32,33 @@ const int32_t Acmbody4a::ID = 0x4A;
 
 void Acmbody4a::Parse(const std::uint8_t* bytes, int32_t length,
                          ChassisDetail* chassis) const {
-  chassis->mutable_nio()->mutable_Acmbody4a()->set_acmmsgcntr(acmmsgcntr(bytes, length));
-  chassis->mutable_nio()->mutable_Acmbody4a()->set_acmcrc(acmcrc(bytes, length));
-  chassis->mutable_nio()->mutable_Acmbody4a()->set_latitudea(latitudea(bytes, length));
-  chassis->mutable_nio()->mutable_Acmbody4a()->set_yawrate(yawrate(bytes, length));
-  chassis->mutable_nio()->mutable_Acmbody4a()->set_seatoccptfrntlests(seatoccptfrntlests(bytes, length));
+  chassis->mutable_nio()->mutable_acmbody4a()->set_acmmsgcntr(acmmsgcntr(bytes, length));
+  chassis->mutable_nio()->mutable_acmbody4a()->set_acmcrc(acmcrc(bytes, length));
+  chassis->mutable_nio()->mutable_acmbody4a()->set_latitudea(latitudea(bytes, length));
+  chassis->mutable_nio()->mutable_acmbody4a()->set_yawrate(yawrate(bytes, length));
+  chassis->mutable_nio()->mutable_acmbody4a()->set_seatoccptfrntlests(seatoccptfrntlests(bytes, length));
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'acmmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '0', 'precision': 1.0, 'type': 'Int32'}
-Int32 Acmbody4a::acmmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'acmmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '0', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Acmbody4a::acmmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'acmcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '0', 'precision': 1.0, 'type': 'Int32'}
-Int32 Acmbody4a::acmcrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'acmcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '0', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Acmbody4a::acmcrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 23, 'is_signed_var': False, 'len': 16, 'name': 'latitudea', 'offset': -2.0, 'order': 'motorola', 'physical_range': '[-2|2]', 'physical_unit': '', 'precision': 0.001, 'type': 'Float64'}
-Float64 Acmbody4a::latitudea(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 23, 'is_signed_var': False, 'len': 16, 'name': 'latitudea', 'offset': -2.0, 'order': 'motorola', 'physical_range': '[-2|2]', 'physical_unit': '', 'precision': 0.001, 'type': 'double'}
+double Acmbody4a::latitudea(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 8);
 
@@ -67,12 +67,12 @@ Float64 Acmbody4a::latitudea(const std::uint8_t* bytes, int32_t length) const {
   x <<= 8;
   x |= t;
 
-  Float64 ret = x * 0.001000 + -2.000000;
+  double ret = x * 0.001000 + -2.000000;
   return ret;
 }
 
-// config detail: {'bit': 39, 'is_signed_var': False, 'len': 16, 'name': 'yawrate', 'offset': -180.0, 'order': 'motorola', 'physical_range': '[-180|180]', 'physical_unit': 'Deg/sec', 'precision': 0.01, 'type': 'Float64'}
-Float64 Acmbody4a::yawrate(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 39, 'is_signed_var': False, 'len': 16, 'name': 'yawrate', 'offset': -180.0, 'order': 'motorola', 'physical_range': '[-180|180]', 'physical_unit': 'Deg/sec', 'precision': 0.01, 'type': 'double'}
+double Acmbody4a::yawrate(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 8);
 
@@ -81,16 +81,16 @@ Float64 Acmbody4a::yawrate(const std::uint8_t* bytes, int32_t length) const {
   x <<= 8;
   x |= t;
 
-  Float64 ret = x * 0.010000 + -180.000000;
+  double ret = x * 0.010000 + -180.000000;
   return ret;
 }
 
-// config detail: {'bit': 11, 'is_signed_var': False, 'len': 1, 'name': 'seatoccptfrntlests', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'Bool'}
-Bool Acmbody4a::seatoccptfrntlests(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 11, 'is_signed_var': False, 'len': 1, 'name': 'seatoccptfrntlests', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'bool'}
+bool Acmbody4a::seatoccptfrntlests(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(3, 1);
 
-  Bool ret = x;
+  bool ret = x;
   return ret;
 }
 }  // namespace nio

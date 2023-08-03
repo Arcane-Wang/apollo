@@ -91,44 +91,44 @@ Avpreq15e::AvpbrkmodstsType Avpreq15e::avpbrkmodsts(const std::uint8_t* bytes, i
   return ret;
 }
 
-// config detail: {'bit': 31, 'is_signed_var': False, 'len': 6, 'name': 'avpspdlmt', 'offset': -3.2, 'order': 'motorola', 'physical_range': '[-3.2|3.1]', 'physical_unit': '', 'precision': 0.1, 'type': 'Float64'}
-Float64 Avpreq15e::avpspdlmt(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 31, 'is_signed_var': False, 'len': 6, 'name': 'avpspdlmt', 'offset': -3.2, 'order': 'motorola', 'physical_range': '[-3.2|3.1]', 'physical_unit': '', 'precision': 0.1, 'type': 'double'}
+double Avpreq15e::avpspdlmt(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 3);
   int32_t x = t0.get_byte(2, 6);
 
-  Float64 ret = x * 0.100000 + -3.200000;
+  double ret = x * 0.100000 + -3.200000;
   return ret;
 }
 
-// config detail: {'bit': 25, 'is_signed_var': False, 'len': 1, 'name': 'avpgearreqactv', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'Bool'}
-Bool Avpreq15e::avpgearreqactv(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 25, 'is_signed_var': False, 'len': 1, 'name': 'avpgearreqactv', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'bool'}
+bool Avpreq15e::avpgearreqactv(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 3);
   int32_t x = t0.get_byte(1, 1);
 
-  Bool ret = x;
+  bool ret = x;
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'avpmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Avpreq15e::avpmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'avpmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Avpreq15e::avpmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'avpcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Avpreq15e::avpcrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'avpcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Avpreq15e::avpcrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 36, 'is_signed_var': False, 'len': 13, 'name': 'avpdstreq', 'offset': -4095.0, 'order': 'motorola', 'physical_range': '[-4095|4096]', 'physical_unit': 'cm', 'precision': 1.0, 'type': 'Int32'}
-Int32 Avpreq15e::avpdstreq(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 36, 'is_signed_var': False, 'len': 13, 'name': 'avpdstreq', 'offset': -4095.0, 'order': 'motorola', 'physical_range': '[-4095|4096]', 'physical_unit': 'cm', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Avpreq15e::avpdstreq(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 5);
 
@@ -137,7 +137,7 @@ Int32 Avpreq15e::avpdstreq(const std::uint8_t* bytes, int32_t length) const {
   x <<= 8;
   x |= t;
 
-  Int32 ret = x + -4095.000000;
+  int32_t ret = x + -4095.000000;
   return ret;
 }
 

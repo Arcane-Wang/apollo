@@ -90,15 +90,15 @@ message Avpreq15e {
   // 0 No 1 Comfort 2 Emergency 3 Reseved [] [0|7]
   optional AvpbrkmodstsType avpbrkmodsts = 5;
   // [] [-3.2|3.1]
-  optional Float64 avpspdlmt = 6;
+  optional double avpspdlmt = 6;
   // [] [0|1]
-  optional Bool avpgearreqactv = 7;
+  optional bool avpgearreqactv = 7;
   // [] [0|15]
-  optional Int32 avpmsgcntr = 8;
+  optional int32 avpmsgcntr = 8;
   // [] [0|255]
-  optional Int32 avpcrc = 9;
+  optional int32 avpcrc = 9;
   // [cm] [-4095|4096]
-  optional Int32 avpdstreq = 10;
+  optional int32 avpdstreq = 10;
   // [] [0|7]
   optional AvptargearreqType avptargearreq = 11;
   // [] [0|15]
@@ -150,21 +150,21 @@ message Vcusts01218 {
   // [] [0|7]
   optional VcunbsstsType vcunbssts = 1;
   // [] [0|4]
-  optional Int32 vcuvlcsts = 2;
+  optional int32 vcuvlcsts = 2;
   // [] [0|4]
-  optional Int32 vcullcsts = 3;
+  optional int32 vcullcsts = 3;
   // [] [0|1]
   optional TaggearvalidType taggearvalid = 4;
   // [] [0|7]
-  optional Int32 taggear = 5;
+  optional int32 taggear = 5;
   // [] [0|1]
   optional ActualgearvalidType actualgearvalid = 6;
   // [] [0|7]
   optional ActualgearType actualgear = 7;
   // [] [0|15]
-  optional Int32 vcu17msgcntr = 8;
+  optional int32 vcu17msgcntr = 8;
   // [] [0|255]
-  optional Int32 vcu17crc = 9;
+  optional int32 vcu17crc = 9;
   // [] [0|1]
   optional VcuepfailType vcuepfail = 10;
   // [] [0|3]
@@ -184,15 +184,15 @@ message Vcusts0221c {
   // [] [0|1]
   optional AccpedelftravelvalidType accpedelftravelvalid = 1;
   // [] [0|99.96]
-  optional Float64 accpedelftravel = 2;
+  optional double accpedelftravel = 2;
   // [] [0|1]
   optional AccpedacttravelvalidType accpedacttravelvalid = 3;
   // [] [0|99.96]
-  optional Float64 accpedacttravel = 4;
+  optional double accpedacttravel = 4;
   // [] [0|15]
-  optional Int32 vcu4msgcntr = 5;
+  optional int32 vcu4msgcntr = 5;
   // [] [0|255]
-  optional Int32 vcu4crc = 6;
+  optional int32 vcu4crc = 6;
 }
 
 message Brkdrvstatus24c {
@@ -250,19 +250,19 @@ message Brkdrvstatus24c {
     EPBwarnlampDoorOpenAndBeltUnbuckled = 3;
   }
   // [] [0|16]
-  optional Int32 brkmsgcntr = 1;
+  optional int32 brkmsgcntr = 1;
   // [] [0|3]
   optional BrkpressurestsType brkpressurests = 2;
   // [bar] [-30|276.6]
-  optional Float64 brkpressure = 3;
+  optional double brkpressure = 3;
   // [g] [2|2]
-  optional Float64 longaccvalue = 4;
+  optional double longaccvalue = 4;
   // [] [0|1]
   optional VehspdstsType vehspdsts = 5;
   // [] [0|3]
   optional VehspddirType vehspddir = 6;
   // [km/h] [0|360]
-  optional Int32 vehspd = 7;
+  optional int32 vehspd = 7;
   // [] [0|3]
   optional EpbswstsType epbswsts = 8;
   // [] [0|15]
@@ -346,13 +346,13 @@ message Bodystatus24d {
   // [] [0|3]
   optional DoorajarrelestsType doorajarrelests = 3;
   // [] [0|255]
-  optional Int32 bcmclosurecrc = 4;
+  optional int32 bcmclosurecrc = 4;
   // [] [0|3]
   optional SeatoccpfrntlefailType seatoccpfrntlefail = 5;
   // [] [0|3]
   optional SteerwhlheatstsType steerwhlheatsts = 6;
   // [] [0|15]
-  optional Int32 bcmclosuremsgcntr = 7;
+  optional int32 bcmclosuremsgcntr = 7;
   // [] [0|3]
   optional TrajarstsType trajarsts = 8;
   // [] [0|3]
@@ -364,7 +364,7 @@ message Bodystatus24d {
   // [] [0|3]
   optional CooltlvllowwarnreqType cooltlvllowwarnreq = 12;
   // [km/h] [0|360]
-  optional Float64 vehspd = 13;
+  optional double vehspd = 13;
 }
 
 message Driverstatus24e {
@@ -438,7 +438,7 @@ message Driverstatus24e {
   // [] [0|3]
   optional AirbwarnreqType airbwarnreq = 4;
   // [] [0|15]
-  optional Int32 driverstsmsgcntr = 5;
+  optional int32 driverstsmsgcntr = 5;
   // [] [0|1]
   optional SeatbltmidrowristsType seatbltmidrowrists = 6;
   // [] [0|1]
@@ -454,11 +454,11 @@ message Driverstatus24e {
   // [] [0|1]
   optional SeatbltfrntristsType seatbltfrntrists = 12;
   // [] [0|255]
-  optional Int32 driverstscrc = 13;
+  optional int32 driverstscrc = 13;
   // [] [0|1]
   optional SeatbltmidrowlestsType seatbltmidrowlests = 14;
   // [] [0|100]
-  optional Float64 bmssoc = 15;
+  optional double bmssoc = 15;
 }
 
 message Vehiclelights2c7 {
@@ -586,15 +586,15 @@ message Lightreq336 {
 message Acmbody4a {
 // Report Message
   // [0] [0|15]
-  optional Int32 acmmsgcntr = 1;
+  optional int32 acmmsgcntr = 1;
   // [0] [0|255]
-  optional Int32 acmcrc = 2;
+  optional int32 acmcrc = 2;
   // [] [-2|2]
-  optional Float64 latitudea = 3;
+  optional double latitudea = 3;
   // [Deg/sec] [-180|180]
-  optional Float64 yawrate = 4;
+  optional double yawrate = 4;
   // [] [0|1]
-  optional Bool seatoccptfrntlests = 5;
+  optional bool seatoccptfrntlests = 5;
 }
 
 message Whlspdfront51 {
@@ -624,21 +624,21 @@ message Whlspdfront51 {
     WhlspdFLdirinvalid = 3;
   }
   // [] [0|15]
-  optional Int32 wfmsgcntr = 1;
+  optional int32 wfmsgcntr = 1;
   // [] [0|255]
-  optional Int32 wfcrc = 2;
+  optional int32 wfcrc = 2;
   // [] [0|3]
   optional WhlspdfrstsType whlspdfrsts = 3;
   // [] [0|3]
   optional WhlspdfrdirType whlspdfrdir = 4;
   // [km/h] [0|360]
-  optional Float64 whlspdfr = 5;
+  optional double whlspdfr = 5;
   // [] [0|3]
   optional WhlspdflstsType whlspdflsts = 6;
   // [] [0|3]
   optional WhlspdfldirType whlspdfldir = 7;
   // [km/h] [0|360]
-  optional Float64 whlspdfl = 8;
+  optional double whlspdfl = 8;
 }
 
 message Whlspdrear52 {
@@ -668,21 +668,21 @@ message Whlspdrear52 {
     WhlspdRLdirinvalid = 3;
   }
   // [] [0|15]
-  optional Int32 wrcrc = 1;
+  optional int32 wrcrc = 1;
   // [] [0|15]
-  optional Int32 wrmsgcntr = 2;
+  optional int32 wrmsgcntr = 2;
   // [] [0|3]
   optional WhlspdrrstsType whlspdrrsts = 3;
   // [] [0|3]
   optional WhlspdrrdirType whlspdrrdir = 4;
   // [km/h] [0|360]
-  optional Float64 whlspdrr = 5;
+  optional double whlspdrr = 5;
   // [] [0|3]
   optional WhlspdrlstsType whlspdrlsts = 6;
   // [] [0|3]
   optional WhlspdrldirType whlspdrldir = 7;
   // [km/h] [0|360]
-  optional Float64 whlspdrl = 8;
+  optional double whlspdrl = 8;
 }
 
 message Bcusts5e {
@@ -944,19 +944,19 @@ message Pulsecnt65 {
   // [] [0|1]
   optional WhlplscntrrvldType whlplscntrrvld = 1;
   // [pulse] [0|254]
-  optional Int32 whlplscntrr = 2;
+  optional int32 whlplscntrr = 2;
   // [] [0|1]
   optional WhlplscntrlvldType whlplscntrlvld = 3;
   // [pulse] [0|254]
-  optional Int32 whlplscntrl = 4;
+  optional int32 whlplscntrl = 4;
   // [] [0|1]
   optional WhlplscntfrvldType whlplscntfrvld = 5;
   // [pulse] [0|254]
-  optional Int32 whlplscntfr = 6;
+  optional int32 whlplscntfr = 6;
   // [] [0|1]
   optional WhlplscntflvldType whlplscntflvld = 7;
   // [pulse] [0|254]
-  optional Int32 whlplscntfl = 8;
+  optional int32 whlplscntfl = 8;
 }
 
 message Aebreq79 {
@@ -1002,7 +1002,7 @@ message Aebreq79 {
     PEDPDecReqRequest = 1;
   }
   // [m/s2] [-16|15.99]
-  optional Float64 aebtardecel = 1;
+  optional double aebtardecel = 1;
   // [] [0|1]
   optional AbareqType abareq = 2;
   // [] [0|3]
@@ -1014,7 +1014,7 @@ message Aebreq79 {
   // [] [0|1]
   optional ScmdecelreqType scmdecelreq = 6;
   // [] [0|15]
-  optional Int32 aebmsgcntr = 7;
+  optional int32 aebmsgcntr = 7;
   // [] [0|1]
   optional AebdecelreqType aebdecelreq = 8;
   // [] [0|1]
@@ -1024,7 +1024,7 @@ message Aebreq79 {
   // [] [0|1]
   optional PedpdecreqType pedpdecreq = 11;
   // [] [0|255]
-  optional Int32 aebcrc = 12;
+  optional int32 aebcrc = 12;
 }
 
 message Scmsts7b {
@@ -1188,13 +1188,13 @@ message Scmsts7b {
   // [] [0|3]
   optional AccspddecswtstsType accspddecswtsts = 15;
   // [] [0|255]
-  optional Int32 scmcrc = 16;
+  optional int32 scmcrc = 16;
   // [] [0|3]
   optional MenulepushswtstsType menulepushswtsts = 17;
   // [] [0|3]
   optional MenuorvoluppushswtstsType menuorvoluppushswtsts = 18;
   // [] [0|15]
-  optional Int32 scmmsgcntr = 19;
+  optional int32 scmmsgcntr = 19;
   // [] [0|3]
   optional AcctimegapdecswtstsType acctimegapdecswtsts = 20;
   // [] [0|3]
@@ -1238,25 +1238,25 @@ message Accreq7f {
   // decelerate to stop [] [0|1]
   optional AccdestopType accdestop = 2;
   // [] [0|25.4]
-  optional Float64 accmaxjerk = 3;
+  optional double accmaxjerk = 3;
   // [] [-25.4|0]
-  optional Float64 accminjerk = 4;
+  optional double accminjerk = 4;
   // [] [0|7]
   optional AccmodeType accmode = 5;
   // [m/s2] [-7|5.75]
-  optional Float64 acccomforlow = 6;
+  optional double acccomforlow = 6;
   // [m/s2] [-7|5.75]
-  optional Float64 acccomforup = 7;
+  optional double acccomforup = 7;
   // unstable Decel [] [0|1]
   optional AcchvydecelType acchvydecel = 8;
   // [] [0|3]
   optional AccheavymodeType accheavymode = 9;
   // [m/s2] [-7|5.75]
-  optional Float64 acctara = 10;
+  optional double acctara = 10;
   // [] [0|15]
-  optional Int32 accmsgcntr = 11;
+  optional int32 accmsgcntr = 11;
   // [] [0|255]
-  optional Int32 acccrc = 12;
+  optional int32 acccrc = 12;
 }
 
 message Motorsts0286 {
@@ -1270,17 +1270,17 @@ message Motorsts0286 {
     FrntMotSpdValidinvalid = 1;
   }
   // [] [0|15]
-  optional Int32 motor02msgcntr = 1;
+  optional int32 motor02msgcntr = 1;
   // [] [0|255]
-  optional Int32 motor02crc = 2;
+  optional int32 motor02crc = 2;
   // [] [0|1]
   optional FrntmottqvalidType frntmottqvalid = 3;
   // [Nm] [-2048|2047.875]
-  optional Float64 frntmottq = 4;
+  optional double frntmottq = 4;
   // [] [0|1]
   optional FrntmotspdvalidType frntmotspdvalid = 5;
   // [rpm] [-32768|32767]
-  optional Int32 frntmotspd = 6;
+  optional int32 frntmotspd = 6;
 }
 
 message Motorsts018e {
@@ -1294,17 +1294,17 @@ message Motorsts018e {
     RearMotSpdValidinvalid = 1;
   }
   // [] [0|15]
-  optional Int32 motor01msgcntr = 1;
+  optional int32 motor01msgcntr = 1;
   // [] [0|255]
-  optional Int32 motor01crc = 2;
+  optional int32 motor01crc = 2;
   // [] [0|1]
   optional RearmottqvalidType rearmottqvalid = 3;
   // [Nm] [-2048|2047.875]
-  optional Float64 rearmottq = 4;
+  optional double rearmottq = 4;
   // [] [0|1]
   optional RearmotspdvalidType rearmotspdvalid = 5;
   // [rpm] [-32768|32767]
-  optional Int32 rearmotspd = 6;
+  optional int32 rearmotspd = 6;
 }
 
 message Epsreqc6 {
@@ -1344,11 +1344,11 @@ message Epsreqc6 {
     AdcAccsymreserved = 3;
   }
   // [Deg] [-1638.4|1638.3]
-  optional Float64 epspaireq = 1;
+  optional double epspaireq = 1;
   // [Deg] [-1638.4|1638.3]
-  optional Float64 epsdaireq = 2;
+  optional double epsdaireq = 2;
   // [Nm] [-10.24|10.22]
-  optional Float64 epstoireq = 3;
+  optional double epstoireq = 3;
   // [] [0|15]
   optional EpsreqtypType epsreqtyp = 4;
   // [] [0|1]
@@ -1356,9 +1356,9 @@ message Epsreqc6 {
   // [] [0|3]
   optional PilotsymType pilotsym = 6;
   // [] [0|255]
-  optional Int32 epscrc = 7;
+  optional int32 epscrc = 7;
   // [] [0|15]
-  optional Int32 epsmsgcntr = 8;
+  optional int32 epsmsgcntr = 8;
   // [] [0|3]
   optional AdcaccsymType adcaccsym = 9;
 }
@@ -1409,7 +1409,7 @@ message Epsstatus01d5 {
   // [] [0|1]
   optional AbsagreqavlType absagreqavl = 2;
   // [Nm] [-10|10]
-  optional Float64 torsbartq = 3;
+  optional double torsbartq = 3;
   // [] [0|7]
   optional EpsstsType epssts = 4;
   // [] [0|7]
@@ -1417,17 +1417,17 @@ message Epsstatus01d5 {
   // [] [0|1]
   optional SteeragspddirType steeragspddir = 6;
   // [Deg/sec] [0|2550]
-  optional Float64 steeragspd = 7;
+  optional double steeragspd = 7;
   // [] [0|1]
   optional SteerangledirType steerangledir = 8;
   // [] [0|1]
   optional SteerangleandspdvalidType steerangleandspdvalid = 9;
   // [Deg] [0|800]
-  optional Float64 steerangle = 10;
+  optional double steerangle = 10;
   // [] [0|15]
-  optional Int32 epsdmsgcntr = 11;
+  optional int32 epsdmsgcntr = 11;
   // [] [0|255]
-  optional Int32 epsdcrc = 12;
+  optional int32 epsdcrc = 12;
 }
 
 message Epsstatus02d6 {
@@ -1487,23 +1487,23 @@ message Epsstatus02d6 {
   // [] [0|1]
   optional EpspinionangreqavlType epspinionangreqavl = 2;
   // [KN] [-20.48|20.44]
-  optional Float64 epsestrackforce = 3;
+  optional double epsestrackforce = 3;
   // [] [0|15]
   optional EpshandsoffdetnconfidenceType epshandsoffdetnconfidence = 4;
   // [] [0|15]
-  optional Int32 eps02msgcntr = 5;
+  optional int32 eps02msgcntr = 5;
   // [] [0|3]
   optional EpspinionagvalidType epspinionagvalid = 6;
   // [] [0|3]
   optional EpsdrvoverridedetnType epsdrvoverridedetn = 7;
   // [] [0|255]
-  optional Int32 eps02crc = 8;
+  optional int32 eps02crc = 8;
   // [Nm] [-10.24|10.22]
-  optional Float64 epsmotortq = 9;
+  optional double epsmotortq = 9;
   // [] [0|3]
   optional EpsmotortqvalidType epsmotortqvalid = 10;
   // [Deg] [-1638.4|1638.2]
-  optional Float64 epspinionag = 11;
+  optional double epspinionag = 11;
   // [] [0|3]
   optional EpsestrackforcevalidType epsestrackforcevalid = 12;
 }

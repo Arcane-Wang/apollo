@@ -47,6 +47,7 @@ proto_library(
     name = "chassis_detail_proto",
     srcs = ["chassis_detail.proto"],
     deps = [
+        "//modules/canbus/proto:nio_proto",
         "//modules/common_msgs/basic_msgs:vehicle_id_proto",
         ":chassis_proto",
     ],

@@ -21,7 +21,7 @@
 #include "modules/canbus/vehicle/nio/protocol/Accreq7f.h"
 #include "modules/canbus/vehicle/nio/protocol/Acmbody4a.h"
 #include "modules/canbus/vehicle/nio/protocol/Aebreq79.h"
-#include "modules/canbus/vehicle/nio/protocol/Avpreq15e.h"
+#include "modules/canbus/vehicle/nio/protocol/AvpReq15e.h"
 #include "modules/canbus/vehicle/nio/protocol/Bcusts5e.h"
 #include "modules/canbus/vehicle/nio/protocol/Bodystatus24d.h"
 #include "modules/canbus/vehicle/nio/protocol/Brkdrvstatus24c.h"

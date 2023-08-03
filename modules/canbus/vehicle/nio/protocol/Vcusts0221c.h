@@ -36,20 +36,20 @@ class Vcusts0221c : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 47, 'enum': {0: 'Accpedelftravelvalidvalid', 1: 'Accpedelftravelvalidinvalid'}, 'is_signed_var': False, 'len': 1, 'name': 'Accpedelftravelvalid', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Vcusts0221c::AccpedelftravelvalidType accpedelftravelvalid(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'Accpedelftravel', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|99.96]', 'physical_unit': '', 'precision': 0.392, 'type': 'Float64'}
-  Float64 accpedelftravel(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'Accpedelftravel', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|99.96]', 'physical_unit': '', 'precision': 0.392, 'type': 'double'}
+  double accpedelftravel(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 31, 'enum': {0: 'Accpedacttravelvalidvalid', 1: 'Accpedacttravelvalidinvalid'}, 'is_signed_var': False, 'len': 1, 'name': 'Accpedacttravelvalid', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Vcusts0221c::AccpedacttravelvalidType accpedacttravelvalid(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 23, 'is_signed_var': False, 'len': 8, 'name': 'Accpedacttravel', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|99.96]', 'physical_unit': '', 'precision': 0.392, 'type': 'Float64'}
-  Float64 accpedacttravel(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 23, 'is_signed_var': False, 'len': 8, 'name': 'Accpedacttravel', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|99.96]', 'physical_unit': '', 'precision': 0.392, 'type': 'double'}
+  double accpedacttravel(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'Vcu4Msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 vcu4msgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'Vcu4Msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t vcu4msgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'Vcu4Crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 vcu4crc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'Vcu4Crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t vcu4crc(const std::uint8_t* bytes, const int32_t length) const;
 };
 
 }  // namespace nio

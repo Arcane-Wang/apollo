@@ -51,12 +51,12 @@ Pulsecnt65::WhlplscntrrvldType Pulsecnt65::whlplscntrrvld(const std::uint8_t* by
   return ret;
 }
 
-// config detail: {'bit': 55, 'is_signed_var': False, 'len': 8, 'name': 'whlplscntrr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|254]', 'physical_unit': 'pulse', 'precision': 1.0, 'type': 'Int32'}
-Int32 Pulsecnt65::whlplscntrr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 55, 'is_signed_var': False, 'len': 8, 'name': 'whlplscntrr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|254]', 'physical_unit': 'pulse', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Pulsecnt65::whlplscntrr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 6);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -69,12 +69,12 @@ Pulsecnt65::WhlplscntrlvldType Pulsecnt65::whlplscntrlvld(const std::uint8_t* by
   return ret;
 }
 
-// config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'whlplscntrl', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|254]', 'physical_unit': 'pulse', 'precision': 1.0, 'type': 'Int32'}
-Int32 Pulsecnt65::whlplscntrl(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'whlplscntrl', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|254]', 'physical_unit': 'pulse', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Pulsecnt65::whlplscntrl(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -87,12 +87,12 @@ Pulsecnt65::WhlplscntfrvldType Pulsecnt65::whlplscntfrvld(const std::uint8_t* by
   return ret;
 }
 
-// config detail: {'bit': 23, 'is_signed_var': False, 'len': 8, 'name': 'whlplscntfr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|254]', 'physical_unit': 'pulse', 'precision': 1.0, 'type': 'Int32'}
-Int32 Pulsecnt65::whlplscntfr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 23, 'is_signed_var': False, 'len': 8, 'name': 'whlplscntfr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|254]', 'physical_unit': 'pulse', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Pulsecnt65::whlplscntfr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -105,12 +105,12 @@ Pulsecnt65::WhlplscntflvldType Pulsecnt65::whlplscntflvld(const std::uint8_t* by
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'whlplscntfl', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|254]', 'physical_unit': 'pulse', 'precision': 1.0, 'type': 'Int32'}
-Int32 Pulsecnt65::whlplscntfl(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'whlplscntfl', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|254]', 'physical_unit': 'pulse', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Pulsecnt65::whlplscntfl(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 }  // namespace nio

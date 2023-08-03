@@ -33,20 +33,20 @@ class Acmbody4a : public ::apollo::drivers::canbus::ProtocolData<
 
  private:
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'AcmMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '0', 'precision': 1.0, 'type': 'Int32'}
-  Int32 acmmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'AcmMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '0', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t acmmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'AcmCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '0', 'precision': 1.0, 'type': 'Int32'}
-  Int32 acmcrc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'AcmCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '0', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t acmcrc(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 23, 'is_signed_var': False, 'len': 16, 'name': 'LatitudeA', 'offset': -2.0, 'order': 'motorola', 'physical_range': '[-2|2]', 'physical_unit': '', 'precision': 0.001, 'type': 'Float64'}
-  Float64 latitudea(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 23, 'is_signed_var': False, 'len': 16, 'name': 'LatitudeA', 'offset': -2.0, 'order': 'motorola', 'physical_range': '[-2|2]', 'physical_unit': '', 'precision': 0.001, 'type': 'double'}
+  double latitudea(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 39, 'is_signed_var': False, 'len': 16, 'name': 'YawRate', 'offset': -180.0, 'order': 'motorola', 'physical_range': '[-180|180]', 'physical_unit': 'Deg/sec', 'precision': 0.01, 'type': 'Float64'}
-  Float64 yawrate(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 39, 'is_signed_var': False, 'len': 16, 'name': 'YawRate', 'offset': -180.0, 'order': 'motorola', 'physical_range': '[-180|180]', 'physical_unit': 'Deg/sec', 'precision': 0.01, 'type': 'double'}
+  double yawrate(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 11, 'is_signed_var': False, 'len': 1, 'name': 'SeatOccptFrntLeSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'Bool'}
-  Bool seatoccptfrntlests(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 11, 'is_signed_var': False, 'len': 1, 'name': 'SeatOccptFrntLeSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'bool'}
+  bool seatoccptfrntlests(const std::uint8_t* bytes, const int32_t length) const;
 };
 
 }  // namespace nio

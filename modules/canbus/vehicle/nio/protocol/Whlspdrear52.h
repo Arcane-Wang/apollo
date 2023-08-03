@@ -33,11 +33,11 @@ class Whlspdrear52 : public ::apollo::drivers::canbus::ProtocolData<
 
  private:
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'WrCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 wrcrc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'WrCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t wrcrc(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'WrMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 wrmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'WrMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t wrmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 47, 'enum': {0: 'WhlspdRRstsvalid', 1: 'WhlspdRRstsinvalid', 2: 'WhlspdRRstsinitial', 3: 'WhlspdRRstsreserved'}, 'is_signed_var': False, 'len': 2, 'name': 'WhlspdRRsts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Whlspdrear52::WhlspdrrstsType whlspdrrsts(const std::uint8_t* bytes, const int32_t length) const;
@@ -45,8 +45,8 @@ class Whlspdrear52 : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 42, 'enum': {0: 'WhlspdRRdirstandstill', 1: 'WhlspdRRdirforward', 2: 'WhlspdRRdirbackward', 3: 'WhlspdRRdirinvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'WhlspdRRdir', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Whlspdrear52::WhlspdrrdirType whlspdrrdir(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 31, 'is_signed_var': False, 'len': 13, 'name': 'WhlspdRR', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'Float64'}
-  Float64 whlspdrr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 31, 'is_signed_var': False, 'len': 13, 'name': 'WhlspdRR', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'double'}
+  double whlspdrr(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 23, 'enum': {0: 'WhlspdRLstsvalid', 1: 'WhlspdRLstsinvalid', 2: 'WhlspdRLstsinitial', 3: 'WhlspdRLstsreserved'}, 'is_signed_var': False, 'len': 2, 'name': 'WhlspdRLsts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Whlspdrear52::WhlspdrlstsType whlspdrlsts(const std::uint8_t* bytes, const int32_t length) const;
@@ -54,8 +54,8 @@ class Whlspdrear52 : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 18, 'enum': {0: 'WhlspdRLdirstandstill', 1: 'WhlspdRLdirforward', 2: 'WhlspdRLdirbackward', 3: 'WhlspdRLdirinvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'WhlspdRLdir', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Whlspdrear52::WhlspdrldirType whlspdrldir(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 55, 'is_signed_var': False, 'len': 13, 'name': 'WhlspdRL', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'Float64'}
-  Float64 whlspdrl(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 55, 'is_signed_var': False, 'len': 13, 'name': 'WhlspdRL', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'double'}
+  double whlspdrl(const std::uint8_t* bytes, const int32_t length) const;
 };
 
 }  // namespace nio

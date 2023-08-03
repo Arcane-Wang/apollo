@@ -42,21 +42,21 @@ void Whlspdrear52::Parse(const std::uint8_t* bytes, int32_t length,
   chassis->mutable_nio()->mutable_Whlspdrear52()->set_whlspdrl(whlspdrl(bytes, length));
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'wrcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Whlspdrear52::wrcrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'wrcrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Whlspdrear52::wrcrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'wrmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Whlspdrear52::wrmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'wrmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Whlspdrear52::wrmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -78,8 +78,8 @@ Whlspdrear52::WhlspdrrdirType Whlspdrear52::whlspdrrdir(const std::uint8_t* byte
   return ret;
 }
 
-// config detail: {'bit': 31, 'is_signed_var': False, 'len': 13, 'name': 'whlspdrr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'Float64'}
-Float64 Whlspdrear52::whlspdrr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 31, 'is_signed_var': False, 'len': 13, 'name': 'whlspdrr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'double'}
+double Whlspdrear52::whlspdrr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 3);
   int32_t x = t0.get_byte(0, 8);
 
@@ -88,7 +88,7 @@ Float64 Whlspdrear52::whlspdrr(const std::uint8_t* bytes, int32_t length) const 
   x <<= 5;
   x |= t;
 
-  Float64 ret = x * 0.056250;
+  double ret = x * 0.056250;
   return ret;
 }
 
@@ -110,8 +110,8 @@ Whlspdrear52::WhlspdrldirType Whlspdrear52::whlspdrldir(const std::uint8_t* byte
   return ret;
 }
 
-// config detail: {'bit': 55, 'is_signed_var': False, 'len': 13, 'name': 'whlspdrl', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'Float64'}
-Float64 Whlspdrear52::whlspdrl(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 55, 'is_signed_var': False, 'len': 13, 'name': 'whlspdrl', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'double'}
+double Whlspdrear52::whlspdrl(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 6);
   int32_t x = t0.get_byte(0, 8);
 
@@ -120,7 +120,7 @@ Float64 Whlspdrear52::whlspdrl(const std::uint8_t* bytes, int32_t length) const 
   x <<= 5;
   x |= t;
 
-  Float64 ret = x * 0.056250;
+  double ret = x * 0.056250;
   return ret;
 }
 }  // namespace nio

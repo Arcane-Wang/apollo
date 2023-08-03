@@ -33,8 +33,8 @@ class Aebreq79 : public ::apollo::drivers::canbus::ProtocolData<
 
  private:
 
-  // config detail: {'bit': 35, 'is_signed_var': False, 'len': 16, 'name': 'AEBTarDecel', 'offset': -16.0, 'order': 'motorola', 'physical_range': '[-16|15.99]', 'physical_unit': 'm/s2', 'precision': 0.0004882, 'type': 'Float64'}
-  Float64 aebtardecel(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 35, 'is_signed_var': False, 'len': 16, 'name': 'AEBTarDecel', 'offset': -16.0, 'order': 'motorola', 'physical_range': '[-16|15.99]', 'physical_unit': 'm/s2', 'precision': 0.0004882, 'type': 'double'}
+  double aebtardecel(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 28, 'enum': {0: 'ABAReqNoRequest', 1: 'ABAReqRequest'}, 'is_signed_var': False, 'len': 1, 'name': 'ABAReq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Aebreq79::AbareqType abareq(const std::uint8_t* bytes, const int32_t length) const;
@@ -51,8 +51,8 @@ class Aebreq79 : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 18, 'enum': {0: 'SCMDecelReqNoRequest', 1: 'SCMDecelReqRequest'}, 'is_signed_var': False, 'len': 1, 'name': 'SCMDecelReq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Aebreq79::ScmdecelreqType scmdecelreq(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'AebMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 aebmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'AebMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t aebmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 22, 'enum': {0: 'AEBDecelReqNoRequest', 1: 'AEBDecelReqRequest'}, 'is_signed_var': False, 'len': 1, 'name': 'AEBDecelReq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Aebreq79::AebdecelreqType aebdecelreq(const std::uint8_t* bytes, const int32_t length) const;
@@ -66,8 +66,8 @@ class Aebreq79 : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 20, 'enum': {0: 'PEDPDecReqNoRequest', 1: 'PEDPDecReqRequest'}, 'is_signed_var': False, 'len': 1, 'name': 'PEDPDecReq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Aebreq79::PedpdecreqType pedpdecreq(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'AebCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 aebcrc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'AebCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t aebcrc(const std::uint8_t* bytes, const int32_t length) const;
 };
 
 }  // namespace nio

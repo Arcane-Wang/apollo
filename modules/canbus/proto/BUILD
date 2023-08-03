@@ -56,6 +56,11 @@ py_proto_library(
     ],
 )
 
+proto_library(
+    name = "nio_proto",
+    srcs = ["nio.proto"],
+)
+
 install_files(
     name = "py_pb_canbus",
     dest = "canbus/python/modules/canbus/proto",

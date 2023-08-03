@@ -74,12 +74,12 @@ Bodystatus24d::DoorajarrelestsType Bodystatus24d::doorajarrelests(const std::uin
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'bcmclosurecrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Bodystatus24d::bcmclosurecrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'bcmclosurecrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Bodystatus24d::bcmclosurecrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -101,12 +101,12 @@ Bodystatus24d::SteerwhlheatstsType Bodystatus24d::steerwhlheatsts(const std::uin
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'bcmclosuremsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Bodystatus24d::bcmclosuremsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'bcmclosuremsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Bodystatus24d::bcmclosuremsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -155,8 +155,8 @@ Bodystatus24d::CooltlvllowwarnreqType Bodystatus24d::cooltlvllowwarnreq(const st
   return ret;
 }
 
-// config detail: {'bit': 55, 'is_signed_var': False, 'len': 13, 'name': 'vehspd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'Float64'}
-Float64 Bodystatus24d::vehspd(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 55, 'is_signed_var': False, 'len': 13, 'name': 'vehspd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|360]', 'physical_unit': 'km/h', 'precision': 0.05625, 'type': 'double'}
+double Bodystatus24d::vehspd(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 6);
   int32_t x = t0.get_byte(0, 8);
 
@@ -165,7 +165,7 @@ Float64 Bodystatus24d::vehspd(const std::uint8_t* bytes, int32_t length) const {
   x <<= 5;
   x |= t;
 
-  Float64 ret = x * 0.056250;
+  double ret = x * 0.056250;
   return ret;
 }
 }  // namespace nio

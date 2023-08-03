@@ -45,8 +45,8 @@ class Driverstatus24e : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 26, 'enum': {0: 'AirbWarnReqWarningLampOff', 1: 'AirbWarnReqWarningLampOnFaultDetected', 2: 'AirbWarnReqWarningLampIsBlinking', 3: 'AirbWarnReqWarningLampOnSystemInitialization'}, 'is_signed_var': False, 'len': 2, 'name': 'AirbWarnReq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Driverstatus24e::AirbwarnreqType airbwarnreq(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'DriverstsMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 driverstsmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'DriverstsMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t driverstsmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 19, 'enum': {0: 'SeatBltMidRowRiStsSeabeltMiddleRowRightNotBuckled', 1: 'SeatBltMidRowRiStsSeatbeltMiddleRowRightBuckled'}, 'is_signed_var': False, 'len': 1, 'name': 'SeatBltMidRowRiSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Driverstatus24e::SeatbltmidrowristsType seatbltmidrowrists(const std::uint8_t* bytes, const int32_t length) const;
@@ -69,14 +69,14 @@ class Driverstatus24e : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 22, 'enum': {0: 'SeatBltFrntRiStsSeabeltFrontRightNotBuckled', 1: 'SeatBltFrntRiStsSeatbeltFrontRightBuckled'}, 'is_signed_var': False, 'len': 1, 'name': 'SeatBltFrntRiSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Driverstatus24e::SeatbltfrntristsType seatbltfrntrists(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'DriverstsCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 driverstscrc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'DriverstsCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t driverstscrc(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 21, 'enum': {0: 'SeatBltMidRowLeStsSeabeltMiddleRowLeftNotBuckled', 1: 'SeatBltMidRowLeStsSeatbeltMiddleRowLeftBuckled'}, 'is_signed_var': False, 'len': 1, 'name': 'SeatBltMidRowLeSts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Driverstatus24e::SeatbltmidrowlestsType seatbltmidrowlests(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'BMSSOC', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|100]', 'physical_unit': '', 'precision': 0.5, 'type': 'Float64'}
-  Float64 bmssoc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'BMSSOC', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|100]', 'physical_unit': '', 'precision': 0.5, 'type': 'double'}
+  double bmssoc(const std::uint8_t* bytes, const int32_t length) const;
 };
 
 }  // namespace nio

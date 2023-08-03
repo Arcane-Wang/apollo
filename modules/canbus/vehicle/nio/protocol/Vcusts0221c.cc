@@ -49,12 +49,12 @@ Vcusts0221c::AccpedelftravelvalidType Vcusts0221c::accpedelftravelvalid(const st
   return ret;
 }
 
-// config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'accpedelftravel', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|99.96]', 'physical_unit': '', 'precision': 0.392, 'type': 'Float64'}
-Float64 Vcusts0221c::accpedelftravel(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'accpedelftravel', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|99.96]', 'physical_unit': '', 'precision': 0.392, 'type': 'double'}
+double Vcusts0221c::accpedelftravel(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 8);
 
-  Float64 ret = x * 0.392000;
+  double ret = x * 0.392000;
   return ret;
 }
 
@@ -67,30 +67,30 @@ Vcusts0221c::AccpedacttravelvalidType Vcusts0221c::accpedacttravelvalid(const st
   return ret;
 }
 
-// config detail: {'bit': 23, 'is_signed_var': False, 'len': 8, 'name': 'accpedacttravel', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|99.96]', 'physical_unit': '', 'precision': 0.392, 'type': 'Float64'}
-Float64 Vcusts0221c::accpedacttravel(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 23, 'is_signed_var': False, 'len': 8, 'name': 'accpedacttravel', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|99.96]', 'physical_unit': '', 'precision': 0.392, 'type': 'double'}
+double Vcusts0221c::accpedacttravel(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 8);
 
-  Float64 ret = x * 0.392000;
+  double ret = x * 0.392000;
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'vcu4msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Vcusts0221c::vcu4msgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'vcu4msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Vcusts0221c::vcu4msgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'vcu4crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Vcusts0221c::vcu4crc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'vcu4crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Vcusts0221c::vcu4crc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 }  // namespace nio

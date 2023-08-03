@@ -85,12 +85,12 @@ Driverstatus24e::AirbwarnreqType Driverstatus24e::airbwarnreq(const std::uint8_t
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'driverstsmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Driverstatus24e::driverstsmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'driverstsmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Driverstatus24e::driverstsmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -157,12 +157,12 @@ Driverstatus24e::SeatbltfrntristsType Driverstatus24e::seatbltfrntrists(const st
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'driverstscrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Driverstatus24e::driverstscrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'driverstscrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Driverstatus24e::driverstscrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -175,12 +175,12 @@ Driverstatus24e::SeatbltmidrowlestsType Driverstatus24e::seatbltmidrowlests(cons
   return ret;
 }
 
-// config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'bmssoc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|100]', 'physical_unit': '', 'precision': 0.5, 'type': 'Float64'}
-Float64 Driverstatus24e::bmssoc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'bmssoc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|100]', 'physical_unit': '', 'precision': 0.5, 'type': 'double'}
+double Driverstatus24e::bmssoc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 8);
 
-  Float64 ret = x * 0.500000;
+  double ret = x * 0.500000;
   return ret;
 }
 }  // namespace nio

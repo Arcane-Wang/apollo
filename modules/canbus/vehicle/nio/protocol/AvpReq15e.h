@@ -48,20 +48,20 @@ class Avpreq15e : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 59, 'description': '0 No 1 Comfort 2 Emergency 3 Reseved', 'enum': {0: 'AvpBrkmodstsNoBrake', 1: 'AvpBrkmodstsComfort', 2: 'AvpBrkmodstsEmergency', 3: 'AvpBrkmodstsReserved'}, 'is_signed_var': False, 'len': 3, 'name': 'AvpBrkmodsts', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|7]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Avpreq15e::AvpbrkmodstsType avpbrkmodsts(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 31, 'is_signed_var': False, 'len': 6, 'name': 'AvpSpdlmt', 'offset': -3.2, 'order': 'motorola', 'physical_range': '[-3.2|3.1]', 'physical_unit': '', 'precision': 0.1, 'type': 'Float64'}
-  Float64 avpspdlmt(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 31, 'is_signed_var': False, 'len': 6, 'name': 'AvpSpdlmt', 'offset': -3.2, 'order': 'motorola', 'physical_range': '[-3.2|3.1]', 'physical_unit': '', 'precision': 0.1, 'type': 'double'}
+  double avpspdlmt(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 25, 'is_signed_var': False, 'len': 1, 'name': 'AvpGearreqactv', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'Bool'}
-  Bool avpgearreqactv(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 25, 'is_signed_var': False, 'len': 1, 'name': 'AvpGearreqactv', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'bool'}
+  bool avpgearreqactv(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'AvpMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 avpmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'AvpMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t avpmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'AvpCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 avpcrc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'AvpCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t avpcrc(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 36, 'is_signed_var': False, 'len': 13, 'name': 'AvpDstreq', 'offset': -4095.0, 'order': 'motorola', 'physical_range': '[-4095|4096]', 'physical_unit': 'cm', 'precision': 1.0, 'type': 'Int32'}
-  Int32 avpdstreq(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 36, 'is_signed_var': False, 'len': 13, 'name': 'AvpDstreq', 'offset': -4095.0, 'order': 'motorola', 'physical_range': '[-4095|4096]', 'physical_unit': 'cm', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t avpdstreq(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 63, 'enum': {0: 'AvpTargearreqNoGearRequest', 1: 'AvpTargearreqD', 2: 'AvpTargearreqR', 3: 'AvpTargearreqN', 4: 'AvpTargearreqP'}, 'is_signed_var': False, 'len': 3, 'name': 'AvpTargearreq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|7]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Avpreq15e::AvptargearreqType avptargearreq(const std::uint8_t* bytes, const int32_t length) const;

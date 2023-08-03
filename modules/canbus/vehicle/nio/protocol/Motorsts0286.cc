@@ -40,21 +40,21 @@ void Motorsts0286::Parse(const std::uint8_t* bytes, int32_t length,
   chassis->mutable_nio()->mutable_Motorsts0286()->set_frntmotspd(frntmotspd(bytes, length));
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'motor02msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Motorsts0286::motor02msgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'motor02msgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Motorsts0286::motor02msgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'motor02crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Motorsts0286::motor02crc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'motor02crc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Motorsts0286::motor02crc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
@@ -67,8 +67,8 @@ Motorsts0286::FrntmottqvalidType Motorsts0286::frntmottqvalid(const std::uint8_t
   return ret;
 }
 
-// config detail: {'bit': 23, 'is_signed_var': True, 'len': 15, 'name': 'frntmottq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[-2048|2047.875]', 'physical_unit': 'Nm', 'precision': 0.125, 'type': 'Float64'}
-Float64 Motorsts0286::frntmottq(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 23, 'is_signed_var': True, 'len': 15, 'name': 'frntmottq', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[-2048|2047.875]', 'physical_unit': 'Nm', 'precision': 0.125, 'type': 'double'}
+double Motorsts0286::frntmottq(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 8);
 
@@ -80,7 +80,7 @@ Float64 Motorsts0286::frntmottq(const std::uint8_t* bytes, int32_t length) const
   x <<= 17;
   x >>= 17;
 
-  Float64 ret = x * 0.125000;
+  double ret = x * 0.125000;
   return ret;
 }
 
@@ -93,8 +93,8 @@ Motorsts0286::FrntmotspdvalidType Motorsts0286::frntmotspdvalid(const std::uint8
   return ret;
 }
 
-// config detail: {'bit': 47, 'is_signed_var': True, 'len': 16, 'name': 'frntmotspd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[-32768|32767]', 'physical_unit': 'rpm', 'precision': 1.0, 'type': 'Int32'}
-Int32 Motorsts0286::frntmotspd(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 47, 'is_signed_var': True, 'len': 16, 'name': 'frntmotspd', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[-32768|32767]', 'physical_unit': 'rpm', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Motorsts0286::frntmotspd(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 5);
   int32_t x = t0.get_byte(0, 8);
 
@@ -106,7 +106,7 @@ Int32 Motorsts0286::frntmotspd(const std::uint8_t* bytes, int32_t length) const 
   x <<= 16;
   x >>= 16;
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 }  // namespace nio

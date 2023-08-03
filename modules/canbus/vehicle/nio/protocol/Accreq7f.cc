@@ -32,18 +32,18 @@ const int32_t Accreq7f::ID = 0x7F;
 
 void Accreq7f::Parse(const std::uint8_t* bytes, int32_t length,
                          ChassisDetail* chassis) const {
-  chassis->mutable_nio()->mutable_Accreq7f()->set_accdrvoff(accdrvoff(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_accdestop(accdestop(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_accmaxjerk(accmaxjerk(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_accminjerk(accminjerk(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_accmode(accmode(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_acccomforlow(acccomforlow(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_acccomforup(acccomforup(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_acchvydecel(acchvydecel(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_accheavymode(accheavymode(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_acctara(acctara(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_accmsgcntr(accmsgcntr(bytes, length));
-  chassis->mutable_nio()->mutable_Accreq7f()->set_acccrc(acccrc(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_accdrvoff(accdrvoff(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_accdestop(accdestop(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_accmaxjerk(accmaxjerk(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_accminjerk(accminjerk(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_accmode(accmode(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_acccomforlow(acccomforlow(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_acccomforup(acccomforup(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_acchvydecel(acchvydecel(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_accheavymode(accheavymode(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_acctara(acctara(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_accmsgcntr(accmsgcntr(bytes, length));
+  chassis->mutable_nio()->mutable_accreq7f()->set_acccrc(acccrc(bytes, length));
 }
 
 // config detail: {'bit': 31, 'description': 'drive off request', 'enum': {0: 'AccDrvoffNoRequest', 1: 'AccDrvoffRequest'}, 'is_signed_var': False, 'len': 1, 'name': 'accdrvoff', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|1]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
@@ -64,21 +64,21 @@ Accreq7f::AccdestopType Accreq7f::accdestop(const std::uint8_t* bytes, int32_t l
   return ret;
 }
 
-// config detail: {'bit': 47, 'is_signed_var': False, 'len': 7, 'name': 'accmaxjerk', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|25.4]', 'physical_unit': '', 'precision': 0.2, 'type': 'Float64'}
-Float64 Accreq7f::accmaxjerk(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 47, 'is_signed_var': False, 'len': 7, 'name': 'accmaxjerk', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|25.4]', 'physical_unit': '', 'precision': 0.2, 'type': 'double'}
+double Accreq7f::accmaxjerk(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 5);
   int32_t x = t0.get_byte(1, 7);
 
-  Float64 ret = x * 0.200000;
+  double ret = x * 0.200000;
   return ret;
 }
 
-// config detail: {'bit': 63, 'is_signed_var': False, 'len': 7, 'name': 'accminjerk', 'offset': -25.4, 'order': 'motorola', 'physical_range': '[-25.4|0]', 'physical_unit': '', 'precision': 0.2, 'type': 'Float64'}
-Float64 Accreq7f::accminjerk(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 63, 'is_signed_var': False, 'len': 7, 'name': 'accminjerk', 'offset': -25.4, 'order': 'motorola', 'physical_range': '[-25.4|0]', 'physical_unit': '', 'precision': 0.2, 'type': 'double'}
+double Accreq7f::accminjerk(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 7);
   int32_t x = t0.get_byte(1, 7);
 
-  Float64 ret = x * 0.200000 + -25.400000;
+  double ret = x * 0.200000 + -25.400000;
   return ret;
 }
 
@@ -91,21 +91,21 @@ Accreq7f::AccmodeType Accreq7f::accmode(const std::uint8_t* bytes, int32_t lengt
   return ret;
 }
 
-// config detail: {'bit': 55, 'is_signed_var': False, 'len': 8, 'name': 'acccomforlow', 'offset': -7.0, 'order': 'motorola', 'physical_range': '[-7|5.75]', 'physical_unit': 'm/s2', 'precision': 0.05, 'type': 'Float64'}
-Float64 Accreq7f::acccomforlow(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 55, 'is_signed_var': False, 'len': 8, 'name': 'acccomforlow', 'offset': -7.0, 'order': 'motorola', 'physical_range': '[-7|5.75]', 'physical_unit': 'm/s2', 'precision': 0.05, 'type': 'double'}
+double Accreq7f::acccomforlow(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 6);
   int32_t x = t0.get_byte(0, 8);
 
-  Float64 ret = x * 0.050000 + -7.000000;
+  double ret = x * 0.050000 + -7.000000;
   return ret;
 }
 
-// config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'acccomforup', 'offset': -7.0, 'order': 'motorola', 'physical_range': '[-7|5.75]', 'physical_unit': 'm/s2', 'precision': 0.05, 'type': 'Float64'}
-Float64 Accreq7f::acccomforup(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 39, 'is_signed_var': False, 'len': 8, 'name': 'acccomforup', 'offset': -7.0, 'order': 'motorola', 'physical_range': '[-7|5.75]', 'physical_unit': 'm/s2', 'precision': 0.05, 'type': 'double'}
+double Accreq7f::acccomforup(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 8);
 
-  Float64 ret = x * 0.050000 + -7.000000;
+  double ret = x * 0.050000 + -7.000000;
   return ret;
 }
 
@@ -127,30 +127,30 @@ Accreq7f::AccheavymodeType Accreq7f::accheavymode(const std::uint8_t* bytes, int
   return ret;
 }
 
-// config detail: {'bit': 23, 'is_signed_var': False, 'len': 8, 'name': 'acctara', 'offset': -7.0, 'order': 'motorola', 'physical_range': '[-7|5.75]', 'physical_unit': 'm/s2', 'precision': 0.05, 'type': 'Float64'}
-Float64 Accreq7f::acctara(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 23, 'is_signed_var': False, 'len': 8, 'name': 'acctara', 'offset': -7.0, 'order': 'motorola', 'physical_range': '[-7|5.75]', 'physical_unit': 'm/s2', 'precision': 0.05, 'type': 'double'}
+double Accreq7f::acctara(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 8);
 
-  Float64 ret = x * 0.050000 + -7.000000;
+  double ret = x * 0.050000 + -7.000000;
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'accmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Accreq7f::accmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'accmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Accreq7f::accmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'acccrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Accreq7f::acccrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'acccrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Accreq7f::acccrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 }  // namespace nio

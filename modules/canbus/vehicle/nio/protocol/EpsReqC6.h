@@ -33,14 +33,14 @@ class Epsreqc6 : public ::apollo::drivers::canbus::ProtocolData<
 
  private:
 
-  // config detail: {'bit': 55, 'is_signed_var': False, 'len': 15, 'name': 'EPSPAIReq', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.3]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'Float64'}
-  Float64 epspaireq(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 55, 'is_signed_var': False, 'len': 15, 'name': 'EPSPAIReq', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.3]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'double'}
+  double epspaireq(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 39, 'is_signed_var': False, 'len': 15, 'name': 'EPSDAIReq', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.3]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'Float64'}
-  Float64 epsdaireq(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 39, 'is_signed_var': False, 'len': 15, 'name': 'EPSDAIReq', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.3]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'double'}
+  double epsdaireq(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 19, 'is_signed_var': False, 'len': 10, 'name': 'EPSTOIReq', 'offset': -10.24, 'order': 'motorola', 'physical_range': '[-10.24|10.22]', 'physical_unit': 'Nm', 'precision': 0.02, 'type': 'Float64'}
-  Float64 epstoireq(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 19, 'is_signed_var': False, 'len': 10, 'name': 'EPSTOIReq', 'offset': -10.24, 'order': 'motorola', 'physical_range': '[-10.24|10.22]', 'physical_unit': 'Nm', 'precision': 0.02, 'type': 'double'}
+  double epstoireq(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 23, 'enum': {0: 'EPSReqTypNoRequest', 1: 'EPSReqTypReserved1DSR', 2: 'EPSReqTypTOIRequest', 3: 'EPSReqTypPAIRequest', 4: 'EPSReqTypDAIRequest', 5: 'EPSReqTypHI1Request', 6: 'EPSReqTypHI2Request', 7: 'EPSReqTypReserved7', 8: 'EPSReqTypReserved8', 9: 'EPSReqTypReserved9', 10: 'EPSReqTypReserved10', 11: 'EPSReqTypReserved11', 12: 'EPSReqTypReserved12', 13: 'EPSReqTypReserved13', 14: 'EPSReqTypReserved14', 15: 'EPSReqTypSignalNotAvailable'}, 'is_signed_var': False, 'len': 4, 'name': 'EPSReqTyp', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Epsreqc6::EpsreqtypType epsreqtyp(const std::uint8_t* bytes, const int32_t length) const;
@@ -51,11 +51,11 @@ class Epsreqc6 : public ::apollo::drivers::canbus::ProtocolData<
   // config detail: {'bit': 25, 'enum': {0: 'PilotSymNoSymbol', 1: 'PilotSymGraySymbol', 2: 'PilotSymWhiteSymbol', 3: 'PilotSymreserved'}, 'is_signed_var': False, 'len': 2, 'name': 'PilotSym', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Epsreqc6::PilotsymType pilotsym(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'EpsCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 epscrc(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'EpsCrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t epscrc(const std::uint8_t* bytes, const int32_t length) const;
 
-  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'EpsMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-  Int32 epsmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
+  // config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'EpsMsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+  int32_t epsmsgcntr(const std::uint8_t* bytes, const int32_t length) const;
 
   // config detail: {'bit': 11, 'enum': {0: 'AdcAccsymNoSymbol', 1: 'AdcAccsymGraySymbol', 2: 'AdcAccsymWhiteSymbol', 3: 'AdcAccsymreserved'}, 'is_signed_var': False, 'len': 2, 'name': 'AdcAccsym', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}
   Epsreqc6::AdcaccsymType adcaccsym(const std::uint8_t* bytes, const int32_t length) const;

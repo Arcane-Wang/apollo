@@ -43,8 +43,8 @@ void Epsreqc6::Parse(const std::uint8_t* bytes, int32_t length,
   chassis->mutable_nio()->mutable_EpsReqC6()->set_adcaccsym(adcaccsym(bytes, length));
 }
 
-// config detail: {'bit': 55, 'is_signed_var': False, 'len': 15, 'name': 'epspaireq', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.3]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'Float64'}
-Float64 Epsreqc6::epspaireq(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 55, 'is_signed_var': False, 'len': 15, 'name': 'epspaireq', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.3]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'double'}
+double Epsreqc6::epspaireq(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 6);
   int32_t x = t0.get_byte(0, 8);
 
@@ -53,12 +53,12 @@ Float64 Epsreqc6::epspaireq(const std::uint8_t* bytes, int32_t length) const {
   x <<= 7;
   x |= t;
 
-  Float64 ret = x * 0.100000 + -1638.400000;
+  double ret = x * 0.100000 + -1638.400000;
   return ret;
 }
 
-// config detail: {'bit': 39, 'is_signed_var': False, 'len': 15, 'name': 'epsdaireq', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.3]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'Float64'}
-Float64 Epsreqc6::epsdaireq(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 39, 'is_signed_var': False, 'len': 15, 'name': 'epsdaireq', 'offset': -1638.4, 'order': 'motorola', 'physical_range': '[-1638.4|1638.3]', 'physical_unit': 'Deg', 'precision': 0.1, 'type': 'double'}
+double Epsreqc6::epsdaireq(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 4);
   int32_t x = t0.get_byte(0, 8);
 
@@ -67,12 +67,12 @@ Float64 Epsreqc6::epsdaireq(const std::uint8_t* bytes, int32_t length) const {
   x <<= 7;
   x |= t;
 
-  Float64 ret = x * 0.100000 + -1638.400000;
+  double ret = x * 0.100000 + -1638.400000;
   return ret;
 }
 
-// config detail: {'bit': 19, 'is_signed_var': False, 'len': 10, 'name': 'epstoireq', 'offset': -10.24, 'order': 'motorola', 'physical_range': '[-10.24|10.22]', 'physical_unit': 'Nm', 'precision': 0.02, 'type': 'Float64'}
-Float64 Epsreqc6::epstoireq(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 19, 'is_signed_var': False, 'len': 10, 'name': 'epstoireq', 'offset': -10.24, 'order': 'motorola', 'physical_range': '[-10.24|10.22]', 'physical_unit': 'Nm', 'precision': 0.02, 'type': 'double'}
+double Epsreqc6::epstoireq(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 2);
   int32_t x = t0.get_byte(0, 4);
 
@@ -81,7 +81,7 @@ Float64 Epsreqc6::epstoireq(const std::uint8_t* bytes, int32_t length) const {
   x <<= 6;
   x |= t;
 
-  Float64 ret = x * 0.020000 + -10.240000;
+  double ret = x * 0.020000 + -10.240000;
   return ret;
 }
 
@@ -112,21 +112,21 @@ Epsreqc6::PilotsymType Epsreqc6::pilotsym(const std::uint8_t* bytes, int32_t len
   return ret;
 }
 
-// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'epscrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Epsreqc6::epscrc(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 7, 'is_signed_var': False, 'len': 8, 'name': 'epscrc', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Epsreqc6::epscrc(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 0);
   int32_t x = t0.get_byte(0, 8);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 
-// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'epsmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'Int32'}
-Int32 Epsreqc6::epsmsgcntr(const std::uint8_t* bytes, int32_t length) const {
+// config detail: {'bit': 15, 'is_signed_var': False, 'len': 4, 'name': 'epsmsgcntr', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|15]', 'physical_unit': '', 'precision': 1.0, 'type': 'int32_t'}
+int32_t Epsreqc6::epsmsgcntr(const std::uint8_t* bytes, int32_t length) const {
   Byte t0(bytes + 1);
   int32_t x = t0.get_byte(4, 4);
 
-  Int32 ret = x;
+  int32_t ret = x;
   return ret;
 }
 

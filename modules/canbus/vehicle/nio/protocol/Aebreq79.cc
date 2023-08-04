@@ -32,18 +32,18 @@ const int32_t Aebreq79::ID = 0x79;
 
 void Aebreq79::Parse(const std::uint8_t* bytes, int32_t length,
                          ChassisDetail* chassis) const {
-  chassis->mutable_nio()->mutable_Aebreq79()->set_aebtardecel(aebtardecel(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_abareq(abareq(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_abasnvtylvl(abasnvtylvl(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_awbsnvtylvl(awbsnvtylvl(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_awbreq(awbreq(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_scmdecelreq(scmdecelreq(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_aebmsgcntr(aebmsgcntr(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_aebdecelreq(aebdecelreq(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_ebadecelreq(ebadecelreq(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_abpreq(abpreq(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_pedpdecreq(pedpdecreq(bytes, length));
-  chassis->mutable_nio()->mutable_Aebreq79()->set_aebcrc(aebcrc(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_aebtardecel(aebtardecel(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_abareq(abareq(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_abasnvtylvl(abasnvtylvl(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_awbsnvtylvl(awbsnvtylvl(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_awbreq(awbreq(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_scmdecelreq(scmdecelreq(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_aebmsgcntr(aebmsgcntr(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_aebdecelreq(aebdecelreq(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_ebadecelreq(ebadecelreq(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_abpreq(abpreq(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_pedpdecreq(pedpdecreq(bytes, length));
+  chassis->mutable_nio()->mutable_aebreq79()->set_aebcrc(aebcrc(bytes, length));
 }
 
 // config detail: {'bit': 35, 'is_signed_var': False, 'len': 16, 'name': 'aebtardecel', 'offset': -16.0, 'order': 'motorola', 'physical_range': '[-16|15.99]', 'physical_unit': 'm/s2', 'precision': 0.0004882, 'type': 'double'}

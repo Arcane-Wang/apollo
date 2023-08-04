@@ -32,19 +32,19 @@ const int32_t Bodystatus24d::ID = 0x24D;
 
 void Bodystatus24d::Parse(const std::uint8_t* bytes, int32_t length,
                          ChassisDetail* chassis) const {
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_doorajarfrntlests(doorajarfrntlests(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_doorajarfrntrists(doorajarfrntrists(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_doorajarrelests(doorajarrelests(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_bcmclosurecrc(bcmclosurecrc(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_seatoccpfrntlefail(seatoccpfrntlefail(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_steerwhlheatsts(steerwhlheatsts(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_bcmclosuremsgcntr(bcmclosuremsgcntr(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_trajarsts(trajarsts(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_hoodajarsts(hoodajarsts(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_doorajarrerists(doorajarrerists(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_seatoccpfrntlests(seatoccpfrntlests(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_cooltlvllowwarnreq(cooltlvllowwarnreq(bytes, length));
-  chassis->mutable_nio()->mutable_Bodystatus24d()->set_vehspd(vehspd(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_doorajarfrntlests(doorajarfrntlests(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_doorajarfrntrists(doorajarfrntrists(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_doorajarrelests(doorajarrelests(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_bcmclosurecrc(bcmclosurecrc(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_seatoccpfrntlefail(seatoccpfrntlefail(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_steerwhlheatsts(steerwhlheatsts(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_bcmclosuremsgcntr(bcmclosuremsgcntr(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_trajarsts(trajarsts(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_hoodajarsts(hoodajarsts(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_doorajarrerists(doorajarrerists(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_seatoccpfrntlests(seatoccpfrntlests(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_cooltlvllowwarnreq(cooltlvllowwarnreq(bytes, length));
+  chassis->mutable_nio()->mutable_bodystatus24d24d()->set_vehspd(vehspd(bytes, length));
 }
 
 // config detail: {'bit': 25, 'enum': {0: 'DoorAjarFrntLeStsOpened', 1: 'DoorAjarFrntLeStsClosed', 2: 'DoorAjarFrntLeStsReserved', 3: 'DoorAjarFrntLeStsInvalid'}, 'is_signed_var': False, 'len': 2, 'name': 'doorajarfrntlests', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|3]', 'physical_unit': '', 'precision': 1.0, 'type': 'enum'}

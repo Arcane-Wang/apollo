@@ -51,14 +51,14 @@ class NioVehicleFactory : public AbstractVehicleFactory {
    * @brief create nio vehicle controller
    * @returns a unique_ptr that points to the created controller
    */
-  std::unique_ptr<VehicleController> CreateVehicleController() override;
+  std::unique_ptr<VehicleController<::apollo::canbus::ChassisDetail>> CreateVehicleController();
 
   /**
    * @brief create nio message manager
    * @returns a unique_ptr that points to the created message manager
    */
   std::unique_ptr<MessageManager<::apollo::canbus::ChassisDetail>>
-  CreateMessageManager() override;
+  CreateMessageManager();
 };
 
 }  // namespace canbus

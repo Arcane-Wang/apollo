@@ -24,9 +24,9 @@
 namespace apollo {
 namespace canbus {
 
-std::unique_ptr<VehicleController>
+std::unique_ptr<VehicleController<::apollo::canbus::ChassisDetail>>
 NioVehicleFactory::CreateVehicleController() {
-  return std::unique_ptr<VehicleController>(new nio::NioController());
+  return std::unique_ptr<VehicleController<::apollo::canbus::ChassisDetail>>(new nio::NioController());
 }
 
 std::unique_ptr<MessageManager<::apollo::canbus::ChassisDetail>>

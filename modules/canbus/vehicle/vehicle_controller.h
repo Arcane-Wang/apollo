@@ -28,6 +28,7 @@
 #include "cyber/common/log.h"
 #include "modules/common_msgs/basic_msgs/error_code.pb.h"
 #include "modules/common_msgs/chassis_msgs/chassis.pb.h"
+#include "modules/common_msgs/chassis_msgs/chassis_detail.pb.h"
 #include "modules/common_msgs/control_msgs/control_cmd.pb.h"
 
 #include "modules/common/configs/vehicle_config_helper.h"
@@ -154,11 +155,11 @@ class VehicleController {
 
   virtual void SetLimits() {}
 
-  /**
-   * @brief Response to vehicle ID request.
-   * @return true if vehicle ID is successfully responsed.
-   */
-  virtual bool VerifyID() = 0;
+  // /**
+  //  * @brief Response to vehicle ID request.
+  //  * @return true if vehicle ID is successfully responsed.
+  //  */
+  // virtual bool VerifyID() = 0;
 
  protected:
   virtual Chassis::DrivingMode driving_mode();
@@ -261,11 +262,11 @@ ErrorCode VehicleController<SensorType>::Update(
     AINFO << "Canbus received pad msg: "
           << control_command.pad_msg().ShortDebugString();
     if (control_command.pad_msg().action() == control::DrivingAction::VIN_REQ) {
-      if (!VerifyID()) {
-        AINFO << "Response vid failed, please request again.";
-      } else {
-        AINFO << "Response vid success!";
-      }
+      // if (!VerifyID()) {
+      //   AINFO << "Response vid failed, please request again.";
+      // } else {
+      //   AINFO << "Response vid success!";
+      // }
     } else {
       Chassis::DrivingMode mode = Chassis::COMPLETE_MANUAL;
       switch (control_command.pad_msg().action()) {

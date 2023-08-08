@@ -189,6 +189,7 @@ ErrorCode NioController::EnableSteeringOnlyMode() {
   AINFO << "Switch to AUTO_STEER_ONLY mode ok.";
   return ErrorCode::OK;
   */
+  return ErrorCode::OK;
 }
 
 ErrorCode NioController::EnableSpeedOnlyMode() {
@@ -214,6 +215,7 @@ ErrorCode NioController::EnableSpeedOnlyMode() {
   AINFO << "Switch to AUTO_SPEED_ONLY mode ok.";
   return ErrorCode::OK;
   */
+ return ErrorCode::OK;
 }
 
 // NEUTRAL, REVERSE, DRIVE

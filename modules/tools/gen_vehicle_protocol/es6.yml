@@ -2,23 +2,23 @@ car_type: nio
 protocols:
   15e:
     id: 15e
-    name: AvpReq15e
+    name: avp_req_15e
     protocol_type: report
     sender: MCU_control
     vars:
     - bit: 39
       enum:
-        0: AvpApaparkmodoff
-        1: AvpApaparkmodSapa
-        2: AvpApaparkmodVpps
-        3: AvpApaparkmodNBS
-        4: AvpApaparkmodDescriptionForTheValue0x4
-        5: AvpApaparkmodDescriptionForTheValue0x5
-        6: AvpApaparkmodDescriptionForTheValue0x6
-        7: AvpApaparkmodDescriptionForTheValue0x7
+        0: AVP_APAPARKMOD_OFF
+        1: AVP_APAPARKMOD_SAPA
+        2: AVP_APAPARKMOD_VPPS
+        3: AVP_APAPARKMOD_NBS
+        4: AVP_APAPARKMOD_DESCRIPTION_FOR_THE_VALUE_0X4
+        5: AVP_APAPARKMOD_DESCRIPTION_FOR_THE_VALUE_0X5
+        6: AVP_APAPARKMOD_DESCRIPTION_FOR_THE_VALUE_0X6
+        7: AVP_APAPARKMOD_DESCRIPTION_FOR_THE_VALUE_0X7
       is_signed_var: false
       len: 3
-      name: AvpApaparkmod
+      name: Avp_ApaParkMod
       offset: 0.0
       order: motorola
       physical_range: '[0|7]'
@@ -27,17 +27,17 @@ protocols:
       type: enum
     - bit: 19
       enum:
-        0: AvpNbsstsNBSOff
-        1: AvpNbsstsNBSInitial
-        2: AvpNbsstsNBSStandby
-        3: AvpNbsstsNBSMoving
-        4: AvpNbsstsNBSAbort
-        5: AvpNbsstsNBSFail
-        6: AvpNbsstsDescriptionForTheValue0x6
-        7: AvpNbsstsDescriptionForTheValue0x7
+        0: AVP_NBSSTS_NBS_OFF
+        1: AVP_NBSSTS_NBS_INITIAL
+        2: AVP_NBSSTS_NBS_STANDBY
+        3: AVP_NBSSTS_NBS_MOVING
+        4: AVP_NBSSTS_NBS_ABORT
+        5: AVP_NBSSTS_NBS_FAIL
+        6: AVP_NBSSTS_DESCRIPTION_FOR_THE_VALUE_0X6
+        7: AVP_NBSSTS_DESCRIPTION_FOR_THE_VALUE_0X7
       is_signed_var: false
       len: 3
-      name: AvpNbssts
+      name: Avp_NBSSts
       offset: 0.0
       order: motorola
       physical_range: '[0|7]'
@@ -46,25 +46,25 @@ protocols:
       type: enum
     - bit: 23
       enum:
-        0: AvpAdcvcunbsstsNBSOFF
-        1: AvpAdcvcunbsstsNBSIntial
-        2: AvpAdcvcunbsstsNBSStandby
-        3: AvpAdcvcunbsstsNBSMoving
-        4: AvpAdcvcunbsstsNBSAbort
-        5: AvpAdcvcunbsstsNBSFail
-        6: AvpAdcvcunbsstsDescriptionForTheValue0x6
-        7: AvpAdcvcunbsstsDescriptionForTheValue0x7
-        8: AvpAdcvcunbsstsDescriptionForTheValue0x8
-        9: AvpAdcvcunbsstsDescriptionForTheValue0x9
-        10: AvpAdcvcunbsstsDescriptionForTheValue0xA
-        11: AvpAdcvcunbsstsDescriptionForTheValue0xB
-        12: AvpAdcvcunbsstsDescriptionForTheValue0xC
-        13: AvpAdcvcunbsstsDescriptionForTheValue0xD
-        14: AvpAdcvcunbsstsDescriptionForTheValue0xE
-        15: AvpAdcvcunbsstsDescriptionForTheValue0xF
+        0: AVP_ADCVCUNBSSTS_NBS_OFF
+        1: AVP_ADCVCUNBSSTS_NBS_INTIAL
+        2: AVP_ADCVCUNBSSTS_NBS_STANDBY
+        3: AVP_ADCVCUNBSSTS_NBS_MOVING
+        4: AVP_ADCVCUNBSSTS_NBS_ABORT
+        5: AVP_ADCVCUNBSSTS_NBS_FAIL
+        6: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0X6
+        7: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0X7
+        8: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0X8
+        9: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0X9
+        10: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0XA
+        11: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0XB
+        12: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0XC
+        13: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0XD
+        14: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0XE
+        15: AVP_ADCVCUNBSSTS_DESCRIPTION_FOR_THE_VALUE_0XF
       is_signed_var: false
       len: 4
-      name: AvpAdcvcunbssts
+      name: Avp_ADCVCUNBSSTs
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
@@ -73,25 +73,25 @@ protocols:
       type: enum
     - bit: 11
       enum:
-        0: AvpApastsinitial
-        1: AvpApastsStandby
-        2: AvpApastsSearch
-        3: AvpApastsPreGuidence
-        4: AvpApastsGuidance
-        5: AvpApastsReserved
-        6: AvpApastsAbort
-        7: AvpApastsFault
-        8: AvpApastsPubRoad
-        9: AvpApastsOffMode
-        10: AvpApastsReserved10
-        11: AvpApastsReserved11
-        12: AvpApastsReserved12
-        13: AvpApastsReserved13
-        14: AvpApastsReserved14
-        15: AvpApastsReserved15
+        0: AVP_APASTS_INITIAL
+        1: AVP_APASTS_STANDBY
+        2: AVP_APASTS_SEARCH
+        3: AVP_APASTS_PRE_GUIDENCE
+        4: AVP_APASTS_GUIDANCE
+        5: AVP_APASTS_RESERVED
+        6: AVP_APASTS_ABORT
+        7: AVP_APASTS_FAULT
+        8: AVP_APASTS_PUB_ROAD
+        9: AVP_APASTS_OFFMODE
+        10: AVP_APASTS_RESERVED10
+        11: AVP_APASTS_RESERVED11
+        12: AVP_APASTS_RESERVED12
+        13: AVP_APASTS_RESERVED13
+        14: AVP_APASTS_RESERVED14
+        15: AVP_APASTS_RESERVED15
       is_signed_var: false
       len: 4
-      name: AvpApasts
+      name: Avp_ApaSts
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
@@ -101,13 +101,13 @@ protocols:
     - bit: 59
       description: 0 No 1 Comfort 2 Emergency 3 Reseved
       enum:
-        0: AvpBrkmodstsNoBrake
-        1: AvpBrkmodstsComfort
-        2: AvpBrkmodstsEmergency
-        3: AvpBrkmodstsReserved
+        0: AVP_BRKMODSTS_NO_BRAKE
+        1: AVP_BRKMODSTS_COMFORT
+        2: AVP_BRKMODSTS_EMERGENCY
+        3: AVP_BRKMODSTS_RESERVED
       is_signed_var: false
       len: 3
-      name: AvpBrkmodsts
+      name: Avp_BrkModSts
       offset: 0.0
       order: motorola
       physical_range: '[0|7]'
@@ -117,63 +117,63 @@ protocols:
     - bit: 31
       is_signed_var: false
       len: 6
-      name: AvpSpdlmt
+      name: Avp_SpdLmt
       offset: -3.2
       order: motorola
       physical_range: '[-3.2|3.1]'
       physical_unit: ''
       precision: 0.1
-      type: Float64
+      type: double
     - bit: 25
       is_signed_var: false
       len: 1
-      name: AvpGearreqactv
+      name: Avp_GearReqAcTv
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
       physical_unit: ''
       precision: 1.0
-      type: Bool
+      type: bool
     - bit: 15
       is_signed_var: false
       len: 4
-      name: AvpMsgcntr
+      name: Avp_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: AvpCrc
+      name: Avp_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 36
       is_signed_var: false
       len: 13
-      name: AvpDstreq
+      name: Avp_DstReq
       offset: -4095.0
       order: motorola
       physical_range: '[-4095|4096]'
       physical_unit: cm
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 63
       enum:
-        0: AvpTargearreqNoGearRequest
-        1: AvpTargearreqD
-        2: AvpTargearreqR
-        3: AvpTargearreqN
-        4: AvpTargearreqP
+        0: AVP_TARGEARREQ_NO_GEAR_REQUEST
+        1: AVP_TARGEARREQ_D
+        2: AVP_TARGEARREQ_R
+        3: AVP_TARGEARREQ_N
+        4: AVP_TARGEARREQ_P
       is_signed_var: false
       len: 3
-      name: AvpTargearreq
+      name: Avp_TarGearReq
       offset: 0.0
       order: motorola
       physical_range: '[0|7]'
@@ -182,13 +182,13 @@ protocols:
       type: enum
     - bit: 55
       enum:
-        0: AvpCrtlmodeNo
-        1: AvpCrtlmodeDistCrtl
-        2: AvpCrtlmodeSpdCrtl
-        3: AvpCrtlmodeRes
+        0: AVP_CRTLMODE_NO
+        1: AVP_CRTLMODE_DIST_CRTL
+        2: AVP_CRTLMODE_SPD_CRTL
+        3: AVP_CRTLMODE_RES
       is_signed_var: false
       len: 4
-      name: AvpCrtlmode
+      name: AvP_CrtlMode
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
@@ -197,20 +197,20 @@ protocols:
       type: enum
   '218':
     id: '218'
-    name: Vcusts01218
+    name: vcusts_01_218
     protocol_type: report
     sender: VCU_PCAN_STATUS
     vars:
     - bit: 39
       enum:
-        0: VCUNBSSTsNBSInitial
-        1: VCUNBSSTsNBSStandby
-        2: VCUNBSSTsNBSActive
-        3: VCUNBSSTsNBSOverride
-        4: VCUNBSSTsNBSInhibit
-        5: VCUNBSSTsObstacleDetected
-        6: VCUNBSSTsGearshiftAllowed
-        7: VCUNBSSTsRes
+        0: VCUNBSSTS_NBS_INITIAL
+        1: VCUNBSSTS_NBS_STANDBY
+        2: VCUNBSSTS_NBS_ACTIVE
+        3: VCUNBSSTS_NBS_OVERRIDE
+        4: VCUNBSSTS_NBS_INHIBIT
+        5: VCUNBSSTS_OBSTACLE_DETECTED
+        6: VCUNBSSTS_GEARSHIFT_ALLOWED
+        7: VCUNBSSTS_RES
       is_signed_var: false
       len: 3
       name: VCUNBSSTs
@@ -223,30 +223,30 @@ protocols:
     - bit: 28
       is_signed_var: false
       len: 2
-      name: VcuVlcsts
+      name: VCU_VLCSts
       offset: 0.0
       order: motorola
       physical_range: '[0|4]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 25
       is_signed_var: false
       len: 2
-      name: VcuLlcsts
+      name: VCU_LLCSts
       offset: 0.0
       order: motorola
       physical_range: '[0|4]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 16
       enum:
-        0: TagGearvalidvalid
-        1: TagGearvalidinvalid
+        0: TAG_GEARVALID_VALID
+        1: TAG_GEARVALID_INVALID
       is_signed_var: false
       len: 1
-      name: TagGearvalid
+      name: Tag_Gearvalid
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -256,20 +256,20 @@ protocols:
     - bit: 19
       is_signed_var: false
       len: 3
-      name: TagGear
+      name: Tag_Gear
       offset: 0.0
       order: motorola
       physical_range: '[0|7]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 20
       enum:
-        0: ActualGearvalidvalid
-        1: ActualGearvalidinvalid
+        0: ACTUAL_GEARVALID_VALID
+        1: ACTUAL_GEARVALID_INVALID
       is_signed_var: false
       len: 1
-      name: ActualGearvalid
+      name: Actual_Gearvalid
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -278,14 +278,14 @@ protocols:
       type: enum
     - bit: 23
       enum:
-        0: ActualGearnone
-        1: ActualGearD
-        2: ActualGearR
-        3: ActualGearN
-        4: ActualGearP
+        0: ACTUAL_GEAR_NONE
+        1: ACTUAL_GEAR_D
+        2: ACTUAL_GEAR_R
+        3: ACTUAL_GEAR_N
+        4: ACTUAL_GEAR_P
       is_signed_var: false
       len: 3
-      name: ActualGear
+      name: Actual_Gear
       offset: 0.0
       order: motorola
       physical_range: '[0|7]'
@@ -295,31 +295,31 @@ protocols:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: Vcu17Msgcntr
+      name: VCU_17_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: Vcu17Crc
+      name: VCU_17_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 47
       enum:
-        0: VcuEpfailInit
-        1: VcuEpfailNormal
-        2: VcuEpfailFault
+        0: VCU_EPFAIL_INIT
+        1: VCU_EPFAIL_NORMAL
+        2: VCU_EPFAIL_FAULT
       is_signed_var: false
       len: 2
-      name: VcuEpfail
+      name: VCU_EPFail
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -328,14 +328,14 @@ protocols:
       type: enum
     - bit: 31
       enum:
-        0: VCUmodindAuto
-        1: VCUmodindEconomy
-        2: VCUmodindComfort
-        3: VCUmodindSport
-        4: VCUmodindReserved4
-        5: VCUmodindReserved5
-        6: VCUmodindReserved6
-        7: VCUmodindInvalid
+        0: VCUMODIND_AUTO
+        1: VCUMODIND_ECONOMY
+        2: VCUMODIND_COMFORT
+        3: VCUMODIND_SPORT
+        4: VCUMODIND_RESERVED4
+        5: VCUMODIND_RESERVED5
+        6: VCUMODIND_RESERVED6
+        7: VCUMODIND_INVALID
       is_signed_var: false
       len: 3
       name: VCUmodind
@@ -347,14 +347,14 @@ protocols:
       type: enum
   21c:
     id: 21c
-    name: Vcusts0221c
+    name: vcusts_02_21c
     protocol_type: report
     sender: VCU_PCAN_STATUS
     vars:
     - bit: 47
       enum:
-        0: Accpedelftravelvalidvalid
-        1: Accpedelftravelvalidinvalid
+        0: ACCPEDELFTRAVELVALID_VALID
+        1: ACCPEDELFTRAVELVALID_INVALID
       is_signed_var: false
       len: 1
       name: Accpedelftravelvalid
@@ -373,11 +373,11 @@ protocols:
       physical_range: '[0|99.96]'
       physical_unit: ''
       precision: 0.392
-      type: Float64
+      type: double
     - bit: 31
       enum:
-        0: Accpedacttravelvalidvalid
-        1: Accpedacttravelvalidinvalid
+        0: ACCPEDACTTRAVELVALID_VALID
+        1: ACCPEDACTTRAVELVALID_INVALID
       is_signed_var: false
       len: 1
       name: Accpedacttravelvalid
@@ -396,48 +396,48 @@ protocols:
       physical_range: '[0|99.96]'
       physical_unit: ''
       precision: 0.392
-      type: Float64
+      type: double
     - bit: 15
       is_signed_var: false
       len: 4
-      name: Vcu4Msgcntr
+      name: VCU_4_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: Vcu4Crc
+      name: VCU_4_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
   24c:
     id: 24c
-    name: Brkdrvstatus24c
+    name: brkdrvstatus_24c
     protocol_type: report
     sender: CHASSIS_PCAN_STATUS
     vars:
     - bit: 61
       is_signed_var: false
       len: 4
-      name: BrkMsgcntr
+      name: Brk_Msgcntr
       offset: 0.0
       order: motorola
       physical_range: '[0|16]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 15
       enum:
-        0: BrkpressureStsNotInit
-        1: BrkpressureStsnormal
-        2: BrkpressureStsfault
+        0: BRKPRESSURESTS_NOT_INIT
+        1: BRKPRESSURESTS_NORMAL
+        2: BRKPRESSURESTS_FAULT
       is_signed_var: false
       len: 2
       name: BrkpressureSts
@@ -456,7 +456,7 @@ protocols:
       physical_range: '[-30|276.6]'
       physical_unit: bar
       precision: 0.3
-      type: Float64
+      type: double
     - bit: 39
       is_signed_var: false
       len: 16
@@ -466,11 +466,11 @@ protocols:
       physical_range: '[2|2]'
       physical_unit: g
       precision: 0.001
-      type: Float64
+      type: double
     - bit: 23
       enum:
-        0: Vehspdstsvalid
-        1: Vehspdstsinvalid
+        0: VEHSPDSTS_VALID
+        1: VEHSPDSTS_INVALID
       is_signed_var: false
       len: 1
       name: Vehspdsts
@@ -482,10 +482,10 @@ protocols:
       type: enum
     - bit: 25
       enum:
-        0: Vehspddirstandstill
-        1: Vehspddirforward
-        2: Vehspddirbackward
-        3: Vehspddirreserved
+        0: VEHSPDDIR_STANDSTILL
+        1: VEHSPDDIR_FORWARD
+        2: VEHSPDDIR_BACKWARD
+        3: VEHSPDDIR_RESERVED
       is_signed_var: false
       len: 2
       name: Vehspddir
@@ -504,13 +504,13 @@ protocols:
       physical_range: '[0|360]'
       physical_unit: km/h
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 1
       enum:
-        0: EPBswstsNotPressed
-        1: EPBswstspressed
-        2: EPBswstsreserved
-        3: EPBswstsinvalid
+        0: EPBSWSTS_NOT_PRESSED
+        1: EPBSWSTS_PRESSED
+        2: EPBSWSTS_RESERVED
+        3: EPBSWSTS_INVALID
       is_signed_var: false
       len: 2
       name: EPBswsts
@@ -522,14 +522,14 @@ protocols:
       type: enum
     - bit: 12
       enum:
-        0: DrvStateParked
-        1: DrvStateReadyForDrving
-        2: DrvStatedriving
-        3: DrvStateinvalid
-        15: DrvStateInvalidOtherValuesReserved
+        0: DRV_STATE_PARKED
+        1: DRV_STATE_READY_FOR_DRVING
+        2: DRV_STATE_DRIVING
+        3: DRV_STATE_INVALID
+        15: DRV_STATE_INVALID_OTHER_VALUES_RESERVED
       is_signed_var: false
       len: 4
-      name: DrvState
+      name: Drv_state
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
@@ -538,10 +538,10 @@ protocols:
       type: enum
     - bit: 3
       enum:
-        0: BrkPedlStsNotPressed
-        1: BrkPedlStspressed
-        2: BrkPedlStsreserved
-        3: BrkPedlStsinvalid
+        0: BRKPEDLSTS_NOT_PRESSED
+        1: BRKPEDLSTS_PRESSED
+        2: BRKPEDLSTS_RESERVED
+        3: BRKPEDLSTS_INVALID
       is_signed_var: false
       len: 2
       name: BrkPedlSts
@@ -553,10 +553,10 @@ protocols:
       type: enum
     - bit: 57
       enum:
-        0: BrkListsNoRequest
-        1: BrkListsrequest
-        2: BrkListsreserved
-        3: BrkListsinvalid
+        0: BRKLISTS_NO_REQUEST
+        1: BRKLISTS_REQUEST
+        2: BRKLISTS_RESERVED
+        3: BRKLISTS_INVALID
       is_signed_var: false
       len: 2
       name: BrkLists
@@ -568,10 +568,10 @@ protocols:
       type: enum
     - bit: 5
       enum:
-        0: EPBfaillampoff
-        1: EPBfaillampon
-        2: EPBfaillampblinking
-        3: EPBfaillampinvalid
+        0: EPBFAILLAMP_OFF
+        1: EPBFAILLAMP_ON
+        2: EPBFAILLAMP_BLINKING
+        3: EPBFAILLAMP_INVALID
       is_signed_var: false
       len: 2
       name: EPBfaillamp
@@ -583,10 +583,10 @@ protocols:
       type: enum
     - bit: 7
       enum:
-        0: EPBwarnlampOnlyReadyDuringFunction
-        1: EPBwarnlampDoorOpenDuringAuto
-        2: EPBwarnlampSeatBeltUnbuckled
-        3: EPBwarnlampDoorOpenAndBeltUnbuckled
+        0: EPBWARNLAMP_ONLY_READY_DURING_FUNCTION
+        1: EPBWARNLAMP_DOOR_OPEN_DURING_AUTO
+        2: EPBWARNLAMP_SEAT_BELT_UNBUCKLED
+        3: EPBWARNLAMP_DOOR_OPEN_AND_BELT_UNBUCKLED
       is_signed_var: false
       len: 2
       name: EPBwarnlamp
@@ -598,16 +598,16 @@ protocols:
       type: enum
   24d:
     id: 24d
-    name: Bodystatus24d
+    name: bodystatus_24d
     protocol_type: report
     sender: CGW
     vars:
     - bit: 25
       enum:
-        0: DoorAjarFrntLeStsOpened
-        1: DoorAjarFrntLeStsClosed
-        2: DoorAjarFrntLeStsReserved
-        3: DoorAjarFrntLeStsInvalid
+        0: DOORAJARFRNTLESTS_OPENED
+        1: DOORAJARFRNTLESTS_CLOSED
+        2: DOORAJARFRNTLESTS_RESERVED
+        3: DOORAJARFRNTLESTS_INVALID
       is_signed_var: false
       len: 2
       name: DoorAjarFrntLeSts
@@ -619,10 +619,10 @@ protocols:
       type: enum
     - bit: 19
       enum:
-        0: DoorAjarFrntRiStsOpened
-        1: DoorAjarFrntRiStsClosed
-        2: DoorAjarFrntRiStsReserved
-        3: DoorAjarFrntRiStsInvalid
+        0: DOORAJARFRNTRISTS_OPENED
+        1: DOORAJARFRNTRISTS_CLOSED
+        2: DOORAJARFRNTRISTS_RESERVED
+        3: DOORAJARFRNTRISTS_INVALID
       is_signed_var: false
       len: 2
       name: DoorAjarFrntRiSts
@@ -634,10 +634,10 @@ protocols:
       type: enum
     - bit: 31
       enum:
-        0: DoorAjarReLeStsOpened
-        1: DoorAjarReLeStsClosed
-        2: DoorAjarReLeStsReserved
-        3: DoorAjarReLeStsInvalid
+        0: DOORAJARRELESTS_OPENED
+        1: DOORAJARRELESTS_CLOSED
+        2: DOORAJARRELESTS_RESERVED
+        3: DOORAJARRELESTS_INVALID
       is_signed_var: false
       len: 2
       name: DoorAjarReLeSts
@@ -650,19 +650,19 @@ protocols:
     - bit: 7
       is_signed_var: false
       len: 8
-      name: BcmClosureCrc
+      name: BCM_CLOSURE_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 11
       enum:
-        0: SeatOccpFrntLeFailNoFailure
-        1: SeatOccpFrntLeFailFailure
-        2: SeatOccpFrntLeFailReserved
-        3: SeatOccpFrntLeFailInvalid
+        0: SEATOCCPFRNTLEFAIL_NO_FAILURE
+        1: SEATOCCPFRNTLEFAIL_FAILURE
+        2: SEATOCCPFRNTLEFAIL_RESERVED
+        3: SEATOCCPFRNTLEFAIL_INVALID
       is_signed_var: false
       len: 2
       name: SeatOccpFrntLeFail
@@ -674,10 +674,10 @@ protocols:
       type: enum
     - bit: 37
       enum:
-        0: SteerWhlHeatStsHeaterOff
-        1: SteerWhlHeatStsHeaterOn
-        2: SteerWhlHeatStsReserved
-        3: SteerWhlHeatStsInvalid
+        0: STEERWHLHEATSTS_HEATER_OFF
+        1: STEERWHLHEATSTS_HEATER_ON
+        2: STEERWHLHEATSTS_RESERVED
+        3: STEERWHLHEATSTS_INVALID
       is_signed_var: false
       len: 2
       name: SteerWhlHeatSts
@@ -690,19 +690,19 @@ protocols:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: BcmClosureMsgcntr
+      name: BCM_CLOSURE_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 29
       enum:
-        0: TrAjarStsOpened
-        1: TrAjarStsClosed
-        2: TrAjarStsReserved
-        3: TrAjarStsInvalid
+        0: TRAJARSTS_OPENED
+        1: TRAJARSTS_CLOSED
+        2: TRAJARSTS_RESERVED
+        3: TRAJARSTS_INVALID
       is_signed_var: false
       len: 2
       name: TrAjarSts
@@ -714,10 +714,10 @@ protocols:
       type: enum
     - bit: 39
       enum:
-        0: HoodAjarStsOpened
-        1: HoodAjarStsClosed
-        2: HoodAjarStsReserved
-        3: HoodAjarStsInvalid
+        0: HOODAJARSTS_OPENED
+        1: HOODAJARSTS_CLOSED
+        2: HOODAJARSTS_RESERVED
+        3: HOODAJARSTS_INVALID
       is_signed_var: false
       len: 2
       name: HoodAjarSts
@@ -729,10 +729,10 @@ protocols:
       type: enum
     - bit: 23
       enum:
-        0: DoorAjarReRiStsOpened
-        1: DoorAjarReRiStsClosed
-        2: DoorAjarReRiStsReserved
-        3: DoorAjarReRiStsInvalid
+        0: DOORAJARRERISTS_OPENED
+        1: DOORAJARRERISTS_CLOSED
+        2: DOORAJARRERISTS_RESERVED
+        3: DOORAJARRERISTS_INVALID
       is_signed_var: false
       len: 2
       name: DoorAjarReRiSts
@@ -744,10 +744,10 @@ protocols:
       type: enum
     - bit: 47
       enum:
-        0: SeatOccpFrntLeStsNoOccupant
-        1: SeatOccpFrntLeStsOccupant
-        2: SeatOccpFrntLeStsReserved
-        3: SeatOccpFrntLeStsInvalid
+        0: SEATOCCPFRNTLESTS_NO_OCCUPANT
+        1: SEATOCCPFRNTLESTS_OCCUPANT
+        2: SEATOCCPFRNTLESTS_RESERVED
+        3: SEATOCCPFRNTLESTS_INVALID
       is_signed_var: false
       len: 2
       name: SeatOccpFrntLeSts
@@ -759,10 +759,10 @@ protocols:
       type: enum
     - bit: 21
       enum:
-        0: CooltLvlLowWarnReqNoRequest
-        1: CooltLvlLowWarnReqRequest
-        2: CooltLvlLowWarnReqReserved
-        3: CooltLvlLowWarnReqInvalid
+        0: COOLTLVLLOWWARNREQ_NO_REQUEST
+        1: COOLTLVLLOWWARNREQ_REQUEST
+        2: COOLTLVLLOWWARNREQ_RESERVED
+        3: COOLTLVLLOWWARNREQ_INVALID
       is_signed_var: false
       len: 2
       name: CooltLvlLowWarnReq
@@ -781,23 +781,23 @@ protocols:
       physical_range: '[0|360]'
       physical_unit: km/h
       precision: 0.05625
-      type: Float64
+      type: double
   24e:
     id: 24e
-    name: Driverstatus24e
+    name: driverstatus_24e
     protocol_type: report
     sender: CGW
     vars:
     - bit: 10
       enum:
-        0: EPBstsunknow
-        1: EPBstsapplied
-        2: EPBstsreleasing
-        3: EPBstsNotApplied
-        4: EPBstsapplying
-        5: EPBstsreserved4
-        6: EPBstsreserved6
-        7: EPBstsreserved7
+        0: EPBSTS_UNKNOW
+        1: EPBSTS_APPLIED
+        2: EPBSTS_RELEASING
+        3: EPBSTS_NOT_APPLIED
+        4: EPBSTS_APPLYING
+        5: EPBSTS_RESERVED4
+        6: EPBSTS_RESERVED6
+        7: EPBSTS_RESERVED7
       is_signed_var: false
       len: 3
       name: EPBsts
@@ -809,8 +809,8 @@ protocols:
       type: enum
     - bit: 29
       enum:
-        0: VCUAccrPedlOvrdNoRequest
-        1: VCUAccrPedlOvrdrequest
+        0: VCUACCRPEDLOVRD_NO_REQUEST
+        1: VCUACCRPEDLOVRD_REQUEST
       is_signed_var: false
       len: 1
       name: VCUAccrPedlOvrd
@@ -822,13 +822,13 @@ protocols:
       type: enum
     - bit: 28
       enum:
-        0: Ibesp2WarningIBoosterSystemOK
-        1: Ibesp2WarningIBoosterInReducedPerformanceYellowLamp
-        2: Ibesp2WarningIBoosterDeactivatedYellowLamp
-        3: Ibesp2WarningIBoosterInDiagnosisOrPlantMode
+        0: IBESP2_WARNING_IBOOSTER_SYSTEM_OK
+        1: IBESP2_WARNING_IBOOSTER_IN_REDUCED_PERFORMANCE_YELLOW_LAMP
+        2: IBESP2_WARNING_IBOOSTER_DEACTIVATED_YELLOW_LAMP
+        3: IBESP2_WARNING_IBOOSTER_IN_DIAGNOSIS_OR_PLANT_MODE
       is_signed_var: false
       len: 2
-      name: Ibesp2Warning
+      name: iBESP2_Warning
       offset: 0.0
       order: motorola
       physical_range: '[0|3]'
@@ -837,10 +837,10 @@ protocols:
       type: enum
     - bit: 26
       enum:
-        0: AirbWarnReqWarningLampOff
-        1: AirbWarnReqWarningLampOnFaultDetected
-        2: AirbWarnReqWarningLampIsBlinking
-        3: AirbWarnReqWarningLampOnSystemInitialization
+        0: AIRBWARNREQ_WARNING_LAMP_OFF
+        1: AIRBWARNREQ_WARNING_LAMP_ON_FAULT_DETECTED
+        2: AIRBWARNREQ_WARNING_LAMP_IS_BLINKING
+        3: AIRBWARNREQ_WARNING_LAMP_ON_SYSTEM_INITIALIZATION
       is_signed_var: false
       len: 2
       name: AirbWarnReq
@@ -853,17 +853,17 @@ protocols:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: DriverstsMsgcntr
+      name: DriverSts_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 19
       enum:
-        0: SeatBltMidRowRiStsSeabeltMiddleRowRightNotBuckled
-        1: SeatBltMidRowRiStsSeatbeltMiddleRowRightBuckled
+        0: SEATBLTMIDROWRISTS_SEABELT_MIDDLE_ROW_RIGHT_NOT_BUCKLED
+        1: SEATBLTMIDROWRISTS_SEATBELT_MIDDLE_ROW_RIGHT_BUCKLED
       is_signed_var: false
       len: 1
       name: SeatBltMidRowRiSts
@@ -875,8 +875,8 @@ protocols:
       type: enum
     - bit: 20
       enum:
-        0: SeatBltMidRowMidStsSeabeltMiddleRowMiddleNotBuckled
-        1: SeatBltMidRowMidStsSeatbeltMiddleRowMiddleBuckled
+        0: SEATBLTMIDROWMIDSTS_SEABELT_MIDDLE_ROW_MIDDLE_NOT_BUCKLED
+        1: SEATBLTMIDROWMIDSTS_SEATBELT_MIDDLE_ROW_MIDDLE_BUCKLED
       is_signed_var: false
       len: 1
       name: SeatBltMidRowMidSts
@@ -888,8 +888,8 @@ protocols:
       type: enum
     - bit: 23
       enum:
-        0: SeatBltFrntLeStsSeabeltFrontLeftNotBuckled
-        1: SeatBltFrntLeStsSeatbeltFrontLeftBuckled
+        0: SEATBLTFRNTLESTS_SEABELT_FRONT_LEFT_NOT_BUCKLED
+        1: SEATBLTFRNTLESTS_SEATBELT_FRONT_LEFT_BUCKLED
       is_signed_var: false
       len: 1
       name: SeatBltFrntLeSts
@@ -901,10 +901,10 @@ protocols:
       type: enum
     - bit: 31
       enum:
-        0: PassAirbgInhbnLampReqPassengerAirbagInhibitionLampOff
-        1: PassAirbgInhbnLampReqPassengerAirbagInhibitionLampOn
-        2: PassAirbgInhbnLampReqPassengerAirbagInhibitionLampOnSystemInitialization
-        3: PassAirbgInhbnLampReqReserved
+        0: PASSAIRBGINHBNLAMPREQ_PASSENGER_AIRBAG_INHIBITION_LAMP_OFF
+        1: PASSAIRBGINHBNLAMPREQ_PASSENGER_AIRBAG_INHIBITION_LAMP_ON
+        2: PASSAIRBGINHBNLAMPREQ_PASSENGER_AIRBAG_INHIBITION_LAMP_ON_SYSTEM_INITIALIZATION
+        3: PASSAIRBGINHBNLAMPREQ_RESERVED
       is_signed_var: false
       len: 2
       name: PassAirbgInhbnLampReq
@@ -916,8 +916,8 @@ protocols:
       type: enum
     - bit: 18
       enum:
-        0: SeatOccptFrntRiStsNoOccupant
-        1: SeatOccptFrntRiStsOccupant
+        0: SEATOCCPTFRNTRISTS_NO_OCCUPANT
+        1: SEATOCCPTFRNTRISTS_OCCUPANT
       is_signed_var: false
       len: 1
       name: SeatOccptFrntRiSts
@@ -929,8 +929,8 @@ protocols:
       type: enum
     - bit: 11
       enum:
-        0: CrashDetdCrashNotDetected
-        1: CrashDetdCrashDetected
+        0: CRASHDETD_CRASH_NOT_DETECTED
+        1: CRASHDETD_CRASH_DETECTED
       is_signed_var: false
       len: 1
       name: CrashDetd
@@ -942,8 +942,8 @@ protocols:
       type: enum
     - bit: 22
       enum:
-        0: SeatBltFrntRiStsSeabeltFrontRightNotBuckled
-        1: SeatBltFrntRiStsSeatbeltFrontRightBuckled
+        0: SEATBLTFRNTRISTS_SEABELT_FRONT_RIGHT_NOT_BUCKLED
+        1: SEATBLTFRNTRISTS_SEATBELT_FRONT_RIGHT_BUCKLED
       is_signed_var: false
       len: 1
       name: SeatBltFrntRiSts
@@ -956,17 +956,17 @@ protocols:
     - bit: 7
       is_signed_var: false
       len: 8
-      name: DriverstsCrc
+      name: DriverSts_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 21
       enum:
-        0: SeatBltMidRowLeStsSeabeltMiddleRowLeftNotBuckled
-        1: SeatBltMidRowLeStsSeatbeltMiddleRowLeftBuckled
+        0: SEATBLTMIDROWLESTS_SEABELT_MIDDLE_ROW_LEFT_NOT_BUCKLED
+        1: SEATBLTMIDROWLESTS_SEATBELT_MIDDLE_ROW_LEFT_BUCKLED
       is_signed_var: false
       len: 1
       name: SeatBltMidRowLeSts
@@ -985,19 +985,19 @@ protocols:
       physical_range: '[0|100]'
       physical_unit: ''
       precision: 0.5
-      type: Float64
+      type: double
   2c7:
     id: 2c7
-    name: Vehiclelights2c7
+    name: vehiclelights_2c7
     protocol_type: report
     sender: CHASSIS_PCAN_STATUS
     vars:
     - bit: 2
       enum:
-        0: FogFrntlightStsoff
-        1: FogFrntlightStson
-        2: FogFrntlightStsreserved
-        3: FogFrntlightStsinvalid
+        0: FOGFRNTLIGHTSTS_OFF
+        1: FOGFRNTLIGHTSTS_ON
+        2: FOGFRNTLIGHTSTS_RESERVED
+        3: FOGFRNTLIGHTSTS_INVALID
       is_signed_var: false
       len: 2
       name: FogFrntlightSts
@@ -1009,10 +1009,10 @@ protocols:
       type: enum
     - bit: 9
       enum:
-        0: LeftTurnlightstsoff
-        1: LeftTurnlightstson
-        2: LeftTurnlightstsreserved
-        3: LeftTurnlightstsinvalid
+        0: LEFTTURNLIGHTSTS_OFF
+        1: LEFTTURNLIGHTSTS_ON
+        2: LEFTTURNLIGHTSTS_RESERVED
+        3: LEFTTURNLIGHTSTS_INVALID
       is_signed_var: false
       len: 2
       name: LeftTurnlightsts
@@ -1024,10 +1024,10 @@ protocols:
       type: enum
     - bit: 13
       enum:
-        0: RightTurnlightstsoff
-        1: RightTurnlightstson
-        2: RightTurnlightstsreserved
-        3: RightTurnlightstsinvalid
+        0: RIGHTTURNLIGHTSTS_OFF
+        1: RIGHTTURNLIGHTSTS_ON
+        2: RIGHTTURNLIGHTSTS_RESERVED
+        3: RIGHTTURNLIGHTSTS_INVALID
       is_signed_var: false
       len: 2
       name: RightTurnlightsts
@@ -1039,10 +1039,10 @@ protocols:
       type: enum
     - bit: 19
       enum:
-        0: LobeamlightStsoff
-        1: LobeamlightStson
-        2: LobeamlightStsreserved
-        3: LobeamlightStsinvalid
+        0: LOBEAMLIGHTSTS_OFF
+        1: LOBEAMLIGHTSTS_ON
+        2: LOBEAMLIGHTSTS_RESERVED
+        3: LOBEAMLIGHTSTS_INVALID
       is_signed_var: false
       len: 2
       name: LobeamlightSts
@@ -1054,10 +1054,10 @@ protocols:
       type: enum
     - bit: 23
       enum:
-        0: HibeamlightStsoff
-        1: HibeamlightStson
-        2: HibeamlightStsreserved
-        3: HibeamlightStsinvalid
+        0: HIBEAMLIGHTSTS_OFF
+        1: HIBEAMLIGHTSTS_ON
+        2: HIBEAMLIGHTSTS_RESERVED
+        3: HIBEAMLIGHTSTS_INVALID
       is_signed_var: false
       len: 2
       name: HibeamlightSts
@@ -1069,10 +1069,10 @@ protocols:
       type: enum
     - bit: 31
       enum:
-        0: EmergcyLightStsoff
-        1: EmergcyLightSts125Hz
-        2: EmergcyLightSts1Hz
-        3: EmergcyLightStsinvalid
+        0: EMERGCYLIGHTSTS_OFF
+        1: EMERGCYLIGHTSTS_1_25HZ
+        2: EMERGCYLIGHTSTS_1HZ
+        3: EMERGCYLIGHTSTS_INVALID
       is_signed_var: false
       len: 2
       name: EmergcyLightSts
@@ -1084,14 +1084,14 @@ protocols:
       type: enum
     - bit: 7
       enum:
-        0: FrntwiperStsoff
-        1: FrntwiperStsLowSpeed
-        2: FrntwiperStsHighSpeed
-        3: FrntwiperStsreserved2
-        4: FrntwiperStsreserved3
-        5: FrntwiperStsreserved5
-        6: FrntwiperStsreserved6
-        7: FrntwiperStsinvalid
+        0: FRNTWIPERSTS_OFF
+        1: FRNTWIPERSTS_LOW_SPEED
+        2: FRNTWIPERSTS_HIGH_SPEED
+        3: FRNTWIPERSTS_RESERVED2
+        4: FRNTWIPERSTS_RESERVED3
+        5: FRNTWIPERSTS_RESERVED5
+        6: FRNTWIPERSTS_RESERVED6
+        7: FRNTWIPERSTS_INVALID
       is_signed_var: false
       len: 3
       name: FrntwiperSts
@@ -1103,16 +1103,16 @@ protocols:
       type: enum
   '336':
     id: '336'
-    name: LightReq336
+    name: light_req_336
     protocol_type: report
     sender: MCU_control
     vars:
     - bit: 23
       enum:
-        0: BrkLiReqNoRequest
-        1: BrkLiReqrequest
-        2: BrkLiReqreserved
-        3: BrkLiReqinvalid
+        0: BRKLIREQ_NO_REQUEST
+        1: BRKLIREQ_REQUEST
+        2: BRKLIREQ_RESERVED
+        3: BRKLIREQ_INVALID
       is_signed_var: false
       len: 2
       name: BrkLiReq
@@ -1124,14 +1124,14 @@ protocols:
       type: enum
     - bit: 15
       enum:
-        0: Frntwiprstsoff
-        1: FrntwiprstsLowSpeed
-        2: FrntwiprstsHighSpeed
-        3: Frntwiprstsreserved3
-        4: Frntwiprstsreserved4
-        5: Frntwiprstsreserved5
-        6: Frntwiprstsreserved6
-        7: Frntwiprstsinvalid
+        0: FRNTWIPRSTS_OFF
+        1: FRNTWIPRSTS_LOW_SPEED
+        2: FRNTWIPRSTS_HIGH_SPEED
+        3: FRNTWIPRSTS_RESERVED3
+        4: FRNTWIPRSTS_RESERVED4
+        5: FRNTWIPRSTS_RESERVED5
+        6: FRNTWIPRSTS_RESERVED6
+        7: FRNTWIPRSTS_INVALID
       is_signed_var: false
       len: 3
       name: Frntwiprsts
@@ -1143,10 +1143,10 @@ protocols:
       type: enum
     - bit: 3
       enum:
-        0: TurnlightindNoTurn
-        1: TurnlightindTurnLeft
-        2: TurnlightindTurnRight
-        3: Turnlightindinvalid
+        0: TURNLIGHTIND_NO_TURN
+        1: TURNLIGHTIND_TURN_LEFT
+        2: TURNLIGHTIND_TURN_RIGHT
+        3: TURNLIGHTIND_INVALID
       is_signed_var: false
       len: 2
       name: Turnlightind
@@ -1158,14 +1158,14 @@ protocols:
       type: enum
     - bit: 12
       enum:
-        0: BeamactiveStsBeamStatusOff
-        1: BeamactiveStsBeamStatusPassive
-        2: BeamactiveStsBeamStatusActive
-        3: BeamactiveStsreserved3
-        4: BeamactiveStsreserved4
-        5: BeamactiveStsreserved5
-        6: BeamactiveStsreserved6
-        7: BeamactiveStsinvalid
+        0: BEAMACTIVESTS_BEAM_STATUS_OFF
+        1: BEAMACTIVESTS_BEAM_STATUS_PASSIVE
+        2: BEAMACTIVESTS_BEAM_STATUS_ACTIVE
+        3: BEAMACTIVESTS_RESERVED3
+        4: BEAMACTIVESTS_RESERVED4
+        5: BEAMACTIVESTS_RESERVED5
+        6: BEAMACTIVESTS_RESERVED6
+        7: BEAMACTIVESTS_INVALID
       is_signed_var: false
       len: 3
       name: BeamactiveSts
@@ -1177,8 +1177,8 @@ protocols:
       type: enum
     - bit: 4
       enum:
-        0: BeamlightreqLowBeamRequest
-        1: BeamlightreqHighBeamRequest
+        0: BEAMLIGHTREQ_LOW_BEAM_REQUEST
+        1: BEAMLIGHTREQ_HIGH_BEAM_REQUEST
       is_signed_var: false
       len: 1
       name: Beamlightreq
@@ -1190,10 +1190,10 @@ protocols:
       type: enum
     - bit: 7
       enum:
-        0: EmeglampReqoff
-        1: EmeglampReq125Hz
-        2: EmeglampReq1Hz
-        3: EmeglampReqinvalid
+        0: EMEGLAMPREQ_OFF
+        1: EMEGLAMPREQ_1_25HZ
+        2: EMEGLAMPREQ_1HZ
+        3: EMEGLAMPREQ_INVALID
       is_signed_var: false
       len: 2
       name: EmeglampReq
@@ -1205,30 +1205,30 @@ protocols:
       type: enum
   4a:
     id: 4a
-    name: Acmbody4a
+    name: acmbody_4a
     protocol_type: report
     sender: CGW
     vars:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: AcmMsgcntr
+      name: ACM_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: '0'
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: AcmCrc
+      name: ACM_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: '0'
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 23
       is_signed_var: false
       len: 16
@@ -1238,7 +1238,7 @@ protocols:
       physical_range: '[-2|2]'
       physical_unit: ''
       precision: 0.001
-      type: Float64
+      type: double
     - bit: 39
       is_signed_var: false
       len: 16
@@ -1248,7 +1248,7 @@ protocols:
       physical_range: '[-180|180]'
       physical_unit: Deg/sec
       precision: 0.01
-      type: Float64
+      type: double
     - bit: 11
       is_signed_var: false
       len: 1
@@ -1258,39 +1258,39 @@ protocols:
       physical_range: '[0|1]'
       physical_unit: ''
       precision: 1.0
-      type: Bool
+      type: bool
   '51':
     id: '51'
-    name: Whlspdfront51
+    name: whlspdfront_51
     protocol_type: report
     sender: CHASSIS_PCAN_STATUS
     vars:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: WfMsgcntr
+      name: WF_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: WfCrc
+      name: WF_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 47
       enum:
-        0: WhlspdFRstsvalid
-        1: WhlspdFRstsinvalid
-        2: WhlspdFRstsinitial
-        3: WhlspdFRstsreserved
+        0: WHLSPDFRSTS_VALID
+        1: WHLSPDFRSTS_INVALID
+        2: WHLSPDFRSTS_INITIAL
+        3: WHLSPDFRSTS_RESERVED
       is_signed_var: false
       len: 2
       name: WhlspdFRsts
@@ -1302,10 +1302,10 @@ protocols:
       type: enum
     - bit: 42
       enum:
-        0: WhlspdFRdirstandstill
-        1: WhlspdFRdirforward
-        2: WhlspdFRdirbackward
-        3: WhlspdFRdirinvalid
+        0: WHLSPDFRDIR_STANDSTILL
+        1: WHLSPDFRDIR_FORWARD
+        2: WHLSPDFRDIR_BACKWARD
+        3: WHLSPDFRDIR_INVALID
       is_signed_var: false
       len: 2
       name: WhlspdFRdir
@@ -1324,13 +1324,13 @@ protocols:
       physical_range: '[0|360]'
       physical_unit: km/h
       precision: 0.05625
-      type: Float64
+      type: double
     - bit: 23
       enum:
-        0: WhlspdFLstsvalid
-        1: WhlspdFLstsinvalid
-        2: WhlspdFLstsinitial
-        3: WhlspdFLstsreserved
+        0: WHLSPDFLSTS_VALID
+        1: WHLSPDFLSTS_INVALID
+        2: WHLSPDFLSTS_INITIAL
+        3: WHLSPDFLSTS_RESERVED
       is_signed_var: false
       len: 2
       name: WhlspdFLsts
@@ -1342,10 +1342,10 @@ protocols:
       type: enum
     - bit: 18
       enum:
-        0: WhlspdFLdirstandstill
-        1: WhlspdFLdirforward
-        2: WhlspdFLdirbackward
-        3: WhlspdFLdirinvalid
+        0: WHLSPDFLDIR_STANDSTILL
+        1: WHLSPDFLDIR_FORWARD
+        2: WHLSPDFLDIR_BACKWARD
+        3: WHLSPDFLDIR_INVALID
       is_signed_var: false
       len: 2
       name: WhlspdFLdir
@@ -1364,39 +1364,39 @@ protocols:
       physical_range: '[0|360]'
       physical_unit: km/h
       precision: 0.05625
-      type: Float64
+      type: double
   '52':
     id: '52'
-    name: Whlspdrear52
+    name: whlspdrear_52
     protocol_type: report
     sender: CHASSIS_PCAN_STATUS
     vars:
     - bit: 7
       is_signed_var: false
       len: 8
-      name: WrCrc
+      name: WR_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 15
       is_signed_var: false
       len: 4
-      name: WrMsgcntr
+      name: WR_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 47
       enum:
-        0: WhlspdRRstsvalid
-        1: WhlspdRRstsinvalid
-        2: WhlspdRRstsinitial
-        3: WhlspdRRstsreserved
+        0: WHLSPDRRSTS_VALID
+        1: WHLSPDRRSTS_INVALID
+        2: WHLSPDRRSTS_INITIAL
+        3: WHLSPDRRSTS_RESERVED
       is_signed_var: false
       len: 2
       name: WhlspdRRsts
@@ -1408,10 +1408,10 @@ protocols:
       type: enum
     - bit: 42
       enum:
-        0: WhlspdRRdirstandstill
-        1: WhlspdRRdirforward
-        2: WhlspdRRdirbackward
-        3: WhlspdRRdirinvalid
+        0: WHLSPDRRDIR_STANDSTILL
+        1: WHLSPDRRDIR_FORWARD
+        2: WHLSPDRRDIR_BACKWARD
+        3: WHLSPDRRDIR_INVALID
       is_signed_var: false
       len: 2
       name: WhlspdRRdir
@@ -1430,13 +1430,13 @@ protocols:
       physical_range: '[0|360]'
       physical_unit: km/h
       precision: 0.05625
-      type: Float64
+      type: double
     - bit: 23
       enum:
-        0: WhlspdRLstsvalid
-        1: WhlspdRLstsinvalid
-        2: WhlspdRLstsinitial
-        3: WhlspdRLstsreserved
+        0: WHLSPDRLSTS_VALID
+        1: WHLSPDRLSTS_INVALID
+        2: WHLSPDRLSTS_INITIAL
+        3: WHLSPDRLSTS_RESERVED
       is_signed_var: false
       len: 2
       name: WhlspdRLsts
@@ -1448,10 +1448,10 @@ protocols:
       type: enum
     - bit: 18
       enum:
-        0: WhlspdRLdirstandstill
-        1: WhlspdRLdirforward
-        2: WhlspdRLdirbackward
-        3: WhlspdRLdirinvalid
+        0: WHLSPDRLDIR_STANDSTILL
+        1: WHLSPDRLDIR_FORWARD
+        2: WHLSPDRLDIR_BACKWARD
+        3: WHLSPDRLDIR_INVALID
       is_signed_var: false
       len: 2
       name: WhlspdRLdir
@@ -1470,17 +1470,17 @@ protocols:
       physical_range: '[0|360]'
       physical_unit: km/h
       precision: 0.05625
-      type: Float64
+      type: double
   5e:
     id: 5e
-    name: Bcusts5e
+    name: bcusts_5e
     protocol_type: report
     sender: Vector__XXX
     vars:
     - bit: 4
       enum:
-        0: TCSActvNotActive
-        1: TCSActvActive
+        0: TCSACTV_NOT_ACTIVE
+        1: TCSACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: TCSActv
@@ -1492,8 +1492,8 @@ protocols:
       type: enum
     - bit: 27
       enum:
-        0: SCMAvlNotAvailable
-        1: SCMAvlavailable
+        0: SCMAVL_NOT_AVAILABLE
+        1: SCMAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: SCMAvl
@@ -1505,8 +1505,8 @@ protocols:
       type: enum
     - bit: 34
       enum:
-        0: HFCActvNotActive
-        1: HFCActvActive
+        0: HFCACTV_NOT_ACTIVE
+        1: HFCACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: HFCActv
@@ -1518,8 +1518,8 @@ protocols:
       type: enum
     - bit: 6
       enum:
-        0: VDCActvNotActive
-        1: VDCActvActive
+        0: VDCACTV_NOT_ACTIVE
+        1: VDCACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: VDCActv
@@ -1531,10 +1531,10 @@ protocols:
       type: enum
     - bit: 31
       enum:
-        0: AVHStsFailureAVHLampOnWithYellowColor
-        1: AVHStsStandbyAVHLampOff
-        2: AVHStsActiveAVHLampOnWithGreenColor
-        3: AVHStsReserved
+        0: AVHSTS_FAILURE_AVH_LAMP_ON_WITH_YELLOW_COLOR
+        1: AVHSTS_STANDBY_AVH_LAMP_OFF
+        2: AVHSTS_ACTIVE_AVH_LAMP_ON_WITH_GREEN_COLOR
+        3: AVHSTS_RESERVED
       is_signed_var: false
       len: 2
       name: AVHSts
@@ -1546,8 +1546,8 @@ protocols:
       type: enum
     - bit: 41
       enum:
-        0: AutoBrkgActvNotActive
-        1: AutoBrkgActvActive
+        0: AUTOBRKGACTV_NOT_ACTIVE
+        1: AUTOBRKGACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: AutoBrkgActv
@@ -1559,8 +1559,8 @@ protocols:
       type: enum
     - bit: 5
       enum:
-        0: VDCDeactvNotDeactivated
-        1: VDCDeactvDeactivated
+        0: VDCDEACTV_NOT_DEACTIVATED
+        1: VDCDEACTV_DEACTIVATED
       is_signed_var: false
       len: 1
       name: VDCDeactv
@@ -1572,8 +1572,8 @@ protocols:
       type: enum
     - bit: 9
       enum:
-        0: ABAActvNotActive
-        1: ABAActvActive
+        0: ABAACTV_NOT_ACTIVE
+        1: ABAACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: ABAActv
@@ -1585,8 +1585,8 @@ protocols:
       type: enum
     - bit: 42
       enum:
-        0: AutoBrkgAvlNotAvailable
-        1: AutoBrkgAvlAvailable
+        0: AUTOBRKGAVL_NOT_AVAILABLE
+        1: AUTOBRKGAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: AutoBrkgAvl
@@ -1598,8 +1598,8 @@ protocols:
       type: enum
     - bit: 39
       enum:
-        0: HBAActvNotActive
-        1: HBAActvActive
+        0: HBAACTV_NOT_ACTIVE
+        1: HBAACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: HBAActv
@@ -1613,8 +1613,8 @@ protocols:
       description: 'Automatic Emergency Braking (AEB) available (Reserved and BCU
         should send value 0) '
       enum:
-        0: AEBAvlNotAvailable
-        1: AEBAvlavailable
+        0: AEBAVL_NOT_AVAILABLE
+        1: AEBAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: AEBAvl
@@ -1628,8 +1628,8 @@ protocols:
       description: 'Automatic Emergency Braking (AEB) active (Reserved and BCU should
         send value 0)  '
       enum:
-        0: AEBActvNotActive
-        1: AEBActvActive
+        0: AEBACTV_NOT_ACTIVE
+        1: AEBACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: AEBActv
@@ -1642,8 +1642,8 @@ protocols:
     - bit: 54
       description: 'Controlled Deceleration for Parking brake (CDP) available      '
       enum:
-        0: CDPAvailNotAvailable
-        1: CDPAvailavailable
+        0: CDPAVAIL_NOT_AVAILABLE
+        1: CDPAVAIL_AVAILABLE
       is_signed_var: false
       len: 1
       name: CDPAvail
@@ -1656,8 +1656,8 @@ protocols:
     - bit: 16
       description: 'Adaptive Brake Assist (ABA) available      '
       enum:
-        0: ABAAvlNotAvailable
-        1: ABAAvlavailable
+        0: ABAAVL_NOT_AVAILABLE
+        1: ABAAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: ABAAvl
@@ -1670,10 +1670,10 @@ protocols:
     - bit: 18
       description: Hill Descent Control (HDC) status
       enum:
-        0: HDCStsOff
-        1: HDCStsFailure
-        2: HDCStsStandby
-        3: HDCStsActive
+        0: HDCSTS_OFF
+        1: HDCSTS_FAILURE
+        2: HDCSTS_STANDBY
+        3: HDCSTS_ACTIVE
       is_signed_var: false
       len: 2
       name: HDCSts
@@ -1686,8 +1686,8 @@ protocols:
     - bit: 3
       description: 'Traction Control System (TCS) active   '
       enum:
-        0: TCSDeactvNotDeactivated
-        1: TCSDeactvDeactivated
+        0: TCSDEACTV_NOT_DEACTIVATED
+        1: TCSDEACTV_DEACTIVATED
       is_signed_var: false
       len: 1
       name: TCSDeactv
@@ -1700,8 +1700,8 @@ protocols:
     - bit: 46
       description: 'Automatic Warn Braking (AWB) available      '
       enum:
-        0: AWBAvlNotAvailable
-        1: AWBAvlavailable
+        0: AWBAVL_NOT_AVAILABLE
+        1: AWBAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: AWBAvl
@@ -1714,8 +1714,8 @@ protocols:
     - bit: 10
       description: 'Automatic Brake Prefill (EBP) available   '
       enum:
-        0: ABPAvlNotAvailable
-        1: ABPAvlavailable
+        0: ABPAVL_NOT_AVAILABLE
+        1: ABPAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: ABPAvl
@@ -1728,8 +1728,8 @@ protocols:
     - bit: 47
       description: 'Automatic Warn Braking (AWB) active      '
       enum:
-        0: AWBActvNotActive
-        1: AWBActvActive
+        0: AWBACTV_NOT_ACTIVE
+        1: AWBACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: AWBActv
@@ -1742,8 +1742,8 @@ protocols:
     - bit: 28
       description: 'Emergency Brake Assist (EBA) available      '
       enum:
-        0: EBAAvlNotAvailable
-        1: EBAAvlavailable
+        0: EBAAVL_NOT_AVAILABLE
+        1: EBAAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: EBAAvl
@@ -1757,10 +1757,10 @@ protocols:
       description: 'Error detected by ESC for MRR (ACC and AEB) in CAN frame information  such
         as Timeout, invalid values, CRC or alive counter.  '
       enum:
-        0: QDCACCFailNoError
-        1: QDCACCFailError
-        2: QDCACCFailReserved2
-        3: QDCACCFailReserved3
+        0: QDCACCFAIL_NO_ERROR
+        1: QDCACCFAIL_ERROR
+        2: QDCACCFAIL_RESERVED2
+        3: QDCACCFAIL_RESERVED3
       is_signed_var: false
       len: 2
       name: QDCACCFail
@@ -1773,8 +1773,8 @@ protocols:
     - bit: 11
       description: 'Automatic Brake Prefill (EBP) active   '
       enum:
-        0: ABPActvNotActive
-        1: ABPActvActive
+        0: ABPACTV_NOT_ACTIVE
+        1: ABPACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: ABPActv
@@ -1788,8 +1788,8 @@ protocols:
       description: Pedestrian Protection (PEDP) available (Reserved and BCU should
         send value 0)
       enum:
-        0: PEDPAvlNotAvailable
-        1: PEDPAvlavailable
+        0: PEDPAVL_NOT_AVAILABLE
+        1: PEDPAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: PEDPAvl
@@ -1802,8 +1802,8 @@ protocols:
     - bit: 24
       description: 'Controlled Deceleration for DAS (Driver Assistant System) available     '
       enum:
-        0: CDDSAvlNotAvailable
-        1: CDDSAvlavailable
+        0: CDDSAVL_NOT_AVAILABLE
+        1: CDDSAVL_AVAILABLE
       is_signed_var: false
       len: 1
       name: CDDSAvl
@@ -1816,14 +1816,14 @@ protocols:
     - bit: 52
       description: 'Styandstill status from Brake (not wheel speed)   '
       enum:
-        0: StandstillStsNonHold
-        1: StandstillStsSoftStop
-        2: StandstillStsTemporaryHoldByServiceBrakes
-        3: StandstillStsHoldByServiceBrakes
-        4: StandstillStsTransitionToANonHold
-        5: StandstillStsParkedVehicleAutonomousParkBrake
-        6: StandstillStsReserved6
-        7: StandstillStsReserved7
+        0: STANDSTILLSTS_NON_HOLD
+        1: STANDSTILLSTS_SOFT_STOP
+        2: STANDSTILLSTS_TEMPORARY_HOLD_BY_SERVICE_BRAKES
+        3: STANDSTILLSTS_HOLD_BY_SERVICE_BRAKES
+        4: STANDSTILLSTS_TRANSITION_TO_A_NON_HOLD
+        5: STANDSTILLSTS_PARKED_VEHICLE_AUTONOMOUS_PARK_BRAKE
+        6: STANDSTILLSTS_RESERVED6
+        7: STANDSTILLSTS_RESERVED7
       is_signed_var: false
       len: 3
       name: StandstillSts
@@ -1836,8 +1836,8 @@ protocols:
     - bit: 53
       description: 'Hill Hold Control (HHC) available      '
       enum:
-        0: HHCAvailNotAvailable
-        1: HHCAvailavailable
+        0: HHCAVAIL_NOT_AVAILABLE
+        1: HHCAVAIL_AVAILABLE
       is_signed_var: false
       len: 1
       name: HHCAvail
@@ -1850,8 +1850,8 @@ protocols:
     - bit: 15
       description: 'Antilock Brake System (ABS) active      '
       enum:
-        0: ABSActvNotActive
-        1: ABSActvActive
+        0: ABSACTV_NOT_ACTIVE
+        1: ABSACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: ABSActv
@@ -1865,8 +1865,8 @@ protocols:
       description: Pedestrian Protection (PEDP) active (Reserved and BCU should send
         value 0)
       enum:
-        0: PEDPActvNotActive
-        1: PEDPActvActive
+        0: PEDPACTV_NOT_ACTIVE
+        1: PEDPACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: PEDPActv
@@ -1879,8 +1879,8 @@ protocols:
     - bit: 23
       description: 'Emergency Brake Assist (EBA) active      '
       enum:
-        0: EBAActvNotActive
-        1: EBAActvActive
+        0: EBAACTV_NOT_ACTIVE
+        1: EBAACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: EBAActv
@@ -1893,8 +1893,8 @@ protocols:
     - bit: 45
       description: 'Controled Deceleration for Parking brake (CDP) active      '
       enum:
-        0: CDPActvNotActive
-        1: CDPActvActive
+        0: CDPACTV_NOT_ACTIVE
+        1: CDPACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: CDPActv
@@ -1907,8 +1907,8 @@ protocols:
     - bit: 2
       description: 'Electronic Brake Distribution (EBD) active      '
       enum:
-        0: EBDActvNotActive
-        1: EBDActvActive
+        0: EBDACTV_NOT_ACTIVE
+        1: EBDACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: EBDActv
@@ -1922,8 +1922,8 @@ protocols:
       description: Secondary Colision Mitigation (SCM) active (Reserved and BCU should
         send value 0)
       enum:
-        0: SCMActvNotActive
-        1: SCMActvActive
+        0: SCMACTV_NOT_ACTIVE
+        1: SCMACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: SCMActv
@@ -1936,8 +1936,8 @@ protocols:
     - bit: 0
       description: 'Drag Torque Control (DTC) active    '
       enum:
-        0: DTCActvNotActive
-        1: DTCActvActive
+        0: DTCACTV_NOT_ACTIVE
+        1: DTCACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: DTCActv
@@ -1950,8 +1950,8 @@ protocols:
     - bit: 35
       description: 'Hydraulic Rear wheel Boost (HRB) active      '
       enum:
-        0: HRBActvNotActive
-        1: HRBActvActive
+        0: HRBACTV_NOT_ACTIVE
+        1: HRBACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: HRBActv
@@ -1964,8 +1964,8 @@ protocols:
     - bit: 55
       description: 'ECDT temperature offset      '
       enum:
-        0: ECDTTempOffsTemperatureNotHigh
-        1: ECDTTempOffsTemepratureTooHigh
+        0: ECDTTEMPOFFS_TEMPERATURE_NOT_HIGH
+        1: ECDTTEMPOFFS_TEMEPRATURE_TOO_HIGH
       is_signed_var: false
       len: 1
       name: ECDTTempOffs
@@ -1978,8 +1978,8 @@ protocols:
     - bit: 26
       description: 'Controlled Deceleration for DAS (Driver Assistant System) active   '
       enum:
-        0: CDDSActvNotActive
-        1: CDDSActvActive
+        0: CDDSACTV_NOT_ACTIVE
+        1: CDDSACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: CDDSActv
@@ -1992,8 +1992,8 @@ protocols:
     - bit: 40
       description: 'Hill Hold Control (HHC) active '
       enum:
-        0: HHCActvNotActive
-        1: HHCActvActive
+        0: HHCACTV_NOT_ACTIVE
+        1: HHCACTV_ACTIVE
       is_signed_var: false
       len: 1
       name: HHCActv
@@ -2005,17 +2005,17 @@ protocols:
       type: enum
   '65':
     id: '65'
-    name: Pulsecnt65
+    name: pulsecnt_65
     protocol_type: report
     sender: CHASSIS_PCAN_STATUS
     vars:
     - bit: 63
       enum:
-        0: WhlplscntRRvldvalid
-        1: WhlplscntRRvldinvalid
+        0: WHLPLSCNTRRVLD_VALID
+        1: WHLPLSCNTRRVLD_INVALID
       is_signed_var: false
       len: 1
-      name: WhlplscntRRvld
+      name: whlplscntRRvld
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -2025,20 +2025,20 @@ protocols:
     - bit: 55
       is_signed_var: false
       len: 8
-      name: WhlplscntRR
+      name: whlplscntRR
       offset: 0.0
       order: motorola
       physical_range: '[0|254]'
       physical_unit: pulse
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 47
       enum:
-        0: WhlplscntRLvldvalid
-        1: WhlplscntRLvldinvalid
+        0: WHLPLSCNTRLVLD_VALID
+        1: WHLPLSCNTRLVLD_INVALID
       is_signed_var: false
       len: 1
-      name: WhlplscntRLvld
+      name: whlplscntRLvld
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -2048,20 +2048,20 @@ protocols:
     - bit: 39
       is_signed_var: false
       len: 8
-      name: WhlplscntRL
+      name: whlplscntRL
       offset: 0.0
       order: motorola
       physical_range: '[0|254]'
       physical_unit: pulse
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 31
       enum:
-        0: WhlplscntFRvldvalid
-        1: WhlplscntFRvldinvalid
+        0: WHLPLSCNTFRVLD_VALID
+        1: WHLPLSCNTFRVLD_INVALID
       is_signed_var: false
       len: 1
-      name: WhlplscntFRvld
+      name: whlplscntFRvld
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -2071,20 +2071,20 @@ protocols:
     - bit: 23
       is_signed_var: false
       len: 8
-      name: WhlplscntFR
+      name: whlplscntFR
       offset: 0.0
       order: motorola
       physical_range: '[0|254]'
       physical_unit: pulse
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 15
       enum:
-        0: WhlplscntFLvldvalid
-        1: WhlplscntFLvldinvalid
+        0: WHLPLSCNTFLVLD_VALID
+        1: WHLPLSCNTFLVLD_INVALID
       is_signed_var: false
       len: 1
-      name: WhlplscntFLvld
+      name: whlplscntFLvld
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -2094,16 +2094,16 @@ protocols:
     - bit: 7
       is_signed_var: false
       len: 8
-      name: WhlplscntFL
+      name: whlplscntFL
       offset: 0.0
       order: motorola
       physical_range: '[0|254]'
       physical_unit: pulse
       precision: 1.0
-      type: Int32
+      type: int
   '79':
     id: '79'
-    name: Aebreq79
+    name: aebreq_79
     protocol_type: report
     sender: MCU_control
     vars:
@@ -2116,11 +2116,11 @@ protocols:
       physical_range: '[-16|15.99]'
       physical_unit: m/s2
       precision: 0.0004882
-      type: Float64
+      type: double
     - bit: 28
       enum:
-        0: ABAReqNoRequest
-        1: ABAReqRequest
+        0: ABAREQ_NO_REQUEST
+        1: ABAREQ_REQUEST
       is_signed_var: false
       len: 1
       name: ABAReq
@@ -2132,10 +2132,10 @@ protocols:
       type: enum
     - bit: 26
       enum:
-        0: ABASnvtyLvlLevel0
-        1: ABASnvtyLvlLevel1
-        2: ABASnvtyLvlLevel2
-        3: ABASnvtyLvlLevel3
+        0: ABASNVTYLVL_LEVEL_0
+        1: ABASNVTYLVL_LEVEL_1
+        2: ABASNVTYLVL_LEVEL_2
+        3: ABASNVTYLVL_LEVEL_3
       is_signed_var: false
       len: 2
       name: ABASnvtyLvl
@@ -2147,10 +2147,10 @@ protocols:
       type: enum
     - bit: 38
       enum:
-        0: AWBSnvtyLvlLevel0
-        1: AWBSnvtyLvlLevel1
-        2: AWBSnvtyLvlLevel2
-        3: AWBSnvtyLvlLevel3
+        0: AWBSNVTYLVL_LEVEL_0
+        1: AWBSNVTYLVL_LEVEL_1
+        2: AWBSNVTYLVL_LEVEL_2
+        3: AWBSNVTYLVL_LEVEL_3
       is_signed_var: false
       len: 2
       name: AWBSnvtyLvl
@@ -2162,8 +2162,8 @@ protocols:
       type: enum
     - bit: 30
       enum:
-        0: AWBReqNoRequest
-        1: AWBReqRequest
+        0: AWBREQ_NO_REQUEST
+        1: AWBREQ_REQUEST
       is_signed_var: false
       len: 1
       name: AWBReq
@@ -2175,8 +2175,8 @@ protocols:
       type: enum
     - bit: 18
       enum:
-        0: SCMDecelReqNoRequest
-        1: SCMDecelReqRequest
+        0: SCMDECELREQ_NO_REQUEST
+        1: SCMDECELREQ_REQUEST
       is_signed_var: false
       len: 1
       name: SCMDecelReq
@@ -2189,17 +2189,17 @@ protocols:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: AebMsgcntr
+      name: AEB_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 22
       enum:
-        0: AEBDecelReqNoRequest
-        1: AEBDecelReqRequest
+        0: AEBDECELREQ_NO_REQUEST
+        1: AEBDECELREQ_REQUEST
       is_signed_var: false
       len: 1
       name: AEBDecelReq
@@ -2211,8 +2211,8 @@ protocols:
       type: enum
     - bit: 31
       enum:
-        0: EBADecelReqNoRequest
-        1: EBADecelReqRequest
+        0: EBADECELREQ_NO_REQUEST
+        1: EBADECELREQ_REQUEST
       is_signed_var: false
       len: 1
       name: EBADecelReq
@@ -2224,8 +2224,8 @@ protocols:
       type: enum
     - bit: 16
       enum:
-        0: ABPReqNoRequest
-        1: ABPReqRequest
+        0: ABPREQ_NO_REQUEST
+        1: ABPREQ_REQUEST
       is_signed_var: false
       len: 1
       name: ABPReq
@@ -2237,8 +2237,8 @@ protocols:
       type: enum
     - bit: 20
       enum:
-        0: PEDPDecReqNoRequest
-        1: PEDPDecReqRequest
+        0: PEDPDECREQ_NO_REQUEST
+        1: PEDPDECREQ_REQUEST
       is_signed_var: false
       len: 1
       name: PEDPDecReq
@@ -2251,25 +2251,25 @@ protocols:
     - bit: 7
       is_signed_var: false
       len: 8
-      name: AebCrc
+      name: AEB_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
   7b:
     id: 7b
-    name: Scmsts7b
+    name: scmsts_7b
     protocol_type: report
     sender: Vector__XXX
     vars:
     - bit: 41
       enum:
-        0: SCMFailStsNormal
-        1: SCMFailStsFail
-        2: SCMFailStsReserved
-        3: SCMFailStsInvalid
+        0: SCMFAILSTS_NORMAL
+        1: SCMFAILSTS_FAIL
+        2: SCMFAILSTS_RESERVED
+        3: SCMFAILSTS_INVALID
       is_signed_var: false
       len: 2
       name: SCMFailSts
@@ -2281,10 +2281,10 @@ protocols:
       type: enum
     - bit: 39
       enum:
-        0: HiLowBeamPushSwtStsNoCommandDefaultPosition
-        1: HiLowBeamPushSwtStsFlashCommand
-        2: HiLowBeamPushSwtStsLowBeamOrHighBeamCommand
-        3: HiLowBeamPushSwtStsInvalid
+        0: HILOWBEAMPUSHSWTSTS_NO_COMMAND_DEFAULT_POSITION
+        1: HILOWBEAMPUSHSWTSTS_FLASH_COMMAND
+        2: HILOWBEAMPUSHSWTSTS_LOW_BEAM_OR_HIGH_BEAM_COMMAND
+        3: HILOWBEAMPUSHSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: HiLowBeamPushSwtSts
@@ -2296,14 +2296,14 @@ protocols:
       type: enum
     - bit: 23
       enum:
-        0: FrntWiprSwtStsFrontWiperOff
-        1: FrntWiprSwtStsFrontWiperLowSpeed
-        2: FrntWiprSwtStsFrontWiperHighSpeed
-        3: FrntWiprSwtStsFrontWiperIntermediateSpeed
-        4: FrntWiprSwtStsFrontWiperWipeOneTime
-        5: FrntWiprSwtStsReserved5
-        6: FrntWiprSwtStsReserved6
-        7: FrntWiprSwtStsInvalid
+        0: FRNTWIPRSWTSTS_FRONT_WIPER_OFF
+        1: FRNTWIPRSWTSTS_FRONT_WIPER_LOW_SPEED
+        2: FRNTWIPRSWTSTS_FRONT_WIPER_HIGH_SPEED
+        3: FRNTWIPRSWTSTS_FRONT_WIPER_INTERMEDIATE_SPEED
+        4: FRNTWIPRSWTSTS_FRONT_WIPER_WIPE_ONE_TIME
+        5: FRNTWIPRSWTSTS_RESERVED5
+        6: FRNTWIPRSWTSTS_RESERVED6
+        7: FRNTWIPRSWTSTS_INVALID
       is_signed_var: false
       len: 3
       name: FrntWiprSwtSts
@@ -2315,10 +2315,10 @@ protocols:
       type: enum
     - bit: 47
       enum:
-        0: TurnIndcrSwtStsNoTurnIndicator
-        1: TurnIndcrSwtStsTurnIndicatorLeft
-        2: TurnIndcrSwtStsTurnIndicatorRight
-        3: TurnIndcrSwtStsInvalid
+        0: TURNINDCRSWTSTS_NO_TURN_INDICATOR
+        1: TURNINDCRSWTSTS_TURN_INDICATOR_LEFT
+        2: TURNINDCRSWTSTS_TURN_INDICATOR_RIGHT
+        3: TURNINDCRSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: TurnIndcrSwtSts
@@ -2330,10 +2330,10 @@ protocols:
       type: enum
     - bit: 37
       enum:
-        0: FogLiPushSwtStsPushSwitchNotPressed
-        1: FogLiPushSwtStsPushSwitchPressed
-        2: FogLiPushSwtStsReserved
-        3: FogLiPushSwtStsInvalid
+        0: FOGLIPUSHSWTSTS_PUSH_SWITCH_NOT_PRESSED
+        1: FOGLIPUSHSWTSTS_PUSH_SWITCH_PRESSED
+        2: FOGLIPUSHSWTSTS_RESERVED
+        3: FOGLIPUSHSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: FogLiPushSwtSts
@@ -2345,14 +2345,14 @@ protocols:
       type: enum
     - bit: 19
       enum:
-        0: FrntWiprInterSpdReserved
-        1: FrntWiprInterSpdIntermediateSpeed1
-        2: FrntWiprInterSpdIntermediateSpeed2
-        3: FrntWiprInterSpdIntermediateSpeed3
-        4: FrntWiprInterSpdIntermediateSpeed4
-        5: FrntWiprInterSpdReserved5
-        6: FrntWiprInterSpdReserved6
-        7: FrntWiprInterSpdInvalid
+        0: FRNTWIPRINTERSPD_RESERVED
+        1: FRNTWIPRINTERSPD_INTERMEDIATE_SPEED_1
+        2: FRNTWIPRINTERSPD_INTERMEDIATE_SPEED_2
+        3: FRNTWIPRINTERSPD_INTERMEDIATE_SPEED_3
+        4: FRNTWIPRINTERSPD_INTERMEDIATE_SPEED_4
+        5: FRNTWIPRINTERSPD_RESERVED5
+        6: FRNTWIPRINTERSPD_RESERVED6
+        7: FRNTWIPRINTERSPD_INVALID
       is_signed_var: false
       len: 3
       name: FrntWiprInterSpd
@@ -2364,10 +2364,10 @@ protocols:
       type: enum
     - bit: 55
       enum:
-        0: MenuOrVolDwnPushSwtStsNotPressed
-        1: MenuOrVolDwnPushSwtStsPressed
-        2: MenuOrVolDwnPushSwtStsReserved
-        3: MenuOrVolDwnPushSwtStsInvalid
+        0: MENUORVOLDWNPUSHSWTSTS_NOT_PRESSED
+        1: MENUORVOLDWNPUSHSWTSTS_PRESSED
+        2: MENUORVOLDWNPUSHSWTSTS_RESERVED
+        3: MENUORVOLDWNPUSHSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: MenuOrVolDwnPushSwtSts
@@ -2379,10 +2379,10 @@ protocols:
       type: enum
     - bit: 59
       enum:
-        0: AccSpdIncOrResuSwtStsNotPressed
-        1: AccSpdIncOrResuSwtStsPressed
-        2: AccSpdIncOrResuSwtStsReserved
-        3: AccSpdIncOrResuSwtStsInvalid
+        0: ACCSPDINCORRESUSWTSTS_NOT_PRESSED
+        1: ACCSPDINCORRESUSWTSTS_PRESSED
+        2: ACCSPDINCORRESUSWTSTS_RESERVED
+        3: ACCSPDINCORRESUSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: AccSpdIncOrResuSwtSts
@@ -2394,10 +2394,10 @@ protocols:
       type: enum
     - bit: 10
       enum:
-        0: AccTimeGapIncSwtStsNotPressed
-        1: AccTimeGapIncSwtStsPressed
-        2: AccTimeGapIncSwtStsReserved
-        3: AccTimeGapIncSwtStsInvalid
+        0: ACCTIMEGAPINCSWTSTS_NOT_PRESSED
+        1: ACCTIMEGAPINCSWTSTS_PRESSED
+        2: ACCTIMEGAPINCSWTSTS_RESERVED
+        3: ACCTIMEGAPINCSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: AccTimeGapIncSwtSts
@@ -2409,10 +2409,10 @@ protocols:
       type: enum
     - bit: 63
       enum:
-        0: SelnPushSwtStsNotPressed
-        1: SelnPushSwtStsPressed
-        2: SelnPushSwtStsReserved
-        3: SelnPushSwtStsInvalid
+        0: SELNPUSHSWTSTS_NOT_PRESSED
+        1: SELNPUSHSWTSTS_PRESSED
+        2: SELNPUSHSWTSTS_RESERVED
+        3: SELNPUSHSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: SelnPushSwtSts
@@ -2424,10 +2424,10 @@ protocols:
       type: enum
     - bit: 25
       enum:
-        0: ModeTogDecSwtStsNotPressed
-        1: ModeTogDecSwtStsPressed
-        2: ModeTogDecSwtStsReserved
-        3: ModeTogDecSwtStsInvalid
+        0: MODETOGDECSWTSTS_NOT_PRESSED
+        1: MODETOGDECSWTSTS_PRESSED
+        2: MODETOGDECSWTSTS_RESERVED
+        3: MODETOGDECSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: ModeTogDecSwtSts
@@ -2439,10 +2439,10 @@ protocols:
       type: enum
     - bit: 44
       enum:
-        0: ModeTogIncSwtStsNotPressed
-        1: ModeTogIncSwtStsPressed
-        2: ModeTogIncSwtStsReserved
-        3: ModeTogIncSwtStsInvalid
+        0: MODETOGINCSWTSTS_NOT_PRESSED
+        1: MODETOGINCSWTSTS_PRESSED
+        2: MODETOGINCSWTSTS_RESERVED
+        3: MODETOGINCSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: ModeTogIncSwtSts
@@ -2454,10 +2454,10 @@ protocols:
       type: enum
     - bit: 31
       enum:
-        0: MenuPushSwtStsNotPressed
-        1: MenuPushSwtStsPressed
-        2: MenuPushSwtStsReserved
-        3: MenuPushSwtStsInvalid
+        0: MENUPUSHSWTSTS_NOT_PRESSED
+        1: MENUPUSHSWTSTS_PRESSED
+        2: MENUPUSHSWTSTS_RESERVED
+        3: MENUPUSHSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: MenuPushSwtSts
@@ -2469,10 +2469,10 @@ protocols:
       type: enum
     - bit: 57
       enum:
-        0: SWCFailStsNormal
-        1: SWCFailStsFail
-        2: SWCFailStsReserved
-        3: SWCFailStsInvalid
+        0: SWCFAILSTS_NORMAL
+        1: SWCFAILSTS_FAIL
+        2: SWCFAILSTS_RESERVED
+        3: SWCFAILSTS_INVALID
       is_signed_var: false
       len: 2
       name: SWCFailSts
@@ -2484,10 +2484,10 @@ protocols:
       type: enum
     - bit: 34
       enum:
-        0: AccSpdDecSwtStsNotPressed
-        1: AccSpdDecSwtStsPressed
-        2: AccSpdDecSwtStsReserved
-        3: AccSpdDecSwtStsInvalid
+        0: ACCSPDDECSWTSTS_NOT_PRESSED
+        1: ACCSPDDECSWTSTS_PRESSED
+        2: ACCSPDDECSWTSTS_RESERVED
+        3: ACCSPDDECSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: AccSpdDecSwtSts
@@ -2500,19 +2500,19 @@ protocols:
     - bit: 7
       is_signed_var: false
       len: 8
-      name: ScmCrc
+      name: SCM_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 61
       enum:
-        0: MenuLePushSwtStsNotPressed
-        1: MenuLePushSwtStsPressed
-        2: MenuLePushSwtStsReserved
-        3: MenuLePushSwtStsInvalid
+        0: MENULEPUSHSWTSTS_NOT_PRESSED
+        1: MENULEPUSHSWTSTS_PRESSED
+        2: MENULEPUSHSWTSTS_RESERVED
+        3: MENULEPUSHSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: MenuLePushSwtSts
@@ -2524,10 +2524,10 @@ protocols:
       type: enum
     - bit: 51
       enum:
-        0: MenuOrVolUpPushSwtStsNotPressed
-        1: MenuOrVolUpPushSwtStsPressed
-        2: MenuOrVolUpPushSwtStsReserved
-        3: MenuOrVolUpPushSwtStsInvalid
+        0: MENUORVOLUPPUSHSWTSTS_NOT_PRESSED
+        1: MENUORVOLUPPUSHSWTSTS_PRESSED
+        2: MENUORVOLUPPUSHSWTSTS_RESERVED
+        3: MENUORVOLUPPUSHSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: MenuOrVolUpPushSwtSts
@@ -2540,19 +2540,19 @@ protocols:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: ScmMsgcntr
+      name: SCM_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 53
       enum:
-        0: AccTimeGapDecSwtStsNotPressed
-        1: AccTimeGapDecSwtStsPressed
-        2: AccTimeGapDecSwtStsReserved
-        3: AccTimeGapDecSwtStsInvalid
+        0: ACCTIMEGAPDECSWTSTS_NOT_PRESSED
+        1: ACCTIMEGAPDECSWTSTS_PRESSED
+        2: ACCTIMEGAPDECSWTSTS_RESERVED
+        3: ACCTIMEGAPDECSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: AccTimeGapDecSwtSts
@@ -2564,10 +2564,10 @@ protocols:
       type: enum
     - bit: 49
       enum:
-        0: MenuRiPushSwtStsNotPressed
-        1: MenuRiPushSwtStsPressed
-        2: MenuRiPushSwtStsReserved
-        3: MenuRiPushSwtStsInvalid
+        0: MENURIPUSHSWTSTS_NOT_PRESSED
+        1: MENURIPUSHSWTSTS_PRESSED
+        2: MENURIPUSHSWTSTS_RESERVED
+        3: MENURIPUSHSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: MenuRiPushSwtSts
@@ -2579,10 +2579,10 @@ protocols:
       type: enum
     - bit: 28
       enum:
-        0: AccSetSwtStsNotPressed
-        1: AccSetSwtStsPressed
-        2: AccSetSwtStsReserved
-        3: AccSetSwtStsInvalid
+        0: ACCSETSWTSTS_NOT_PRESSED
+        1: ACCSETSWTSTS_PRESSED
+        2: ACCSETSWTSTS_RESERVED
+        3: ACCSETSWTSTS_INVALID
       is_signed_var: false
       len: 2
       name: AccSetSwtSts
@@ -2594,18 +2594,18 @@ protocols:
       type: enum
   7f:
     id: 7f
-    name: Accreq7f
+    name: accreq_7f
     protocol_type: report
     sender: MCU_control
     vars:
     - bit: 31
       description: drive off request
       enum:
-        0: AccDrvoffNoRequest
-        1: AccDrvoffRequest
+        0: ACC_DRVOFF_NO_REQUEST
+        1: ACC_DRVOFF_REQUEST
       is_signed_var: false
       len: 1
-      name: AccDrvoff
+      name: Acc_DrvOff
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -2615,11 +2615,11 @@ protocols:
     - bit: 28
       description: decelerate to stop
       enum:
-        0: AccDeStopNoRequest
-        1: AccDeStoprequest
+        0: ACC_DE_STOP_NO_REQUEST
+        1: ACC_DE_STOP_REQUEST
       is_signed_var: false
       len: 1
-      name: AccDeStop
+      name: Acc_De_stop
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -2629,36 +2629,36 @@ protocols:
     - bit: 47
       is_signed_var: false
       len: 7
-      name: AccMaxjerk
+      name: Acc_MaxJerk
       offset: 0.0
       order: motorola
       physical_range: '[0|25.4]'
       physical_unit: ''
       precision: 0.2
-      type: Float64
+      type: double
     - bit: 63
       is_signed_var: false
       len: 7
-      name: AccMinjerk
+      name: Acc_MinJerk
       offset: -25.4
       order: motorola
       physical_range: '[-25.4|0]'
       physical_unit: ''
       precision: 0.2
-      type: Float64
+      type: double
     - bit: 11
       enum:
-        0: AccModeOffMode
-        1: AccModePassiveMode
-        2: AccModeStandbyMode
-        3: AccModeActiveControlMode
-        4: AccModeBrakeOnlyMode
-        5: AccModeOverrideMode
-        6: AccModeStandstillMode
-        7: AccModeFailureMode
+        0: ACC_MODE_OFF_MODE
+        1: ACC_MODE_PASSIVE_MODE
+        2: ACC_MODE_STANDBY_MODE
+        3: ACC_MODE_ACTIVE_CONTROL_MODE
+        4: ACC_MODE_BRAKE_ONLY_MODE
+        5: ACC_MODE_OVERRIDE_MODE
+        6: ACC_MODE_STANDSTILL_MODE
+        7: ACC_MODE_FAILURE_MODE
       is_signed_var: false
       len: 3
-      name: AccMode
+      name: Acc_Mode
       offset: 0.0
       order: motorola
       physical_range: '[0|7]'
@@ -2668,31 +2668,31 @@ protocols:
     - bit: 55
       is_signed_var: false
       len: 8
-      name: AccComforlow
+      name: Acc_ComforLow
       offset: -7.0
       order: motorola
       physical_range: '[-7|5.75]'
       physical_unit: m/s2
       precision: 0.05
-      type: Float64
+      type: double
     - bit: 39
       is_signed_var: false
       len: 8
-      name: AccComforup
+      name: Acc_ComforUp
       offset: -7.0
       order: motorola
       physical_range: '[-7|5.75]'
       physical_unit: m/s2
       precision: 0.05
-      type: Float64
+      type: double
     - bit: 27
       description: unstable Decel
       enum:
-        0: AccHvydecelNotRequest
-        1: AccHvydecelrequest
+        0: ACC_HVYDECEL_NOT_REQUEST
+        1: ACC_HVYDECEL_REQUEST
       is_signed_var: false
       len: 1
-      name: AccHvydecel
+      name: Acc_HvyDecel
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -2701,13 +2701,13 @@ protocols:
       type: enum
     - bit: 30
       enum:
-        0: AccHeavymodeinactive
-        1: AccHeavymodereserved1
-        2: AccHeavymodereserved2
-        3: AccHeavymodeactive
+        0: ACC_HEAVYMODE_INACTIVE
+        1: ACC_HEAVYMODE_RESERVED1
+        2: ACC_HEAVYMODE_RESERVED2
+        3: ACC_HEAVYMODE_ACTIVE
       is_signed_var: false
       len: 2
-      name: AccHeavymode
+      name: Acc_HeavyMode
       offset: 0.0
       order: motorola
       physical_range: '[0|3]'
@@ -2717,63 +2717,63 @@ protocols:
     - bit: 23
       is_signed_var: false
       len: 8
-      name: AccTara
+      name: Acc_TarA
       offset: -7.0
       order: motorola
       physical_range: '[-7|5.75]'
       physical_unit: m/s2
       precision: 0.05
-      type: Float64
+      type: double
     - bit: 15
       is_signed_var: false
       len: 4
-      name: AccMsgcntr
+      name: Acc_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: AccCrc
+      name: Acc_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
   '86':
     id: '86'
-    name: Motorsts0286
+    name: motorsts_02_86
     protocol_type: report
     sender: VCU_PCAN_STATUS
     vars:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: Motor02Msgcntr
+      name: Motor02_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: Motor02Crc
+      name: Motor02_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 39
       enum:
-        0: FrntMotTqValidvalid
-        1: FrntMotTqValidinvalid
+        0: FRNTMOTTQVALID_VALID
+        1: FRNTMOTTQVALID_INVALID
       is_signed_var: false
       len: 1
       name: FrntMotTqValid
@@ -2792,11 +2792,11 @@ protocols:
       physical_range: '[-2048|2047.875]'
       physical_unit: Nm
       precision: 0.125
-      type: Float64
+      type: double
     - bit: 11
       enum:
-        0: FrntMotSpdValidvalid
-        1: FrntMotSpdValidinvalid
+        0: FRNTMOTSPDVALID_VALID
+        1: FRNTMOTSPDVALID_INVALID
       is_signed_var: false
       len: 1
       name: FrntMotSpdValid
@@ -2815,37 +2815,37 @@ protocols:
       physical_range: '[-32768|32767]'
       physical_unit: rpm
       precision: 1.0
-      type: Int32
+      type: int
   8e:
     id: 8e
-    name: Motorsts018e
+    name: motorsts_01_8e
     protocol_type: report
     sender: VCU_PCAN_STATUS
     vars:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: Motor01Msgcntr
+      name: Motor01_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: Motor01Crc
+      name: Motor01_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 39
       enum:
-        0: RearMotTqValidvalid
-        1: RearMotTqValidinvalid
+        0: REARMOTTQVALID_VALID
+        1: REARMOTTQVALID_INVALID
       is_signed_var: false
       len: 1
       name: RearMotTqValid
@@ -2864,11 +2864,11 @@ protocols:
       physical_range: '[-2048|2047.875]'
       physical_unit: Nm
       precision: 0.125
-      type: Float64
+      type: double
     - bit: 11
       enum:
-        0: RearMotSpdValidvalid
-        1: RearMotSpdValidinvalid
+        0: REARMOTSPDVALID_VALID
+        1: REARMOTSPDVALID_INVALID
       is_signed_var: false
       len: 1
       name: RearMotSpdValid
@@ -2887,10 +2887,10 @@ protocols:
       physical_range: '[-32768|32767]'
       physical_unit: rpm
       precision: 1.0
-      type: Int32
+      type: int
   c6:
     id: c6
-    name: EpsReqC6
+    name: eps_req_c6
     protocol_type: report
     sender: MCU_control
     vars:
@@ -2903,7 +2903,7 @@ protocols:
       physical_range: '[-1638.4|1638.3]'
       physical_unit: Deg
       precision: 0.1
-      type: Float64
+      type: double
     - bit: 39
       is_signed_var: false
       len: 15
@@ -2913,7 +2913,7 @@ protocols:
       physical_range: '[-1638.4|1638.3]'
       physical_unit: Deg
       precision: 0.1
-      type: Float64
+      type: double
     - bit: 19
       is_signed_var: false
       len: 10
@@ -2923,25 +2923,25 @@ protocols:
       physical_range: '[-10.24|10.22]'
       physical_unit: Nm
       precision: 0.02
-      type: Float64
+      type: double
     - bit: 23
       enum:
-        0: EPSReqTypNoRequest
-        1: EPSReqTypReserved1DSR
-        2: EPSReqTypTOIRequest
-        3: EPSReqTypPAIRequest
-        4: EPSReqTypDAIRequest
-        5: EPSReqTypHI1Request
-        6: EPSReqTypHI2Request
-        7: EPSReqTypReserved7
-        8: EPSReqTypReserved8
-        9: EPSReqTypReserved9
-        10: EPSReqTypReserved10
-        11: EPSReqTypReserved11
-        12: EPSReqTypReserved12
-        13: EPSReqTypReserved13
-        14: EPSReqTypReserved14
-        15: EPSReqTypSignalNotAvailable
+        0: EPSREQTYP_NO_REQUEST
+        1: EPSREQTYP_RESERVED_1_DSR
+        2: EPSREQTYP_TOI_REQUEST
+        3: EPSREQTYP_PAI_REQUEST
+        4: EPSREQTYP_DAI_REQUEST
+        5: EPSREQTYP_HI_1_REQUEST
+        6: EPSREQTYP_HI_2_REQUEST
+        7: EPSREQTYP_RESERVED_7
+        8: EPSREQTYP_RESERVED_8
+        9: EPSREQTYP_RESERVED_9
+        10: EPSREQTYP_RESERVED_10
+        11: EPSREQTYP_RESERVED_11
+        12: EPSREQTYP_RESERVED_12
+        13: EPSREQTYP_RESERVED_13
+        14: EPSREQTYP_RESERVED_14
+        15: EPSREQTYP_SIGNAL_NOT_AVAILABLE
       is_signed_var: false
       len: 4
       name: EPSReqTyp
@@ -2953,8 +2953,8 @@ protocols:
       type: enum
     - bit: 40
       enum:
-        0: SysValidInvalid
-        1: SysValidValid
+        0: SYSVALID_INVALID
+        1: SYSVALID_VALID
       is_signed_var: false
       len: 1
       name: SysValid
@@ -2966,10 +2966,10 @@ protocols:
       type: enum
     - bit: 25
       enum:
-        0: PilotSymNoSymbol
-        1: PilotSymGraySymbol
-        2: PilotSymWhiteSymbol
-        3: PilotSymreserved
+        0: PILOTSYM_NO_SYMBOL
+        1: PILOTSYM_GRAY_SYMBOL
+        2: PILOTSYM_WHITE_SYMBOL
+        3: PILOTSYM_RESERVED
       is_signed_var: false
       len: 2
       name: PilotSym
@@ -2982,32 +2982,32 @@ protocols:
     - bit: 7
       is_signed_var: false
       len: 8
-      name: EpsCrc
+      name: EPS_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 15
       is_signed_var: false
       len: 4
-      name: EpsMsgcntr
+      name: EPS_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 11
       enum:
-        0: AdcAccsymNoSymbol
-        1: AdcAccsymGraySymbol
-        2: AdcAccsymWhiteSymbol
-        3: AdcAccsymreserved
+        0: ADC_ACCSYM_NO_SYMBOL
+        1: ADC_ACCSYM_GRAY_SYMBOL
+        2: ADC_ACCSYM_WHITE_SYMBOL
+        3: ADC_ACCSYM_RESERVED
       is_signed_var: false
       len: 2
-      name: AdcAccsym
+      name: ADC_ACCSym
       offset: 0.0
       order: motorola
       physical_range: '[0|3]'
@@ -3016,16 +3016,16 @@ protocols:
       type: enum
   d5:
     id: d5
-    name: Epsstatus01D5
+    name: epsstatus01_d5
     protocol_type: report
     sender: CHASSIS_PCAN_STATUS
     vars:
     - bit: 26
       enum:
-        0: EPSwarnLampoff
-        1: EPSwarnLampon
-        2: EPSwarnLampNotAvailable
-        3: EPSwarnLampreserved
+        0: EPSWARNLAMP_OFF
+        1: EPSWARNLAMP_ON
+        2: EPSWARNLAMP_NOT_AVAILABLE
+        3: EPSWARNLAMP_RESERVED
       is_signed_var: false
       len: 2
       name: EPSwarnLamp
@@ -3037,11 +3037,11 @@ protocols:
       type: enum
     - bit: 8
       enum:
-        0: AbsAgreqavlNotAvailable
-        1: AbsAgreqavlavailable
+        0: ABS_AGREQAVL_NOT_AVAILABLE
+        1: ABS_AGREQAVL_AVAILABLE
       is_signed_var: false
       len: 1
-      name: AbsAgreqavl
+      name: ABS_AgreqAvl
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -3057,17 +3057,17 @@ protocols:
       physical_range: '[-10|10]'
       physical_unit: Nm
       precision: 0.02
-      type: Float64
+      type: double
     - bit: 36
       enum:
-        0: EPSstsinit
-        1: EPSstsnormal
-        2: EPSstsDegradedDueToTempOrVol
-        3: EPSstsTemporaryError
-        4: EPSstsPermamemtError
-        5: EPSstsreserved5
-        6: EPSstsreserved6
-        7: EPSstsinvalid
+        0: EPSSTS_INIT
+        1: EPSSTS_NORMAL
+        2: EPSSTS_DEGRADED_DUE_TO_TEMP_OR_VOL
+        3: EPSSTS_TEMPORARY_ERROR
+        4: EPSSTS_PERMAMEMT_ERROR
+        5: EPSSTS_RESERVED5
+        6: EPSSTS_RESERVED6
+        7: EPSSTS_INVALID
       is_signed_var: false
       len: 3
       name: EPSsts
@@ -3079,11 +3079,11 @@ protocols:
       type: enum
     - bit: 39
       enum:
-        0: EPSModNone
-        1: EPSModPAI
-        2: EPSModDAI
-        3: EPSModTOI
-        7: EPSModinvalid
+        0: EPSMOD_NONE
+        1: EPSMOD_PAI
+        2: EPSMOD_DAI
+        3: EPSMOD_TOI
+        7: EPSMOD_INVALID
       is_signed_var: false
       len: 3
       name: EPSMod
@@ -3095,8 +3095,8 @@ protocols:
       type: enum
     - bit: 11
       enum:
-        0: SteeragspddirLeftPlus
-        1: SteeragspddirRightMinus
+        0: STEERAGSPDDIR_LEFT_PLUS
+        1: STEERAGSPDDIR_RIGHT_MINUS
       is_signed_var: false
       len: 1
       name: Steeragspddir
@@ -3115,14 +3115,14 @@ protocols:
       physical_range: '[0|2550]'
       physical_unit: Deg/sec
       precision: 5.0
-      type: Float64
+      type: double
     - bit: 10
       enum:
-        0: SteerAngledirLeftPlus
-        1: SteerAngledirRightMinus
+        0: STEER_ANGLEDIR_LEFT_PLUS
+        1: STEER_ANGLEDIR_RIGHT_MINUS
       is_signed_var: false
       len: 1
-      name: SteerAngledir
+      name: Steer_angledir
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -3131,11 +3131,11 @@ protocols:
       type: enum
     - bit: 9
       enum:
-        0: SteerAngleandspdvalidvalid
-        1: SteerAngleandspdvalidinvalid
+        0: STEER_ANGLEANDSPDVALID_VALID
+        1: STEER_ANGLEANDSPDVALID_INVALID
       is_signed_var: false
       len: 1
-      name: SteerAngleandspdvalid
+      name: Steer_angleandspdvalid
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -3145,46 +3145,46 @@ protocols:
     - bit: 23
       is_signed_var: false
       len: 13
-      name: SteerAngle
+      name: Steer_angle
       offset: 0.0
       order: motorola
       physical_range: '[0|800]'
       physical_unit: Deg
       precision: 0.1
-      type: Float64
+      type: double
     - bit: 15
       is_signed_var: false
       len: 4
-      name: EpsDMsgcntr
+      name: EPS_D_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 7
       is_signed_var: false
       len: 8
-      name: EpsDCrc
+      name: EPS_D_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
   d6:
     id: d6
-    name: Epsstatus02D6
+    name: epsstatus02_d6
     protocol_type: report
     sender: CGW
     vars:
     - bit: 61
       enum:
-        0: EpsTqreqavlNotAvailable
-        1: EpsTqreqavlAvailable
+        0: EPS_TQREQAVL_NOT_AVAILABLE
+        1: EPS_TQREQAVL_AVAILABLE
       is_signed_var: false
       len: 1
-      name: EpsTqreqavl
+      name: EPS_TqReqAvl
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -3193,11 +3193,11 @@ protocols:
       type: enum
     - bit: 60
       enum:
-        0: EpsPinionangreqavlNotAvailable
-        1: EpsPinionangreqavlAvailable
+        0: EPS_PINIONANGREQAVL_NOT_AVAILABLE
+        1: EPS_PINIONANGREQAVL_AVAILABLE
       is_signed_var: false
       len: 1
-      name: EpsPinionangreqavl
+      name: EPS_PinionAngReqAvl
       offset: 0.0
       order: motorola
       physical_range: '[0|1]'
@@ -3207,34 +3207,34 @@ protocols:
     - bit: 35
       is_signed_var: false
       len: 10
-      name: EpsEstrackforce
+      name: EPS_EstRackForce
       offset: -20.48
       order: motorola
       physical_range: '[-20.48|20.44]'
       physical_unit: KN
       precision: 0.04
-      type: Float64
+      type: double
     - bit: 39
       enum:
-        0: EpsHandsoffdetnconfidenceHandsOn
-        1: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel1
-        2: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel2
-        3: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel3
-        4: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel4
-        5: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel5
-        6: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel6
-        7: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel7
-        8: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel8
-        9: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel9
-        10: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel10
-        11: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel11
-        12: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel12
-        13: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel13
-        14: EpsHandsoffdetnconfidenceHandsOffConfidenceLevel14
-        15: EpsHandsoffdetnconfidenceSignalNotAvalible
+        0: EPS_HANDSOFFDETNCONFIDENCE_HANDS_ON
+        1: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL1
+        2: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL2
+        3: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL3
+        4: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL4
+        5: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL5
+        6: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL6
+        7: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL7
+        8: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL8
+        9: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL9
+        10: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL10
+        11: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL11
+        12: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL12
+        13: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL13
+        14: EPS_HANDSOFFDETNCONFIDENCE_HANDS_OFF_CONFIDENCE_LEVEL14
+        15: EPS_HANDSOFFDETNCONFIDENCE_SIGNAL_NOT_AVALIBLE
       is_signed_var: false
       len: 4
-      name: EpsHandsoffdetnconfidence
+      name: EPS_HandsOffDetnConfidence
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
@@ -3244,22 +3244,22 @@ protocols:
     - bit: 15
       is_signed_var: false
       len: 4
-      name: Eps02Msgcntr
+      name: EPS_02_MsgCntr
       offset: 0.0
       order: motorola
       physical_range: '[0|15]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 9
       enum:
-        0: EpsPinionagvalidValid
-        1: EpsPinionagvalidInvalid
-        2: EpsPinionagvalidSignalNotAvailable
-        3: EpsPinionagvalidReserved
+        0: EPS_PINIONAGVALID_VALID
+        1: EPS_PINIONAGVALID_INVALID
+        2: EPS_PINIONAGVALID_SIGNAL_NOT_AVAILABLE
+        3: EPS_PINIONAGVALID_RESERVED
       is_signed_var: false
       len: 2
-      name: EpsPinionagvalid
+      name: EPS_PinionAgValid
       offset: 0.0
       order: motorola
       physical_range: '[0|3]'
@@ -3268,13 +3268,13 @@ protocols:
       type: enum
     - bit: 11
       enum:
-        0: EpsDrvoverridedetnOverrideDetected
-        1: EpsDrvoverridedetnOverrideNotDetected
-        2: EpsDrvoverridedetnSignalNotAvailable
-        3: EpsDrvoverridedetnNoActiveADCRequest
+        0: EPS_DRVOVERRIDEDETN_OVERRIDE_DETECTED
+        1: EPS_DRVOVERRIDEDETN_OVERRIDE_NOT_DETECTED
+        2: EPS_DRVOVERRIDEDETN_SIGNAL_NOT_AVAILABLE
+        3: EPS_DRVOVERRIDEDETN_NO_ACTIVE_ADC_REQUEST
       is_signed_var: false
       len: 2
-      name: EpsDrvoverridedetn
+      name: EPS_DrvOverRideDetn
       offset: 0.0
       order: motorola
       physical_range: '[0|3]'
@@ -3284,32 +3284,32 @@ protocols:
     - bit: 7
       is_signed_var: false
       len: 8
-      name: Eps02Crc
+      name: EPS_02_CRC
       offset: 0.0
       order: motorola
       physical_range: '[0|255]'
       physical_unit: ''
       precision: 1.0
-      type: Int32
+      type: int
     - bit: 55
       is_signed_var: false
       len: 10
-      name: EpsMotortq
+      name: EPS_MotorTq
       offset: -10.24
       order: motorola
       physical_range: '[-10.24|10.22]'
       physical_unit: Nm
       precision: 0.02
-      type: Float64
+      type: double
     - bit: 59
       enum:
-        0: EpsMotortqvalidValid
-        1: EpsMotortqvalidInvalid
-        2: EpsMotortqvalidSignalNotAvailable
-        3: EpsMotortqvalidReserved
+        0: EPS_MOTORTQVALID_VALID
+        1: EPS_MOTORTQVALID_INVALID
+        2: EPS_MOTORTQVALID_SIGNAL_NOT_AVAILABLE
+        3: EPS_MOTORTQVALID_RESERVED
       is_signed_var: false
       len: 2
-      name: EpsMotortqvalid
+      name: EPS_MotorTqValid
       offset: 0.0
       order: motorola
       physical_range: '[0|3]'
@@ -3319,22 +3319,22 @@ protocols:
     - bit: 23
       is_signed_var: false
       len: 15
-      name: EpsPinionag
+      name: EPS_PinionAg
       offset: -1638.4
       order: motorola
       physical_range: '[-1638.4|1638.2]'
       physical_unit: Deg
       precision: 0.1
-      type: Float64
+      type: double
     - bit: 57
       enum:
-        0: EpsEstrackforcevalidValid
-        1: EpsEstrackforcevalidInvalid
-        2: EpsEstrackforcevalidSignalNotAvailable
-        3: EpsEstrackforcevalidReserved
+        0: EPS_ESTRACKFORCEVALID_VALID
+        1: EPS_ESTRACKFORCEVALID_INVALID
+        2: EPS_ESTRACKFORCEVALID_SIGNAL_NOT_AVAILABLE
+        3: EPS_ESTRACKFORCEVALID_RESERVED
       is_signed_var: false
       len: 2
-      name: EpsEstrackforcevalid
+      name: EPS_EstRackForceValid
       offset: 0.0
       order: motorola
       physical_range: '[0|3]'

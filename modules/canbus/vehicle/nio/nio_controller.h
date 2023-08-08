@@ -33,7 +33,7 @@ namespace apollo {
 namespace canbus {
 namespace nio {
 
-class NioController final : public VehicleController {
+class NioController final : public VehicleController<::apollo::canbus::ChassisDetail> {
  public:
 
   explicit NioController() {};

@@ -41,6 +41,8 @@ message Chassis {
     CHASSIS_CAN_NOT_IN_PERIOD = 4;
 
     UNKNOWN_ERROR = 5;
+    LATENCY_ERROR_ON_CONTROL = 10;  // latency error on control side
+    CHASSIS_ERROR_ON_CAN_SEND = 11;  // chassis error on can send
   }
 
   enum GearPosition {
@@ -57,6 +59,23 @@ message Chassis {
     BUMPER_INVALID = 0;
     BUMPER_NORMAL = 1;
     BUMPER_PRESSED = 2;
+  }
+
+  enum AutoDriveState {
+    AD_INIT = 0;
+    AD_STARTING = 1;
+    AD_STARTED = 2;
+    AD_STOP = 3;
+    AD_ERROR = 4;
+  }
+
+  enum ExpectAction {
+    NOTHING = 0;
+    STARTING = 1;
+    STOPPING = 2;
+    DRIVING = 3;
+    STANDSTILL = 4;
+    PRESTARTING = 5;
   }
 
   optional bool engine_started = 3;
@@ -151,6 +170,10 @@ message Chassis {
   optional BumperEvent back_bumper_event = 39;
 
   optional CheckResponse check_response = 40;
+
+  optional ExpectAction expect_action = 41;
+
+  optional AutoDriveState auto_drive_state = 42;
 }
 
 message ChassisGPS {

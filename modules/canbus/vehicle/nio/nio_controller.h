@@ -33,6 +33,7 @@
 #include "modules/canbus/vehicle/nio/protocol/light_req_336.h"
 #include "modules/canbus/vehicle/nio/protocol/scmsts_7b.h"
 #include "modules/canbus/vehicle/vehicle_controller.h"
+#include "modules/canbus/vehicle/nio/protocol/vehiclelights_2c7.h"
 
 namespace apollo {
 namespace canbus {
@@ -68,7 +69,7 @@ class NioController final
    * @brief calculate and return the chassis.
    * @returns a copy of chassis. Use copy here to avoid multi-thread issues.
    */
-  Chassis chassis() override;
+  ::apollo::canbus::Chassis chassis() override;
 
   /**
    * @brief update the vehicle controller.
@@ -87,7 +88,7 @@ class NioController final
   ::apollo::common::ErrorCode EnableSpeedOnlyMode() override;
 
   // NEUTRAL, REVERSE, DRIVE
-  void Gear(Chassis::GearPosition state) override;
+  void Gear(::apollo::canbus::Chassis::GearPosition state) override;
 
   // brake with new acceleration
   // acceleration:0.00~99.99, unit:
@@ -129,15 +130,15 @@ class NioController final
   ::apollo::common::ErrorCode NioEnableSteerMode();
   ::apollo::common::ErrorCode NioEnableSpeedMode();
   ::apollo::common::ErrorCode NioDisableSpeedMode();
-  ::apollo::common::ErrorCode NioEnableGear(Chassis::GearPosition gear_position);
+  ::apollo::common::ErrorCode NioEnableGear(::apollo::canbus::Chassis::GearPosition gear_position);
 
   void SetSteerType(::apollo::canbus::VehicleParameter_EpsMode rep_type) { steer_type = rep_type; }
   ::apollo::canbus::VehicleParameter_EpsMode GetSteerType() { return steer_type; }
   ::apollo::canbus::Eps_req_c6::EpsreqtypType EpsModeConvertToEpsReqTyp(::apollo::canbus::VehicleParameter_EpsMode rep_type);
-  void SetGearPositionStatus(Chassis::GearPosition gear_position) {
+  void SetGearPositionStatus(::apollo::canbus::Chassis::GearPosition gear_position) {
     gear_position_status_.exchange(gear_position);
   }
-  Chassis::GearPosition GetGearPositionStatus(void) { return gear_position_status_; }
+  ::apollo::canbus::Chassis::GearPosition GetGearPositionStatus(void) { return gear_position_status_; }
 
   void SetSteerChckeResponseFlag(::apollo::canbus::VehicleParameter_EpsMode rep_type);
   int32_t GetSteerChckeResponseFlag() { return check_response_steer_unit_flag; };
@@ -151,27 +152,82 @@ class NioController final
   virtual bool CheckResponse(const int32_t flags, bool need_wait);
   void set_chassis_error_mask(const int32_t mask);
   int32_t chassis_error_mask();
-  Chassis::ErrorCode chassis_error_code();
-  void set_chassis_error_code(const Chassis::ErrorCode& error_code);
+  ::apollo::canbus::Chassis::ErrorCode chassis_error_code();
+  void set_chassis_error_code(const ::apollo::canbus::Chassis::ErrorCode& error_code);
+
+  void clear_chassis_error_code(const ::apollo::canbus::Chassis::ErrorCode& error_code);
+  common::VehicleSignal::TurnSignal GetLeftTurnlightsts(
+      ::apollo::canbus::Vehiclelights_2c7::LeftturnlightstsType state) {
+    static int close_delay_time = 0;
+    if (state == ::apollo::canbus::Vehiclelights_2c7::LeftturnlightstsType::Vehiclelights_2c7_LeftturnlightstsType_LEFTTURNLIGHTSTS_ON) {
+      close_delay_time = TRUN_SIGNAL_DELAY_TIME_10MS;
+    } else {
+      if (close_delay_time) close_delay_time--;
+    }
+    if (close_delay_time == 0) {
+      return common::VehicleSignal::VehicleSignal::TurnSignal::VehicleSignal_TurnSignal_TURN_NONE;
+    } else {
+      return common::VehicleSignal::VehicleSignal::TurnSignal::VehicleSignal_TurnSignal_TURN_LEFT;
+    }
+  }
+  common::VehicleSignal::VehicleSignal::TurnSignal GetRightTurnlightsts(
+      ::apollo::canbus::Vehiclelights_2c7::RightturnlightstsType state) {
+    static int close_delay_time = 0;
+    if (state == ::apollo::canbus::Vehiclelights_2c7::RightturnlightstsType::Vehiclelights_2c7_RightturnlightstsType_RIGHTTURNLIGHTSTS_ON) {
+      close_delay_time = TRUN_SIGNAL_DELAY_TIME_10MS;
+    } else {
+      if (close_delay_time) close_delay_time--;
+    }
+    if (close_delay_time == 0) {
+      return common::VehicleSignal::VehicleSignal::TurnSignal::VehicleSignal_TurnSignal_TURN_NONE;
+    } else {
+      return common::VehicleSignal::VehicleSignal::TurnSignal::VehicleSignal_TurnSignal_TURN_LEFT;
+    }
+  }
 
  private:
   // control protocol
+  Accreq7f* Accreq7f_ = nullptr;
+  Aebreq79* Aebreq79_ = nullptr;
+  Avpreq15e* AvpReq15e_ = nullptr;
+  Bcusts5e* Bcusts5e_ = nullptr;
+  Epsreqc6* EpsReqC6_ = nullptr;
+  Lightreq336* LightReq336_ = nullptr;
+  Scmsts7b* Scmsts7b_ = nullptr;
 
-  Chassis chassis_;
+  ::apollo::canbus::Chassis chassis_;
   std::unique_ptr<std::thread> thread_;
   bool is_chassis_error_ = false;
 
   std::mutex chassis_error_code_mutex_;
-  Chassis::ErrorCode chassis_error_code_ = Chassis::NO_ERROR;
+  ::apollo::canbus::Chassis::ErrorCode chassis_error_code_ = ::apollo::canbus::Chassis::NO_ERROR;
+  ::apollo::canbus::Chassis::ExpectAction action_ = ::apollo::canbus::Chassis::ExpectAction::Chassis_ExpectAction_STOPPING;
+  ::apollo::canbus::Chassis::AutoDriveState ad_state_ = ::apollo::canbus::Chassis::AutoDriveState::Chassis_AutoDriveState_AD_INIT;
+  std::string ad_error_reason_;
+
+  apollo::cyber::Time init_time_;
+  apollo::cyber::Time ad_starting_time_;
+  apollo::cyber::Duration ad_response_time_;
 
   std::mutex chassis_mask_mutex_;
   int32_t chassis_error_mask_ = 0;
 
 
   int32_t check_response_steer_unit_flag = 0;
-  std::atomic<Chassis::GearPosition> gear_position_status_;
+//   atlas::canbus::VehicleParameter_EpsMode steer_type;
+  std::atomic<::apollo::canbus::VehicleParameter_EpsMode> steer_mode_status_;
+  std::atomic<::apollo::canbus::Chassis::GearPosition> gear_position_status_;
   ::apollo::canbus::VehicleParameter_EpsMode steer_type;
-
+  
+  std::atomic<DrivingModeChangingAction> driving_mode_change_status_ = {DRIVING_MODE_CHANGE_NOT_ACTION};
+  std::atomic<::apollo::canbus::Chassis::GearPosition> control_req_gear_position_ = {
+      ::apollo::canbus::Chassis::GearPosition::Chassis_GearPosition_GEAR_INVALID};
+  std::atomic<float> driving_speed_mps_ = {0};
+  std::atomic<bool> brk_pedl_sts = {false};
+  std::atomic<double> eps_tors_bar = {0.0};
+  double speed_current_ = 0.0;
+  int stop_condition_counter_ = 0;  // used for if enter to stopping 
+  std::atomic<::apollo::canbus::Bcusts_5e_StandstillstsType> stand_still_status_ = {::apollo::canbus::Bcusts_5e_StandstillstsType::Bcusts_5e_StandstillstsType_STANDSTILLSTS_NON_HOLD};
 };
 
 }  // namespace nio

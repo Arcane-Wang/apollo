@@ -5,9 +5,34 @@ package apollo.canbus;
 import "modules/common_msgs/chassis_msgs/chassis.proto";
 import "modules/common_msgs/config_msgs/vehicle_config.proto";
 
+
 message VehicleParameter {
+  enum DrivingMode {
+    COMPLETE_MANUAL = 0;  // human drive
+    COMPLETE_AUTO_DRIVE = 1;
+    AUTO_STEER_ONLY = 2;  // only steer
+    AUTO_SPEED_ONLY = 3;  // include throttle and brake
+
+    // security mode when manual intervention happens, only response status
+    EMERGENCY_MODE = 4;
+  }
+
+  enum EpsMode {
+    EPS_NO = 0;
+    EPS_PAI = 1;
+    EPS_DAI = 2;
+    EPS_TOI = 3;
+  }
+
   optional apollo.common.VehicleBrand brand = 1;
   optional double max_engine_pedal = 2;
   optional int32 max_enable_fail_attempt = 3;
-  optional Chassis.DrivingMode driving_mode = 4;
+  optional DrivingMode driving_mode = 4;
+  optional EpsMode eps_mode = 5;
+  optional uint64 max_latency = 6;  // control cmd max latency microsecond
+  optional int32 max_fail_steer_attempt = 7;
+  optional int32 max_fail_eps_attempt = 8;
+  optional double max_eps_overload = 9;
+  optional bool enable_override_detection = 10;
+  optional int32 max_fail_brk_attempt = 11;
 }

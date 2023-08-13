@@ -147,10 +147,96 @@ ErrorCode VehicleController<SensorType>::Update(
     SetHorn(control_command);
     SetTurningSignal(control_command);
     SetBeam(control_command);
+    SetEmergencyLight(control_command);
+    SetFrontWiper(control_command);
+    setBrakeLight(control_command);
+    setAcTemperature(control_command);
+    setAcMode(control_command);
+    setAcWindSpeed(control_command);
+    setAmbientLamps(control_command);
+    setInnerCeilingLamps(control_command);
+    setFogLamps(control_command);
+    setPositionLamps(control_command);
+    setDrivingLamps(control_command);
+    setDoor(control_command);
   }
 
   return ErrorCode::OK;
 }
 
+template <typename SensorType>
+void VehicleController<SensorType>::UpdateLastTimestampInControlMessage(void) {
+  last_timestamep_on_control_message_.store(apollo::cyber::Time::Now().ToMicrosecond());
 }
+
+template <typename SensorType>
+uint64_t VehicleController<SensorType>::last_timestamep_on_control_message(void) {
+  return last_timestamep_on_control_message_.load();
 }
+
+template <typename SensorType>
+void VehicleController<SensorType>::set_max_letency_on_control_message(uint64_t max_latency) {
+  max_latency_ = max_latency;
+}
+
+template <typename SensorType>
+bool VehicleController<SensorType>::check_is_latency_on_control_message(void) {
+  if (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE ||
+      driving_mode() == Chassis::AUTO_SPEED_ONLY ||
+      driving_mode() == Chassis::AUTO_STEER_ONLY) {
+    uint64_t last_timestamep = last_timestamep_on_control_message();
+    uint64_t now = apollo::cyber::Time::Now().ToMicrosecond();
+    int64_t diff = max_latency_ - (now - last_timestamep);
+    if (diff < 0) {
+      AWARN << "\nit is latency on control message"
+            << "\n             now : " << now << "\n last_timestamep : " << last_timestamep
+            << "\n    max_latency_ : " << max_latency_ << "\n            diff : " << diff << " us" << std::endl;
+      return true;
+    }
+  }
+  return false;
+}
+
+template <typename SensorType>
+void VehicleController<SensorType>::SaveControlMessageState(
+    const control::ControlCommand &contro_command,
+    int64_t current_message_receive_timestamp,
+    int64_t last_message_receive_timestamp,
+    bool ignore) {
+  static uint32_t sequence_num = 0;
+  int64_t now_timestamp = apollo::cyber::Time::Now().ToMicrosecond();
+  std::lock_guard<std::mutex> lock(debug_mutex_);
+  // debug_.Builder().setHeaderControlCmd(control_command.getHeader());
+  // debug_.Builder().setThrottle(control_command.getThrottle());
+  // debug_.Builder().setBrake(control_command.getBrake());
+  // debug_.Builder().setSteeringRate(control_command.getSteeringRate());
+  // debug_.Builder().setSteeringTarget(control_command.getSteeringTarget());
+  // debug_.Builder().setParkingBrake(control_command.getParkingBrake());
+  // debug_.Builder().setSpeed(control_command.getSpeed());
+  // debug_.Builder().setAcceleration(control_command.getAcceleration());
+  // debug_.Builder().setControlLatencyMs((current_message_receive_timestamp - last_message_receive_timestamp) / 1.0e3);
+  // debug_.Builder().setControlPublishToChassisLatencySec(
+  //     current_message_receive_timestamp / 1.0e6 - control_command.getHeader().getTimestampSec());
+  // if (ignore) {
+  //   uint32_t count = debug_.Builder().getIgnoreStatisticsOnControl();
+  //   count++;
+  //   debug_.Builder().setIgnoreStatisticsOnControl(count);
+  // } else {
+  //   debug_.Builder().setKMaxLatencySec(max_latency_);
+  //   debug_.Builder().setLastTimestampOnControl(current_message_receive_timestamp / 1.0e6);
+  //   debug_.Builder().setPreviousCanbusExceedTimeMs(debug_.Builder().getLastCanbusExceedTimeMs());
+  //   debug_.Builder().setLastCanbusExceedTimeMs((now_timestamp - current_message_receive_timestamp) / 1.0e3);
+  // }
+  // debug_.Builder().setSequenceNum(sequence_num);
+  sequence_num++;
+}
+
+// template <typename SensorType>
+// void VehicleController<SensorType>::getDebug(IDebugChassis& debug) {
+//   std::lock_guard<std::mutex> lock(debug_mutex_);
+//   debug.CopyFrom(debug_, true);
+// }
+
+}  // namespace canbus
+}  // namespace atlas
+

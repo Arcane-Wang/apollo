@@ -19,31 +19,43 @@
 #include <memory>
 #include <thread>
 
-#include "modules/canbus/vehicle/vehicle_controller.h"
-
 #include "modules/canbus/proto/canbus_conf.pb.h"
-#include "modules/common_msgs/chassis_msgs/chassis.pb.h"
 #include "modules/canbus/proto/vehicle_parameter.pb.h"
 #include "modules/common_msgs/basic_msgs/error_code.pb.h"
+#include "modules/common_msgs/chassis_msgs/chassis.pb.h"
 #include "modules/common_msgs/control_msgs/control_cmd.pb.h"
 
-
+#include "modules/canbus/vehicle/nio/protocol/accreq_7f.h"
+#include "modules/canbus/vehicle/nio/protocol/aebreq_79.h"
+#include "modules/canbus/vehicle/nio/protocol/avp_req_15e.h"
+#include "modules/canbus/vehicle/nio/protocol/bcusts_5e.h"
+#include "modules/canbus/vehicle/nio/protocol/eps_req_c6.h"
+#include "modules/canbus/vehicle/nio/protocol/light_req_336.h"
+#include "modules/canbus/vehicle/nio/protocol/scmsts_7b.h"
+#include "modules/canbus/vehicle/vehicle_controller.h"
 
 namespace apollo {
 namespace canbus {
 namespace nio {
 
-class NioController final : public VehicleController<::apollo::canbus::ChassisDetail> {
- public:
+const int TRUN_SIGNAL_DELAY_TIME_10MS = 100;
+enum DrivingModeChangingAction {
+  DRIVING_MODE_CHANGE_NOT_ACTION = 0,
+  DRIVING_MODE_CHANGING_ACTION = 1,
+};
 
-  explicit NioController() {};
+class NioController final
+    : public VehicleController<::apollo::canbus::ChassisDetail> {
+ public:
+  explicit NioController(){};
 
   virtual ~NioController();
 
   ::apollo::common::ErrorCode Init(
       const VehicleParameter& params,
-      CanSender<::apollo::canbus::ChassisDetail> *const can_sender,
-      MessageManager<::apollo::canbus::ChassisDetail> *const message_manager) override;
+      CanSender<::apollo::canbus::ChassisDetail>* const can_sender,
+      MessageManager<::apollo::canbus::ChassisDetail>* const message_manager)
+      override;
 
   bool Start() override;
 
@@ -57,6 +69,14 @@ class NioController final : public VehicleController<::apollo::canbus::ChassisDe
    * @returns a copy of chassis. Use copy here to avoid multi-thread issues.
    */
   Chassis chassis() override;
+
+  /**
+   * @brief update the vehicle controller.
+   * @param command the control command
+   * @return error_code
+   */
+  virtual ::apollo::common::ErrorCode Update(
+      const ::apollo::control::ControlCommand& command);
 
  private:
   // main logical function for operation the car enter or exit the auto driving
@@ -98,6 +118,31 @@ class NioController final : public VehicleController<::apollo::canbus::ChassisDe
   void SetTurningSignal(
       const ::apollo::control::ControlCommand& command) override;
 
+  void SetEmergencyLight(const ::apollo::control::ControlCommand& command) override;
+  void SetExpectAction(const ::apollo::control::ControlCommand& command) override;
+  void UpdateVehicleState() override;
+  void UpdateVehicleState(::apollo::canbus::ChassisDetail& chassis_detail) override;
+
+  void ADStateManager(const ::apollo::control::ControlCommand& command);
+  void DetExpectAction(const ::apollo::control::ControlCommand& command);
+
+  ::apollo::common::ErrorCode NioEnableSteerMode();
+  ::apollo::common::ErrorCode NioEnableSpeedMode();
+  ::apollo::common::ErrorCode NioDisableSpeedMode();
+  ::apollo::common::ErrorCode NioEnableGear(Chassis::GearPosition gear_position);
+
+  void SetSteerType(::apollo::canbus::VehicleParameter_EpsMode rep_type) { steer_type = rep_type; }
+  ::apollo::canbus::VehicleParameter_EpsMode GetSteerType() { return steer_type; }
+  ::apollo::canbus::Eps_req_c6::EpsreqtypType EpsModeConvertToEpsReqTyp(::apollo::canbus::VehicleParameter_EpsMode rep_type);
+  void SetGearPositionStatus(Chassis::GearPosition gear_position) {
+    gear_position_status_.exchange(gear_position);
+  }
+  Chassis::GearPosition GetGearPositionStatus(void) { return gear_position_status_; }
+
+  void SetSteerChckeResponseFlag(::apollo::canbus::VehicleParameter_EpsMode rep_type);
+  int32_t GetSteerChckeResponseFlag() { return check_response_steer_unit_flag; };
+
+
   void ResetProtocol();
   bool CheckChassisError();
 
@@ -112,7 +157,6 @@ class NioController final : public VehicleController<::apollo::canbus::ChassisDe
  private:
   // control protocol
 
-
   Chassis chassis_;
   std::unique_ptr<std::thread> thread_;
   bool is_chassis_error_ = false;
@@ -122,6 +166,12 @@ class NioController final : public VehicleController<::apollo::canbus::ChassisDe
 
   std::mutex chassis_mask_mutex_;
   int32_t chassis_error_mask_ = 0;
+
+
+  int32_t check_response_steer_unit_flag = 0;
+  std::atomic<Chassis::GearPosition> gear_position_status_;
+  ::apollo::canbus::VehicleParameter_EpsMode steer_type;
+
 };
 
 }  // namespace nio

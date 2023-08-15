@@ -19,9 +19,9 @@
 #include "modules/common_msgs/basic_msgs/vehicle_signal.pb.h"
 
 #include "cyber/common/log.h"
+#include "cyber/time/time.h"
 #include "modules/canbus/vehicle/nio/nio_message_manager.h"
 #include "modules/canbus/vehicle/vehicle_controller.h"
-#include "cyber/time/time.h"
 #include "modules/drivers/canbus/can_comm/can_sender.h"
 #include "modules/drivers/canbus/can_comm/protocol_data.h"
 
@@ -29,9 +29,9 @@ namespace apollo {
 namespace canbus {
 namespace nio {
 
-using ::apollo::drivers::canbus::ProtocolData;
 using ::apollo::common::ErrorCode;
 using ::apollo::control::ControlCommand;
+using ::apollo::drivers::canbus::ProtocolData;
 // using ::apollo::canbus;
 
 namespace {
@@ -54,12 +54,12 @@ const int32_t CHECK_RESPONSE_SPEED_NOT_FLAG = 0x1 << 6;
 const int32_t CHECK_RESONSE_GEAR_DRIVE = 0x01 << 7;
 const int32_t CHECK_RESONSE_GEAR_REVERSE = 0x01 << 8;
 const int32_t CHECK_RESONSE_GEAR_PARKING = 0x01 << 9;
-}
+}  // namespace
 
 ErrorCode NioController::Init(
-	const VehicleParameter& params,
-	CanSender<::apollo::canbus::ChassisDetail> *const can_sender,
-    MessageManager<::apollo::canbus::ChassisDetail> *const message_manager) {
+    const VehicleParameter& params,
+    CanSender<::apollo::canbus::ChassisDetail>* const can_sender,
+    MessageManager<::apollo::canbus::ChassisDetail>* const message_manager) {
   if (is_initialized_) {
     AINFO << "NioController has already been initiated.";
     return ErrorCode::CANBUS_ERROR;
@@ -84,32 +84,37 @@ ErrorCode NioController::Init(
   }
   message_manager_ = message_manager;
 
-// sender part
-  Accreq7f_ = dynamic_cast<Accreq7f*>(message_manager_->GetMutableProtocolDataById(Accreq7f::ID));
+  // sender part
+  Accreq7f_ = dynamic_cast<Accreq7f*>(
+      message_manager_->GetMutableProtocolDataById(Accreq7f::ID));
   if (Accreq7f_ == nullptr) {
     AERROR << "Accreq7f does not exist in the NioMessageManager!";
     return ErrorCode::CANBUS_ERROR;
   }
 
-  Aebreq79_ = dynamic_cast<Aebreq79*>(message_manager_->GetMutableProtocolDataById(Aebreq79::ID));
+  Aebreq79_ = dynamic_cast<Aebreq79*>(
+      message_manager_->GetMutableProtocolDataById(Aebreq79::ID));
   if (Aebreq79_ == nullptr) {
     AERROR << "Aebreq79 does not exist in the NioMessageManager!";
     return ErrorCode::CANBUS_ERROR;
   }
 
-  AvpReq15e_ = dynamic_cast<Avpreq15e*>(message_manager_->GetMutableProtocolDataById(Avpreq15e::ID));
+  AvpReq15e_ = dynamic_cast<Avpreq15e*>(
+      message_manager_->GetMutableProtocolDataById(Avpreq15e::ID));
   if (AvpReq15e_ == nullptr) {
     AERROR << "Avpreq15e does not exist in the NioMessageManager!";
     return ErrorCode::CANBUS_ERROR;
   }
 
-  EpsReqC6_ = dynamic_cast<Epsreqc6*>(message_manager_->GetMutableProtocolDataById(Epsreqc6::ID));
+  EpsReqC6_ = dynamic_cast<Epsreqc6*>(
+      message_manager_->GetMutableProtocolDataById(Epsreqc6::ID));
   if (EpsReqC6_ == nullptr) {
     AERROR << "Epsreqc6 does not exist in the NioMessageManager!";
     return ErrorCode::CANBUS_ERROR;
   }
 
-  LightReq336_ = dynamic_cast<Lightreq336*>(message_manager_->GetMutableProtocolDataById(Lightreq336::ID));
+  LightReq336_ = dynamic_cast<Lightreq336*>(
+      message_manager_->GetMutableProtocolDataById(Lightreq336::ID));
   if (LightReq336_ == nullptr) {
     AERROR << "Lightreq336 does not exist in the NioMessageManager!";
     return ErrorCode::CANBUS_ERROR;
@@ -158,8 +163,6 @@ ErrorCode NioController::Init(
   if (params_.has_max_fail_brk_attempt()) {
     kMaxBrakeAttempt = params_.max_fail_brk_attempt();
   }
-
-
 
   // need sleep to ensure all messages received
   AINFO << "NioController is initialized.";
@@ -210,10 +213,11 @@ Chassis NioController::chassis() {
   chassis_.set_error_code(chassis_error_code());
 
   // 3
- // UpdateVehicleState(chassis_detail);
- if (!chassis_detail.has_nio()) {
+  // UpdateVehicleState(chassis_detail);
+  if (!chassis_detail.has_nio()) {
     AERROR << "NO nio chassis information!";
-    set_chassis_error_code(::apollo::canbus::Chassis::ErrorCode::Chassis_ErrorCode_CHASSIS_ERROR);
+    set_chassis_error_code(
+        ::apollo::canbus::Chassis::ErrorCode::Chassis_ErrorCode_CHASSIS_ERROR);
     chassis_.set_error_code(chassis_error_code());
     // chassis_msg.CopyFrom(chassis_, true);
     return chassis_;
@@ -225,24 +229,32 @@ Chassis NioController::chassis() {
   // AINFO << "chassis() motor speed" << std::endl;
   // front motor or read motor speed
   float motor_speed_rpm_front = 0.0f;
-  if (nio.has_motorsts_02_86() && (nio.motorsts_02_86().frntmotspdvalid() ==
-                                ::apollo::canbus::Motorsts_02_86_FrntmotspdvalidType::Motorsts_02_86_FrntmotspdvalidType_FRNTMOTSPDVALID_VALID)) {
+  if (nio.has_motorsts_02_86() &&
+      (nio.motorsts_02_86().frntmotspdvalid() ==
+       ::apollo::canbus::Motorsts_02_86_FrntmotspdvalidType::
+           Motorsts_02_86_FrntmotspdvalidType_FRNTMOTSPDVALID_VALID)) {
     motor_speed_rpm_front = nio.motorsts_02_86().frntmotspd() * 1.0;
   }
   float motor_speed_rpm_rear = 0.0f;
-  if (nio.has_motorsts_01_8e() && (nio.motorsts_01_8e().rearmottqvalid() ==
-                                ::apollo::canbus::Motorsts_01_8e_RearmottqvalidType::Motorsts_01_8e_RearmottqvalidType_REARMOTTQVALID_VALID)) {
+  if (nio.has_motorsts_01_8e() &&
+      (nio.motorsts_01_8e().rearmottqvalid() ==
+       ::apollo::canbus::Motorsts_01_8e_RearmottqvalidType::
+           Motorsts_01_8e_RearmottqvalidType_REARMOTTQVALID_VALID)) {
     motor_speed_rpm_rear = nio.motorsts_01_8e().rearmotspd() * 1.0;
   }
-// get max speed
+  // get max speed
   chassis_.set_engine_rpm(MAX(motor_speed_rpm_front, motor_speed_rpm_rear));
 
   // 5 6, speeds
   if (nio.has_brkdrvstatus_24c() &&
-      (nio.brkdrvstatus_24c().vehspdsts() == ::apollo::canbus::Brkdrvstatus_24c_VehspdstsType::Brkdrvstatus_24c_VehspdstsType_VEHSPDSTS_VALID)) {
+      (nio.brkdrvstatus_24c().vehspdsts() ==
+       ::apollo::canbus::Brkdrvstatus_24c_VehspdstsType::
+           Brkdrvstatus_24c_VehspdstsType_VEHSPDSTS_VALID)) {
     // km/h convert mps
     float speed_mps = nio.bodystatus_24d().vehspd() * 1000.0 / 3600.0;
-    if (nio.brkdrvstatus_24c().vehspddir() == ::apollo::canbus::Brkdrvstatus_24c_VehspddirType::Brkdrvstatus_24c_VehspddirType_VEHSPDDIR_BACKWARD) {
+    if (nio.brkdrvstatus_24c().vehspddir() ==
+        ::apollo::canbus::Brkdrvstatus_24c_VehspddirType::
+            Brkdrvstatus_24c_VehspddirType_VEHSPDDIR_BACKWARD) {
       speed_mps *= -1;
     }
     chassis_.set_speed_mps(speed_mps);
@@ -252,201 +264,256 @@ Chassis NioController::chassis() {
     speed_current_ = 0.0;
   }
   // rr
-  const ::apollo::canbus::WheelSpeed::WheelSpeedType chassis_whl_dir_convert[] = {
-      ::apollo::canbus::WheelSpeed::WheelSpeedType::WheelSpeed_WheelSpeedType_STANDSTILL,
-      ::apollo::canbus::WheelSpeed::WheelSpeedType::WheelSpeed_WheelSpeedType_FORWARD,
-      ::apollo::canbus::WheelSpeed::WheelSpeedType::WheelSpeed_WheelSpeedType_BACKWARD,
-      ::apollo::canbus::WheelSpeed::WheelSpeedType::WheelSpeed_WheelSpeedType_INVALID,
-  };
+  const ::apollo::canbus::WheelSpeed::WheelSpeedType chassis_whl_dir_convert[] =
+      {
+          ::apollo::canbus::WheelSpeed::WheelSpeedType::
+              WheelSpeed_WheelSpeedType_STANDSTILL,
+          ::apollo::canbus::WheelSpeed::WheelSpeedType::
+              WheelSpeed_WheelSpeedType_FORWARD,
+          ::apollo::canbus::WheelSpeed::WheelSpeedType::
+              WheelSpeed_WheelSpeedType_BACKWARD,
+          ::apollo::canbus::WheelSpeed::WheelSpeedType::
+              WheelSpeed_WheelSpeedType_INVALID,
+      };
 
-// Fr
-if (nio.has_whlspdfront_51() &&
-    (nio.whlspdfront_51().whlspdfrsts() == ::apollo::canbus::Whlspdfront_51_WhlspdfrstsType::Whlspdfront_51_WhlspdfrstsType_WHLSPDFRSTS_VALID)) {
-  chassis_.mutable_wheel_speed()->set_is_wheel_spd_fr_valid(true);
-  chassis_.mutable_wheel_speed()->set_wheel_direction_fr(
-      chassis_whl_dir_convert[static_cast<uint16_t>(nio.whlspdfront_51().whlspdfrdir())]);
-  chassis_.mutable_wheel_speed()->set_wheel_spd_fr(nio.whlspdfront_51().whlspdfr());
-}
-// Fl
-if (nio.has_whlspdfront_51() &&
-    (nio.whlspdfront_51().whlspdflsts() == ::apollo::canbus::Whlspdfront_51_WhlspdflstsType::Whlspdfront_51_WhlspdflstsType_WHLSPDFLSTS_VALID)) {
-  chassis_.mutable_wheel_speed()->set_is_wheel_spd_fl_valid(true);
-  chassis_.mutable_wheel_speed()->set_wheel_direction_fl(
-      chassis_whl_dir_convert[static_cast<uint16_t>(nio.whlspdfront_51().whlspdfldir())]);
-  chassis_.mutable_wheel_speed()->set_wheel_spd_fl(nio.whlspdfront_51().whlspdfl());
-}
+  // Fr
+  if (nio.has_whlspdfront_51() &&
+      (nio.whlspdfront_51().whlspdfrsts() ==
+       ::apollo::canbus::Whlspdfront_51_WhlspdfrstsType::
+           Whlspdfront_51_WhlspdfrstsType_WHLSPDFRSTS_VALID)) {
+    chassis_.mutable_wheel_speed()->set_is_wheel_spd_fr_valid(true);
+    chassis_.mutable_wheel_speed()->set_wheel_direction_fr(
+        chassis_whl_dir_convert[static_cast<uint16_t>(
+            nio.whlspdfront_51().whlspdfrdir())]);
+    chassis_.mutable_wheel_speed()->set_wheel_spd_fr(
+        nio.whlspdfront_51().whlspdfr());
+  }
+  // Fl
+  if (nio.has_whlspdfront_51() &&
+      (nio.whlspdfront_51().whlspdflsts() ==
+       ::apollo::canbus::Whlspdfront_51_WhlspdflstsType::
+           Whlspdfront_51_WhlspdflstsType_WHLSPDFLSTS_VALID)) {
+    chassis_.mutable_wheel_speed()->set_is_wheel_spd_fl_valid(true);
+    chassis_.mutable_wheel_speed()->set_wheel_direction_fl(
+        chassis_whl_dir_convert[static_cast<uint16_t>(
+            nio.whlspdfront_51().whlspdfldir())]);
+    chassis_.mutable_wheel_speed()->set_wheel_spd_fl(
+        nio.whlspdfront_51().whlspdfl());
+  }
 
-// Rr
-if (nio.has_whlspdrear_52() &&
-    (nio.whlspdrear_52().whlspdrrsts() == ::apollo::canbus::Whlspdrear_52_WhlspdrrstsType::Whlspdrear_52_WhlspdrrstsType_WHLSPDRRSTS_VALID)) {
-  chassis_.mutable_wheel_speed()->set_is_wheel_spd_rr_valid(true);
-  chassis_.mutable_wheel_speed()->set_wheel_direction_rr(
-      chassis_whl_dir_convert[static_cast<uint16_t>(nio.whlspdrear_52().whlspdrrdir())]);
-  chassis_.mutable_wheel_speed()->set_wheel_spd_rr(nio.whlspdrear_52().whlspdrr());
-}
+  // Rr
+  if (nio.has_whlspdrear_52() &&
+      (nio.whlspdrear_52().whlspdrrsts() ==
+       ::apollo::canbus::Whlspdrear_52_WhlspdrrstsType::
+           Whlspdrear_52_WhlspdrrstsType_WHLSPDRRSTS_VALID)) {
+    chassis_.mutable_wheel_speed()->set_is_wheel_spd_rr_valid(true);
+    chassis_.mutable_wheel_speed()->set_wheel_direction_rr(
+        chassis_whl_dir_convert[static_cast<uint16_t>(
+            nio.whlspdrear_52().whlspdrrdir())]);
+    chassis_.mutable_wheel_speed()->set_wheel_spd_rr(
+        nio.whlspdrear_52().whlspdrr());
+  }
 
-// rl
-if (nio.has_whlspdrear_52() &&
-    (nio.whlspdrear_52().whlspdrlsts() == ::apollo::canbus::Whlspdrear_52_WhlspdrlstsType::Whlspdrear_52_WhlspdrlstsType_WHLSPDRLSTS_VALID)) {
-  chassis_.mutable_wheel_speed()->set_is_wheel_spd_rl_valid(true);
-  chassis_.mutable_wheel_speed()->set_wheel_direction_rl(
-      chassis_whl_dir_convert[static_cast<uint16_t>(nio.whlspdrear_52().whlspdrldir())]);
-  chassis_.mutable_wheel_speed()->set_wheel_spd_rl(nio.whlspdrear_52().whlspdrl());
-}
+  // rl
+  if (nio.has_whlspdrear_52() &&
+      (nio.whlspdrear_52().whlspdrlsts() ==
+       ::apollo::canbus::Whlspdrear_52_WhlspdrlstsType::
+           Whlspdrear_52_WhlspdrlstsType_WHLSPDRLSTS_VALID)) {
+    chassis_.mutable_wheel_speed()->set_is_wheel_spd_rl_valid(true);
+    chassis_.mutable_wheel_speed()->set_wheel_direction_rl(
+        chassis_whl_dir_convert[static_cast<uint16_t>(
+            nio.whlspdrear_52().whlspdrldir())]);
+    chassis_.mutable_wheel_speed()->set_wheel_spd_rl(
+        nio.whlspdrear_52().whlspdrl());
+  }
 
+  //   // 7
+  chassis_.set_fuel_range_m(0);
+  //   // 8
+  const float kMaxAcc = 5.75;  // from ES6 DBC File
+  const float kMinAcc = -7.0;  // from ES6 DBC File
 
-//   // 7
-//   chassis_builder.setFuelRangeM(0);
-//   // 8
-//   const float kMaxAcc = 5.75;  // from ES6 DBC File
-//   const float kMinAcc = -7.0;  // from ES6 DBC File
+  if (nio.has_brkdrvstatus_24c()) {
+    chassis_.set_throttle_percentage(0);
+    chassis_.set_brake_percentage(0);
+    float acc = nio.brkdrvstatus_24c().longaccvalue() * 9.8f;  // g=9.8 m/s^2
 
-//   if (nio.hasBrkdrvstatus24c()) {
-//     chassis_builder.setThrottlePercentage(0);
-//     chassis_builder.setBrakePercentage(0);
-//     float acc = nio.getBrkdrvstatus24c().getLongAccValue() * 9.8f;  // g=9.8 m/s^2
+    if (acc > 0) {
+      chassis_.set_throttle_percentage(acc / kMaxAcc * 100.0);
+    } else {
+      chassis_.set_brake_percentage(acc / kMinAcc * 100.0);
+    }
+    chassis_.set_lon_accel(acc);
+  }
 
-//     if (acc > 0) {
-//       chassis_builder.setThrottlePercentage(acc / kMaxAcc * 100.0);
-//     } else {
-//       chassis_builder.setBrakePercentage(acc / kMinAcc * 100.0);
-//     }
-//     chassis_builder.setLonAccel(acc);
-//   }
+  // 23, previously 10 gear position
+  if (nio.has_vcusts_01_218() &&
+      nio.vcusts_01_218().actual_gearvalid() ==
+          ::apollo::canbus::Vcusts_01_218_Actual_gearvalidType::
+              Vcusts_01_218_Actual_gearvalidType_ACTUAL_GEARVALID_VALID) {
+    switch (nio.vcusts_01_218().actual_gear()) {
+      case ::apollo::canbus::Vcusts_01_218_Actual_gearType::
+          Vcusts_01_218_Actual_gearType_ACTUAL_GEAR_N:
+        chassis_.set_gear_location(::apollo::canbus::Chassis::GEAR_NEUTRAL);
+        break;
 
+      case ::apollo::canbus::Vcusts_01_218_Actual_gearType::
+          Vcusts_01_218_Actual_gearType_ACTUAL_GEAR_D:
+        chassis_.set_gear_location(::apollo::canbus::Chassis::GEAR_DRIVE);
+        break;
 
-//   // 23, previously 10 gear position
-//   if (nio.hasVcusts01218() && nio.getVcusts01218().getActualGearvalid() ==
-//                                   atlas_messages::Vcusts01218::ActualGearvalidType::ACTUAL_GEARVALIDVALID) {
-//     switch (nio.getVcusts01218().getActualGear()) {
-//       case atlas_messages::Vcusts01218::ActualGearType::ACTUAL_GEAR_N:
-//         chassis_builder.setGearLocation(atlas_messages::Chassis::GearPosition::GEAR_NEUTRAL);
-//         break;
+      case ::apollo::canbus::Vcusts_01_218_Actual_gearType::
+          Vcusts_01_218_Actual_gearType_ACTUAL_GEAR_R:
+        chassis_.set_gear_location(::apollo::canbus::Chassis::GEAR_REVERSE);
+        break;
 
-//       case atlas_messages::Vcusts01218::ActualGearType::ACTUAL_GEAR_D:
-//         chassis_builder.setGearLocation(atlas_messages::Chassis::GearPosition::GEAR_DRIVE);
-//         break;
+      case ::apollo::canbus::Vcusts_01_218_Actual_gearType::
+          Vcusts_01_218_Actual_gearType_ACTUAL_GEAR_P:
+        chassis_.set_gear_location(::apollo::canbus::Chassis::GEAR_PARKING);
+        break;
 
-//       case atlas_messages::Vcusts01218::ActualGearType::ACTUAL_GEAR_R:
-//         chassis_builder.setGearLocation(atlas_messages::Chassis::GearPosition::GEAR_REVERSE);
-//         break;
+      default:
+        chassis_.set_gear_location(::apollo::canbus::Chassis::GEAR_INVALID);
+        break;
+    }
+  } else {
+    chassis_.set_gear_location(::apollo::canbus::Chassis::GEAR_INVALID);
+  }
 
-//       case atlas_messages::Vcusts01218::ActualGearType::ACTUAL_GEAR_P:
-//         chassis_builder.setGearLocation(atlas_messages::Chassis::GearPosition::GEAR_PARKING);
-//         break;
+  // 11 steering wheel angle and sign
+  if (nio.has_epsstatus01_d5()) {
+    auto streering_percentage_dir = 1;
+    switch (nio.epsstatus01_d5().steer_angledir()) {
+      case ::apollo::canbus::Epsstatus01_d5_Steer_angledirType::
+          Epsstatus01_d5_Steer_angledirType_STEER_ANGLEDIR_LEFT_PLUS:
+        streering_percentage_dir = 1;
+        break;
 
-//       default:
-//         chassis_builder.setGearLocation(atlas_messages::Chassis::GearPosition::GEAR_INVALID);
-//         break;
-//     }
-//   } else {
-//     chassis_builder.setGearLocation(atlas_messages::Chassis::GearPosition::GEAR_INVALID);
-//   }
-//   // 11 steering wheel angle and sign
-//   if (nio.hasEpsstatus01D5()) {
-//     auto streering_percentage_dir = 1;
-//     switch (nio.getEpsstatus01D5().getSteerAngledir()) {
-//       case atlas_messages::Epsstatus01D5::SteerAngledirType::STEER_ANGLEDIR_LEFT_PLUS:
-//         streering_percentage_dir = 1;
-//         break;
+      case ::apollo::canbus::Epsstatus01_d5_Steer_angledirType::
+          Epsstatus01_d5_Steer_angledirType_STEER_ANGLEDIR_RIGHT_MINUS:
+      default:
+        streering_percentage_dir = -1;
+        break;
+    }
+    chassis_.set_steering_percentage(
+        streering_percentage_dir * nio.epsstatus01_d5().steer_angle() * 100.0 /
+        vehicle_params_.max_steer_angle() * M_PI / 180);
+  }
 
-//       case atlas_messages::Epsstatus01D5::SteerAngledirType::STEER_ANGLEDIR_RIGHT_MINUS:
-//       default:
-//         streering_percentage_dir = -1;
-//         break;
-//     }
-//     chassis_builder.setSteeringPercentage(
-//         streering_percentage_dir * nio.getEpsstatus01D5().getSteerAngle() * 100.0 / vehicle_params_.max_steer_angle() *
-//         M_PI / 180);
-//   }
-//   // 12 init torque
-//   if (nio.hasEpsstatus01D5()) {
-//     chassis_builder.setSteeringTorqueNm(nio.getEpsstatus01D5().getTorsBarTq());
-//   }
-//   // 13 parking brake
-//   if (nio.hasBrkdrvstatus24c()) {
-//     chassis_builder.setParkingBrake(
-//         nio.getBrkdrvstatus24c().getEPBswsts() == atlas_messages::Brkdrvstatus24c::EPBswstsType::E_P_BSWSTSPRESSED
-//             ? true
-//             : false);
-//   }
-//   // 14, 15 low beam
-//   if (nio.getVehiclelights2c7().getLobeamlightSts() ==
-//       atlas_messages::Vehiclelights2c7::LobeamlightStsType::LOBEAMLIGHT_STSON) {
-//     chassis_builder.getSignal().setHeadLamps(atlas_messages::VehicleSignal::HeadLampsCmd::HEAD_LAMPS_LOW);
-//   } else if (
-//       nio.getVehiclelights2c7().getHibeamlightSts() ==
-//       atlas_messages::Vehiclelights2c7::HibeamlightStsType::HIBEAMLIGHT_STSON) {
-//     chassis_builder.getSignal().setHeadLamps(atlas_messages::VehicleSignal::HeadLampsCmd::HEAD_LAMPS_HIGH);
-//   } else {
-//     chassis_builder.getSignal().setHeadLamps(atlas_messages::VehicleSignal::HeadLampsCmd::HEAD_LAMPS_OFF);
-//   }
-//   chassis_builder.getSignal().setFrontWiper(
-//       static_cast<atlas_messages::VehicleSignal::FrontWiper>(nio.getVehiclelights2c7().getFrntwiperSts()));
+  // 12 init torque
+  if (nio.has_epsstatus01_d5()) {
+    chassis_.set_steering_torque_nm(nio.epsstatus01_d5().torsbartq());
+  }
 
-//   // emergency light
-//   switch (nio.getVehiclelights2c7().getEmergcyLightSts()) {
-//     case atlas_messages::Vehiclelights2c7::EmergcyLightStsType::EMERGCY_LIGHT_STS125_HZ:
-//     case atlas_messages::Vehiclelights2c7::EmergcyLightStsType::EMERGCY_LIGHT_STS1_HZ:
-//       chassis_builder.getSignal().setEmergencyLight(true);
-//       break;
-//     default:
-//       chassis_builder.getSignal().setEmergencyLight(false);
-//       break;
-//   }
-//   // 16, 17
-//   auto turn_right_signal = GetRightTurnlightsts(nio.getVehiclelights2c7().getRightTurnlightsts());
-//   auto turn_left_signal = GetLeftTurnlightsts(nio.getVehiclelights2c7().getLeftTurnlightsts());
-//   chassis_builder.getSignal().setTurnSignal(
-//       (turn_right_signal > atlas_messages::VehicleSignal::TurnSignal::TURN_NONE) ? turn_right_signal
-//                                                                                  : turn_left_signal);
-//   chassis_builder.setLeftTurnSignal(turn_left_signal > atlas_messages::VehicleSignal::TurnSignal::TURN_NONE);
-//   chassis_builder.setRightTurnSignal(turn_right_signal > atlas_messages::VehicleSignal::TurnSignal::TURN_NONE);
-//   // 18 vin
-//   chassis_builder.getVehicleId().setVin("");
+  // 13 parking brake
+  if (nio.has_brkdrvstatus_24c()) {
+    chassis_.set_parking_brake(
+        nio.brkdrvstatus_24c().epbswsts() ==
+                ::apollo::canbus::Brkdrvstatus_24c_EpbswstsType::
+                    Brkdrvstatus_24c_EpbswstsType_EPBSWSTS_PRESSED
+            ? true
+            : false);
+  }
 
-//   if (chassis_error_mask_) {
-//     chassis_builder.setChassisErrorMask(chassis_error_mask_);
-//   }
-//   // brake
-//   if (nio.hasBrkdrvstatus24c()) {
-//     if (nio.getBrkdrvstatus24c().getBrkPedlSts() ==
-//         atlas_messages::Brkdrvstatus24c::BrkPedlStsType::BRK_PEDL_STS_NOT_PRESSED) {
-//       chassis_builder.getBrake().setIsBrakeValid(true);
-//       chassis_builder.getBrake().setIsBrakePedalPressed(false);
-//     } else if (
-//         nio.getBrkdrvstatus24c().getBrkPedlSts() ==
-//         atlas_messages::Brkdrvstatus24c::BrkPedlStsType::BRK_PEDL_STSPRESSED) {
-//       chassis_builder.getBrake().setIsBrakeValid(true);
-//       chassis_builder.getBrake().setIsBrakePedalPressed(true);
-//     } else {
-//       chassis_builder.getBrake().setIsBrakeValid(false);
-//       chassis_builder.getBrake().setIsBrakePedalPressed(false);
-//     }
-//   }
-//   // eps status
-//   if (nio.hasEpsstatus01D5()) {
-//     chassis_builder.getEps().setIsEpsValid(true);
-//     chassis_builder.getEps().setEpsBar(nio.getEpsstatus01D5().getTorsBarTq());
-//   } else {
-//     chassis_builder.getEps().setEpsBar(0.0);
-//   }
-//   // driver state
-//   if (nio.hasDriverstatus24e()) {
-//     chassis_builder.getDriverStatus().setIsAccPedalOverride(
-//         nio.getDriverstatus24e().getVCUAccrPedlOvrd() ==
-//                 atlas_messages::Driverstatus24e::VCUAccrPedlOvrdType::V_C_U_ACCR_PEDL_OVRDREQUEST
-//             ? true
-//             : false);
-//   }
+  // 14, 15 low beam
+  if (nio.vehiclelights_2c7().lobeamlightsts() ==
+      ::apollo::canbus::Vehiclelights_2c7_LobeamlightstsType::
+          Vehiclelights_2c7_LobeamlightstsType_LOBEAMLIGHTSTS_ON) {
+    chassis_.mutable_signal()->set_head_lamps(
+        ::apollo::common::VehicleSignal_HeadLampsCmd::
+            VehicleSignal_HeadLampsCmd_HEAD_LAMPS_LOW);
+  } else if (nio.vehiclelights_2c7().hibeamlightsts() ==
+             ::apollo::canbus::Vehiclelights_2c7_HibeamlightstsType::
+                 Vehiclelights_2c7_HibeamlightstsType_HIBEAMLIGHTSTS_ON) {
+    chassis_.mutable_signal()->set_head_lamps(
+        ::apollo::common::VehicleSignal_HeadLampsCmd::
+            VehicleSignal_HeadLampsCmd_HEAD_LAMPS_HIGH);
+  } else {
+    chassis_.mutable_signal()->set_head_lamps(
+        ::apollo::common::VehicleSignal_HeadLampsCmd::
+            VehicleSignal_HeadLampsCmd_HEAD_LAMPS_OFF);
+  }
+  chassis_.mutable_signal()->set_front_wiper(
+      static_cast<::apollo::common::VehicleSignal_FrontWiper>(
+          nio.vehiclelights_2c7().frntwipersts()));
 
-//   chassis_builder.setExpectAction(action_);
-//   chassis_builder.setAdstate(ad_state_);
-//   chassis_builder.setDrivingMode(driving_mode());
-//   chassis_builder.setErrorCode(chassis_error_code());
-//   chassis_builder.setStandStill(
-//       stand_still_status_ != atlas_messages::Bcusts5e::StandstillStsType::STANDSTILL_STS_NON_HOLD);
-//   chassis_msg.CopyFrom(chassis_, true);
+  // emergency light
+  switch (nio.vehiclelights_2c7().emergcylightsts()) {
+    case ::apollo::canbus::Vehiclelights_2c7_EmergcylightstsType::
+        Vehiclelights_2c7_EmergcylightstsType_EMERGCYLIGHTSTS_1_25HZ:
+    case ::apollo::canbus::Vehiclelights_2c7_EmergcylightstsType::
+        Vehiclelights_2c7_EmergcylightstsType_EMERGCYLIGHTSTS_1HZ:
+      chassis_.mutable_signal()->set_emergency_light(true);
+      break;
+    default:
+      chassis_.mutable_signal()->set_emergency_light(false);
+      break;
+  }
+
+  // 16, 17
+  auto turn_right_signal = GetRightTurnlightsts(
+      nio.vehiclelights_2c7().rightturnlightsts());
+  auto turn_left_signal =
+      GetLeftTurnlightsts(nio.vehiclelights_2c7().leftturnlightsts());
+  chassis_.mutable_signal()->set_turn_signal(
+      (turn_right_signal >
+       ::apollo::common::VehicleSignal_TurnSignal::VehicleSignal_TurnSignal_TURN_NONE)
+          ? turn_right_signal
+          : turn_left_signal);
+  chassis_.set_left_turn_signal(
+      turn_left_signal > ::apollo::common::VehicleSignal_TurnSignal::VehicleSignal_TurnSignal_TURN_NONE);
+  chassis_.set_right_turn_signal(
+      turn_right_signal >
+      ::apollo::common::VehicleSignal_TurnSignal::VehicleSignal_TurnSignal_TURN_NONE);
+  // 18 vin
+  chassis_.mutable_vehicle_id()->set_vin("");
+
+  if (chassis_error_mask_) {
+    chassis_.set_chassis_error_mask(chassis_error_mask_);
+  }
+  // brake
+  if (nio.has_brkdrvstatus_24c()) {
+    if (nio.brkdrvstatus_24c().brkpedlsts() ==
+        ::apollo::canbus::Brkdrvstatus_24c_BrkpedlstsType::
+            Brkdrvstatus_24c_BrkpedlstsType_BRKPEDLSTS_NOT_PRESSED) {
+      chassis_.mutable_brake()->set_is_brake_valid(true);
+      chassis_.mutable_brake()->set_is_brake_pedal_pressed(false);
+    } else if (nio.brkdrvstatus_24c().brkpedlsts() ==
+               ::apollo::canbus::Brkdrvstatus_24c_BrkpedlstsType::
+                   Brkdrvstatus_24c_BrkpedlstsType_BRKPEDLSTS_PRESSED) {
+      chassis_.mutable_brake()->set_is_brake_valid(true);
+      chassis_.mutable_brake()->set_is_brake_pedal_pressed(true);
+    } else {
+      chassis_.mutable_brake()->set_is_brake_valid(false);
+      chassis_.mutable_brake()->set_is_brake_pedal_pressed(false);
+    }
+  }
+  // eps status
+  if (nio.has_epsstatus01_d5()) {
+chassis_.mutable_eps()->set_is_eps_valid(true);
+chassis_.mutable_eps()->set_eps_bar(nio.epsstatus01_d5().torsbartq());
+
+  } else {
+    chassis_.mutable_eps()->set_eps_bar(0.0);
+  }
+  // driver state
+  if (nio.has_driverstatus_24e()) {
+    chassis_.mutable_driver_status()->set_is_acc_pedal_override(
+        nio.driverstatus_24e().vcuaccrpedlovrd() ==
+                ::apollo::canbus::Driverstatus_24e_VcuaccrpedlovrdType::
+                    Driverstatus_24e_VcuaccrpedlovrdType_VCUACCRPEDLOVRD_REQUEST
+            ? true
+            : false);
+  }
+
+  chassis_.set_expect_action(action_);
+  chassis_.set_auto_drive_state(ad_state_);
+  chassis_.set_driving_mode(driving_mode());
+  chassis_.set_error_code(chassis_error_code());
+  chassis_.set_stand_still(
+      stand_still_status_ !=
+      ::apollo::canbus::Bcusts_5e_StandstillstsType::Bcusts_5e_StandstillstsType_STANDSTILLSTS_NON_HOLD);
+  // chassis_msg.CopyFrom(chassis_, true);
   return chassis_;
 }
 
@@ -539,7 +606,7 @@ ErrorCode NioController::EnableSpeedOnlyMode() {
   AINFO << "Switch to AUTO_SPEED_ONLY mode ok.";
   return ErrorCode::OK;
   */
- return ErrorCode::OK;
+  return ErrorCode::OK;
 }
 
 // NEUTRAL, REVERSE, DRIVE
@@ -591,7 +658,8 @@ void NioController::Gear(Chassis::GearPosition gear_position) {
 // brake with pedal
 // pedal:0.00~99.99 unit:
 void NioController::Brake(double pedal) {
-  // double real_value = vehicle_params_.max_acceleration() * acceleration / 100;
+  // double real_value = vehicle_params_.max_acceleration() * acceleration /
+  // 100;
   // TODO(All) :  Update brake value based on mode
   if (driving_mode() != Chassis::COMPLETE_AUTO_DRIVE &&
       driving_mode() != Chassis::AUTO_SPEED_ONLY) {
@@ -626,7 +694,7 @@ void NioController::Acceleration(double acc) {
     return;
   }
   /* ADD YOUR OWN CAR CHASSIS OPERATION
-  */
+   */
 }
 
 // nio default, +470 ~ -470, left:+, right:-
@@ -659,10 +727,11 @@ void NioController::Steer(double angle, double angle_spd) {
   /* ADD YOUR OWN CAR CHASSIS OPERATION
   const double real_angle =
       vehicle_params_.max_steer_angle() / M_PI * 180 * angle / 100.0;
-  const double real_angle_spd = ProtocolData<::apollo::canbus::ChassisDetail>::BoundedValue(
-      vehicle_params_.min_steer_angle_rate(), vehicle_params_.max_steer_angle_rate(),
-      vehicle_params_.max_steer_angle_rate() * angle_spd / 100.0);
-  steering_64_->set_steering_angle(real_angle)
+  const double real_angle_spd =
+  ProtocolData<::apollo::canbus::ChassisDetail>::BoundedValue(
+      vehicle_params_.min_steer_angle_rate(),
+  vehicle_params_.max_steer_angle_rate(), vehicle_params_.max_steer_angle_rate()
+  * angle_spd / 100.0); steering_64_->set_steering_angle(real_angle)
       ->set_steering_angle_speed(real_angle_spd);
   */
 }
@@ -676,13 +745,13 @@ void NioController::SetEpbBreak(const ControlCommand& command) {
 }
 
 void NioController::SetBeam(const ControlCommand& command) {
-  if (command.signal().high_beam()) {
-    // None
-  } else if (command.signal().low_beam()) {
-    // None
-  } else {
-    // None
-  }
+  // if (command.signal().high_beam()) {
+  //   // None
+  // } else if (command.signal().low_beam()) {
+  //   // None
+  // } else {
+  //   // None
+  // }
 }
 
 void NioController::SetHorn(const ControlCommand& command) {
@@ -707,13 +776,11 @@ void NioController::SetTurningSignal(const ControlCommand& command) {
   */
 }
 
-void NioController::ResetProtocol() {
-  message_manager_->ResetSendMessages();
-}
+void NioController::ResetProtocol() { message_manager_->ResetSendMessages(); }
 
 bool NioController::CheckChassisError() {
   /* ADD YOUR OWN CAR CHASSIS OPERATION
-  */
+   */
   return false;
 }
 
@@ -777,16 +844,15 @@ void NioController::SecurityDogThreadFunc() {
     if (elapsed < default_period) {
       std::this_thread::sleep_for(default_period - elapsed);
     } else {
-      AERROR
-          << "Too much time consumption in NioController looping process:"
-          << elapsed.count();
+      AERROR << "Too much time consumption in NioController looping process:"
+             << elapsed.count();
     }
   }
 }
 
 bool NioController::CheckResponse(const int32_t flags, bool need_wait) {
   /* ADD YOUR OWN CAR CHASSIS OPERATION
-  */
+   */
   return false;
 }
 

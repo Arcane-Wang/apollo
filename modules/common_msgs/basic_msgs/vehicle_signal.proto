@@ -8,11 +8,63 @@ message VehicleSignal {
     TURN_LEFT = 1;
     TURN_RIGHT = 2;
     TURN_HAZARD_WARNING = 3;
-  };
+  }
+
+  enum FrontWiper {
+    FWIPER_OFF = 0;
+    FWIPER_LOW_SPEED = 1;
+    FWIPER_HIGH_SPEED = 2;
+    FWIPER_INVALID = 3;
+  }
+
+  enum ACModeCmd {
+    AC_MODE_DONOTHING = 0;
+    AC_MODE_COLD = 1;
+    AC_MODE_HOT = 2;
+    AC_MODE_CLOSE = 3;
+    AC_MODE_INVALID = 4;
+  }
+
+  enum LampsCmd {
+    LAMPS_DONOTHING = 0;
+    LAMPS_ON = 1;
+    LAMPS_OFF = 2;
+    LAMPS_INVALID = 3;
+  }
+
+  enum HeadLampsCmd {
+    HEAD_LAMPS_DONOTHING = 0;
+    HEAD_LAMPS_LOW = 1;
+    HEAD_LAMPS_HIGH = 2;
+    HEAD_LAMPS_OFF = 3;
+    HEAD_LAMPS_INVALID = 4;
+  }
+
+  enum DoorCmd {
+    DOOR_DONOTHING = 0;
+    DOOR_ON = 1;
+    DOOR_OFF = 2;
+    DOOR_INVALID = 3;
+  }
+
+  enum VehicleBrand {
+    NIO_ES6 = 0;
+  }
+
   optional TurnSignal turn_signal = 1;
-  // lights enable command
-  optional bool high_beam = 2;
-  optional bool low_beam = 3;
-  optional bool horn = 4;
-  optional bool emergency_light = 5;
+  optional bool horn = 2;
+  optional FrontWiper front_wiper = 3 [default = FWIPER_INVALID];
+  optional bool brake_light = 4;
+  optional float ac_temp = 5;
+  optional ACModeCmd ac_mode = 6 [default = AC_MODE_INVALID];
+  optional float ac_wind_speed = 7;
+  optional LampsCmd ambient_lamps = 8 [default = LAMPS_INVALID];
+  optional LampsCmd innerCeiling_lamps = 9 [default = LAMPS_INVALID];
+  optional LampsCmd fog_lamps = 10 [default = LAMPS_INVALID];
+  optional HeadLampsCmd head_lamps = 11 [default = HEAD_LAMPS_INVALID];
+  optional LampsCmd position_lamps = 12 [default = LAMPS_INVALID];
+  optional LampsCmd driving_lamps = 13 [default = LAMPS_INVALID];
+  optional DoorCmd door_cmd = 14 [default = DOOR_INVALID];
+  optional VehicleBrand vehicle_brand = 15;
+  optional bool emergency_light = 16;
 }

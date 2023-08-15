@@ -520,40 +520,55 @@ chassis_.mutable_eps()->set_eps_bar(nio.epsstatus01_d5().torsbartq());
 void NioController::Emergency() {
   set_driving_mode(Chassis::EMERGENCY_MODE);
   ResetProtocol();
+  action_ = Chassis::ExpectAction::Chassis_ExpectAction_STOPPING;
+  ad_state_ = Chassis::AutoDriveState::Chassis_AutoDriveState_AD_INIT;
 }
 
 ErrorCode NioController::EnableAutoMode() {
+  ChassisDetail chassis_detail;
+  if (message_manager_->GetSensorData(&chassis_detail) != ErrorCode::OK) {
+    AERROR_EVERY(100) << "EnableAutoMode: get chassis detail failed." << std::endl;
+    return ErrorCode::CANBUS_ERROR;
+  }
+  
+  // check
   if (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE) {
     AINFO << "already in COMPLETE_AUTO_DRIVE mode";
     return ErrorCode::OK;
   }
-  return ErrorCode::OK;
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
-  brake_60_->set_enable();
-  throttle_62_->set_enable();
-  steering_64_->set_enable();
 
-  can_sender_->Update();
-  const int32_t flag =
-      CHECK_RESPONSE_STEER_UNIT_FLAG | CHECK_RESPONSE_SPEED_UNIT_FLAG;
-  if (!CheckResponse(flag, true)) {
-    AERROR << "Failed to switch to COMPLETE_AUTO_DRIVE mode.";
-    Emergency();
-    set_chassis_error_code(Chassis::CHASSIS_ERROR);
+  AINFO << "NioEnableSteerMode:";
+  // steer
+  if (NioEnableSteerMode() != ErrorCode::OK) {
+    AERROR << "Failed to switch to DrivingMode::EnableAutoMode mode.";
+    return ErrorCode::CANBUS_ERROR;
+  }
+  AINFO << "NioEnableGear:";
+  // set gear
+  if (NioEnableGear(control_req_gear_position_) != ErrorCode::OK) {
+    AERROR << "Failed to switch to DrivingMode::EnableAutoMode mode.";
+    NioEnableGear(Chassis::GEAR_INVALID);
+    return ErrorCode::CANBUS_ERROR;
+  }
+
+  AINFO << "NioEnableSpeedMode:~~~";
+  // speed mode
+  if (NioEnableSpeedMode() != ErrorCode::OK) {
+    AERROR << "Failed to switch to DrivingMode::EnableAutoMode mode.";
     return ErrorCode::CANBUS_ERROR;
   }
   set_driving_mode(Chassis::COMPLETE_AUTO_DRIVE);
-  AINFO << "Switch to COMPLETE_AUTO_DRIVE mode ok.";
+  AINFO << "switch to DrivingMode::EnableAutoMode mode Ok." << static_cast<int>(driving_mode());
+  stop_condition_counter_ = 0;
+
   return ErrorCode::OK;
-  */
 }
 
 ErrorCode NioController::DisableAutoMode() {
   ResetProtocol();
   can_sender_->Update();
   set_driving_mode(Chassis::COMPLETE_MANUAL);
-  set_chassis_error_code(Chassis::NO_ERROR);
-  AINFO << "Switch to COMPLETE_MANUAL ok.";
+  AINFO << "Switch to DrivingMode::COMPLETE_MANUAL ok.";
   return ErrorCode::OK;
 }
 
@@ -561,98 +576,67 @@ ErrorCode NioController::EnableSteeringOnlyMode() {
   if (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE ||
       driving_mode() == Chassis::AUTO_STEER_ONLY) {
     set_driving_mode(Chassis::AUTO_STEER_ONLY);
-    AINFO << "Already in AUTO_STEER_ONLY mode.";
+    AINFO << "Already in DrivingMode::Chassis_DrivingMode_AUTO_STEER_ONLY mode.";
     return ErrorCode::OK;
   }
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
-  brake_60_->set_disable();
-  throttle_62_->set_disable();
-  steering_64_->set_enable();
-
-  can_sender_->Update();
-  if (!CheckResponse(CHECK_RESPONSE_STEER_UNIT_FLAG, true)) {
-    AERROR << "Failed to switch to AUTO_STEER_ONLY mode.";
-    Emergency();
-    set_chassis_error_code(Chassis::CHASSIS_ERROR);
-    return ErrorCode::CANBUS_ERROR;
+  if (NioEnableSteerMode() == ErrorCode::OK) {
+    set_driving_mode(Chassis::AUTO_STEER_ONLY);
+    AINFO << "entern in DrivingMode::Chassis_DrivingMode_AUTO_STEER_ONLY mode.";
+    return ErrorCode::OK;
   }
-  set_driving_mode(Chassis::AUTO_STEER_ONLY);
-  AINFO << "Switch to AUTO_STEER_ONLY mode ok.";
-  return ErrorCode::OK;
-  */
-  return ErrorCode::OK;
+  return ErrorCode::CANBUS_ERROR;
 }
 
 ErrorCode NioController::EnableSpeedOnlyMode() {
   if (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE ||
       driving_mode() == Chassis::AUTO_SPEED_ONLY) {
-    set_driving_mode(Chassis::AUTO_SPEED_ONLY);
-    AINFO << "Already in AUTO_SPEED_ONLY mode";
+    AINFO << "Already in DrivingMode::AUTO_SPEED_ONLY mode";
     return ErrorCode::OK;
   }
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
-  brake_60_->set_enable();
-  throttle_62_->set_enable();
-  steering_64_->set_disable();
-
-  can_sender_->Update();
-  if (!CheckResponse(CHECK_RESPONSE_SPEED_UNIT_FLAG, true)) {
-    AERROR << "Failed to switch to AUTO_SPEED_ONLY mode.";
-    Emergency();
-    set_chassis_error_code(Chassis::CHASSIS_ERROR);
-    return ErrorCode::CANBUS_ERROR;
-  }
-  set_driving_mode(Chassis::AUTO_SPEED_ONLY);
-  AINFO << "Switch to AUTO_SPEED_ONLY mode ok.";
-  return ErrorCode::OK;
-  */
-  return ErrorCode::OK;
+  return ErrorCode::CANBUS_ERROR;
 }
 
 // NEUTRAL, REVERSE, DRIVE
 void NioController::Gear(Chassis::GearPosition gear_position) {
-  if (driving_mode() != Chassis::COMPLETE_AUTO_DRIVE &&
-      driving_mode() != Chassis::AUTO_SPEED_ONLY) {
+  if (gear_position == Chassis::GEAR_INVALID) {
+    return;
+  }
+  if (driving_mode() != Chassis::COMPLETE_AUTO_DRIVE) {
     AINFO << "This drive mode no need to set gear.";
     return;
   }
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
   switch (gear_position) {
-    case Chassis::GEAR_NEUTRAL: {
-      gear_66_->set_gear_neutral();
-      break;
-    }
-    case Chassis::GEAR_REVERSE: {
-      gear_66_->set_gear_reverse();
-      break;
-    }
+    case Chassis::GEAR_REVERSE:
     case Chassis::GEAR_DRIVE: {
-      gear_66_->set_gear_drive();
+      if (GetGearPositionStatus() != gear_position) {
+        // R->P->D or D->P->R, changing and keep driving mode
+        // 1. exit acc mode
+        // 2. change gear
+        // Enter auto mode
+        AINFO << "Gear :: ";
+        driving_mode_change_status_.exchange(DRIVING_MODE_CHANGING_ACTION);
+        NioDisableSpeedMode();
+        NioEnableGear(Chassis::GEAR_PARKING);
+        // init to COMPLETE_MANUAL
+        set_driving_mode(Chassis::COMPLETE_MANUAL);
+        EnableAutoMode();
+        driving_mode_change_status_.exchange(DRIVING_MODE_CHANGE_NOT_ACTION);
+      }
       break;
     }
     case Chassis::GEAR_PARKING: {
-      gear_66_->set_gear_park();
-      break;
-    }
-    case Chassis::GEAR_LOW: {
-      gear_66_->set_gear_low();
-      break;
-    }
-    case Chassis::GEAR_NONE: {
-      gear_66_->set_gear_none();
-      break;
-    }
-    case Chassis::GEAR_INVALID: {
-      AERROR << "Gear command is invalid!";
-      gear_66_->set_gear_none();
+      driving_mode_change_status_.exchange(DRIVING_MODE_CHANGING_ACTION);
+      NioDisableSpeedMode();
+      NioEnableGear(Chassis::GEAR_PARKING);
+      DisableAutoMode();
+      driving_mode_change_status_.exchange(DRIVING_MODE_CHANGE_NOT_ACTION);
       break;
     }
     default: {
-      gear_66_->set_gear_none();
+      // AvpReq15e_->set_avp_targearreq(::apollo::canbus::Avp_req_15e::AVP_TARGEARREQ_NO_GEAR_REQUEST);
       break;
     }
   }
-  */
 }
 
 // brake with pedal

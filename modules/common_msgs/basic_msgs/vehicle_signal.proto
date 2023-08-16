@@ -67,4 +67,5 @@ message VehicleSignal {
   optional DoorCmd door_cmd = 14 [default = DOOR_INVALID];
   optional VehicleBrand vehicle_brand = 15;
   optional bool emergency_light = 16;
+  optional bool brake_light_flashing = 17;
 }

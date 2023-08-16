@@ -92,6 +92,18 @@ message VehicleParam {
   optional LatencyParam steering_latency_param = 22;
   optional LatencyParam throttle_latency_param = 23;
   optional LatencyParam brake_latency_param = 24;
+
+  optional double expect_starting_max_speed = 25 [default = 0.2];
+  optional double expect_driving_min_speed = 26 [default = 2.0];
+  optional double destop_speed = 27 [default = 0.75];
+  optional double expect_stopping_max_path_remain = 28 [default = 5.0];
+  // the following items are used to compute ADState in function ADStateManager
+  optional double max_auto_drive_response_delay = 29 [default = 5.0];
+  optional double expect_starting_min_path_remain = 30 [default = 3.0];
+  optional double min_can_speed = 31 [default = 0.05];
+  // used for stopping condition counter judge, default 40, 0.4s
+  optional int32 stop_counter = 32 [default = 20];
+  optional double destop_speed_target = 33 [default = 0.5];
 }
 
 message VehicleConfig {

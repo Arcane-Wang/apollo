@@ -159,6 +159,7 @@ class VehicleController {
       ::apollo::canbus::ChassisDetail &chassis_detail){};
 
   virtual void SetEmergencyLight(const control::ControlCommand &command){};
+  virtual void SetBrakeLightFlashing(const control::ControlCommand& command){};
   virtual void SetExpectAction(const control::ControlCommand &command){};
   virtual void SetFrontWiper(const control::ControlCommand &command){};
   virtual void setBrakeLight(const control::ControlCommand &command){};

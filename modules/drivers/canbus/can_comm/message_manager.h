@@ -109,6 +109,14 @@ class MessageManager {
    */
   void ResetSendMessages();
 
+    /**
+   * @brief Get the Messages Timeout object
+   *
+   * @param message_id
+   * @return uint32_t us
+   */
+  uint32_t GetMessagesTimeout(const uint32_t message_id);
+
  protected:
   template <class T, bool need_check>
   void AddRecvProtocolData();
@@ -238,6 +246,21 @@ void MessageManager<SensorType>::ResetSendMessages() {
       protocol_data->Reset();
     }
   }
+}
+
+template <typename SensorType> uint32_t MessageManager<SensorType>::GetMessagesTimeout(const uint32_t message_id) {
+  uint32_t timeout_ = 0x0;
+  const auto it = check_ids_.find(message_id);
+  if (it != check_ids_.end()) {
+    const int64_t time = Time::Now().ToNanosecond() / 1e3;
+    auto realtime = time - it->second.last_time;
+    // if period 1.5 large than base period
+    const double period_multiplier = 3.0;
+    if (realtime > (it->second.period * period_multiplier)) {
+         timeout_ = realtime - (it->second.period * period_multiplier);
+    }
+  }
+  return timeout_;
 }
 
 }  // namespace canbus

@@ -2,7 +2,7 @@ dbc_file: es6.dbc
 protocol_conf: es6.yml
 car_type: nio
 sender_list: []
-sender: []
+sender: MCU_control
 black_list: []
 
 output_dir: output_nio/

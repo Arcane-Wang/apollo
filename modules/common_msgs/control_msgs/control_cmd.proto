@@ -70,6 +70,7 @@ message ControlCommand {
   optional bool low_beam = 12 [deprecated = true];
   optional bool horn = 15 [deprecated = true];
   optional TurnSignal turnsignal = 21 [deprecated = true];
+  optional double path_remain = 28;
 }
 
 message SimpleLongitudinalDebug {

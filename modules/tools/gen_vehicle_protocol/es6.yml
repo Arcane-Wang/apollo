@@ -3,7 +3,7 @@ protocols:
   15e:
     id: 15e
     name: avp_req_15e
-    protocol_type: report
+    protocol_type: control
     sender: MCU_control
     vars:
     - bit: 39
@@ -1104,7 +1104,7 @@ protocols:
   '336':
     id: '336'
     name: light_req_336
-    protocol_type: report
+    protocol_type: control
     sender: MCU_control
     vars:
     - bit: 23
@@ -2104,7 +2104,7 @@ protocols:
   '79':
     id: '79'
     name: aebreq_79
-    protocol_type: report
+    protocol_type: control
     sender: MCU_control
     vars:
     - bit: 35
@@ -2595,7 +2595,7 @@ protocols:
   7f:
     id: 7f
     name: accreq_7f
-    protocol_type: report
+    protocol_type: control
     sender: MCU_control
     vars:
     - bit: 31
@@ -2891,7 +2891,7 @@ protocols:
   c6:
     id: c6
     name: eps_req_c6
-    protocol_type: report
+    protocol_type: control
     sender: MCU_control
     vars:
     - bit: 55

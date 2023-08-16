@@ -197,6 +197,7 @@ class CanSender {
    */
   bool IsRunning() const;
   bool enable_log() const;
+  bool IsSendFail() const;
 
   FRIEND_TEST(CanSenderTest, OneRunCase);
 
@@ -213,6 +214,7 @@ class CanSender {
   std::vector<SenderMessage<SensorType>> send_messages_;
   std::unique_ptr<std::thread> thread_;
   bool enable_log_ = false;
+  bool is_send_fail_ = false;
 
   DISALLOW_COPY_AND_ASSIGN(CanSender);
 };
@@ -438,6 +440,11 @@ bool CanSender<SensorType>::IsRunning() const {
 template <typename SensorType>
 bool CanSender<SensorType>::enable_log() const {
   return enable_log_;
+}
+
+template <typename SensorType>
+bool CanSender<SensorType>::IsSendFail() const {
+  return is_send_fail_;
 }
 
 template <typename SensorType>

@@ -123,6 +123,7 @@ class NioController final
   void SetExpectAction(const ::apollo::control::ControlCommand& command) override;
   void UpdateVehicleState() override;
   void UpdateVehicleState(::apollo::canbus::ChassisDetail& chassis_detail) override;
+  void SetBrakeLightFlashing(const ::apollo::control::ControlCommand& command) override;
 
   void ADStateManager(const ::apollo::control::ControlCommand& command);
   void DetExpectAction(const ::apollo::control::ControlCommand& command);
@@ -208,6 +209,12 @@ class NioController final
   apollo::cyber::Time init_time_;
   apollo::cyber::Time ad_starting_time_;
   apollo::cyber::Duration ad_response_time_;
+  apollo::cyber::Time brake_light_flashing_start_time_;  // use for brake light flashing
+
+  bool is_brake_light_flashing_ =
+      true;  // use for brake light flashing, flg changing between brake light turn on and off
+  bool need_brake_lihgt_flashing_ = false;  // use for brake light flashing, flg of receieving need brake light flashing
+
 
   std::mutex chassis_mask_mutex_;
   int32_t chassis_error_mask_ = 0;

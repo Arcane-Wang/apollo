@@ -79,6 +79,10 @@ class NioController final
   virtual ::apollo::common::ErrorCode Update(
       const ::apollo::control::ControlCommand& command);
 
+  FRIEND_TEST(NioControllerTest, SetDrivingMode);
+  FRIEND_TEST(NioControllerTest, Status);
+  FRIEND_TEST(NioControllerTest, UpdateDrivingMode);
+
  private:
   // main logical function for operation the car enter or exit the auto driving
   void Emergency() override;

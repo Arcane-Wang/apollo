@@ -889,15 +889,19 @@ bool NioController::CheckChassisError() {
   const uint32_t Bodystatus_message_id = 0x24D;
   const uint32_t Bcusts5e_message_id = 0x5E;
   if (this->message_manager_->GetMessagesTimeout(EPSstatus01_message_id)) {
+    AERROR << "EPSstatus01_message_id timeout";
     return true;
   }
   if (this->message_manager_->GetMessagesTimeout(VCUsts_01_message_id)) {
+    AERROR << "VCUsts_01_message_id timeout";
     return true;
   }
   if (this->message_manager_->GetMessagesTimeout(Bodystatus_message_id)) {
+    AERROR << "Bodystatus_message_id timeout";
     return true;
   }
   if (this->message_manager_->GetMessagesTimeout(Bcusts5e_message_id)) {
+    AERROR << "Bcusts5e_message_id timeout";
     return true;
   }
   return false;

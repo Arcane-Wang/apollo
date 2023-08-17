@@ -28,9 +28,10 @@
 #include <unordered_map>
 #include <vector>
 
+#include "modules/common_msgs/basic_msgs/error_code.pb.h"
+
 #include "cyber/common/log.h"
 #include "cyber/time/time.h"
-#include "modules/common_msgs/basic_msgs/error_code.pb.h"
 #include "modules/drivers/canbus/can_comm/protocol_data.h"
 #include "modules/drivers/canbus/common/byte.h"
 
@@ -109,7 +110,7 @@ class MessageManager {
    */
   void ResetSendMessages();
 
-    /**
+  /**
    * @brief Get the Messages Timeout object
    *
    * @param message_id
@@ -173,9 +174,9 @@ void MessageManager<SensorType>::AddSendProtocolData() {
 }
 
 template <typename SensorType>
-ProtocolData<SensorType>
-    *MessageManager<SensorType>::GetMutableProtocolDataById(
-        const uint32_t message_id) {
+ProtocolData<SensorType> *
+MessageManager<SensorType>::GetMutableProtocolDataById(
+    const uint32_t message_id) {
   if (protocol_data_map_.find(message_id) == protocol_data_map_.end()) {
     ADEBUG << "Unable to get protocol data because of invalid message_id:"
            << Byte::byte_to_hex(message_id);
@@ -248,7 +249,9 @@ void MessageManager<SensorType>::ResetSendMessages() {
   }
 }
 
-template <typename SensorType> uint32_t MessageManager<SensorType>::GetMessagesTimeout(const uint32_t message_id) {
+template <typename SensorType>
+uint32_t MessageManager<SensorType>::GetMessagesTimeout(
+    const uint32_t message_id) {
   uint32_t timeout_ = 0x0;
   const auto it = check_ids_.find(message_id);
   if (it != check_ids_.end()) {
@@ -257,7 +260,11 @@ template <typename SensorType> uint32_t MessageManager<SensorType>::GetMessagesT
     // if period 1.5 large than base period
     const double period_multiplier = 3.0;
     if (realtime > (it->second.period * period_multiplier)) {
-         timeout_ = realtime - (it->second.period * period_multiplier);
+      AERROR << "Message ID: " << message_id
+             << ", Last received: " << it->second.last_time
+             << ", Realtime: " << realtime
+             << ", Expected period: " << it->second.period;
+      timeout_ = realtime - (it->second.period * period_multiplier);
     }
   }
   return timeout_;

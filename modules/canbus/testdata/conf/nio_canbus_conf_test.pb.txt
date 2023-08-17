@@ -1,0 +1,14 @@
+vehicle_parameter {
+  brand: NIO
+  max_enable_fail_attempt: 5
+  driving_mode: COMPLETE_AUTO_DRIVE
+  eps_mode: 0
+}
+
+can_card_parameter {
+  brand:SOCKET_CAN_RAW
+  type: PCI_CARD
+  channel_id: CHANNEL_ID_ZERO
+}
+
+enable_debug_mode: false

@@ -52,4 +52,17 @@ cc_library(
     ],
 )
 
+cc_test(
+    name = "nio_controller_test",
+    size = "small",
+    srcs = ["nio_controller_test.cc"],
+    data = ["//modules/canbus:test_data"],
+    deps = [
+        ":nio_controller",
+        "//modules/common/util",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+
 cpplint()

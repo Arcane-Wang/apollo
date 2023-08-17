@@ -48,7 +48,7 @@ message ControlCommand {
 
   // model reset
   optional bool reset_model = 16 [deprecated = true];
-  // engine on/off, true: engine on
+  // engine on/off, true: engine onc
   optional bool engine_on_off = 17;
   // completion percentage of trajectory planned in last cycle
   optional double trajectory_fraction = 18;

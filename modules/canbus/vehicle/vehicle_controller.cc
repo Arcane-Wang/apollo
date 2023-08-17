@@ -78,60 +78,50 @@ ErrorCode VehicleController<SensorType>::SetDrivingMode(
 
 template <typename SensorType>
 ErrorCode VehicleController<SensorType>::Update(
-    const ControlCommand &control_command) {
-  if (!is_initialized_) {
-    AERROR << "Controller is not initialized.";
+    const ControlCommand &control_command) {if (!is_initialized_) {
+    AERROR << "Controller is not initialized." << std::endl;
     return ErrorCode::CANBUS_ERROR;
   }
-
+  UpdateVehicleState();
   // Execute action to transform driving mode
-  if (control_command.has_pad_msg() && control_command.pad_msg().has_action()) {
-    AINFO << "Canbus received pad msg: "
-          << control_command.pad_msg().ShortDebugString();
-    if (control_command.pad_msg().action() == control::DrivingAction::VIN_REQ) {
-    //   if (!VerifyID()) {
-    //     AINFO << "Response vid failed, please request again.";
-    //   } else {
-    //     AINFO << "Response vid success!";
-    //   }
-    } else {
-      Chassis::DrivingMode mode = Chassis::COMPLETE_MANUAL;
-      switch (control_command.pad_msg().action()) {
-        case control::DrivingAction::START: {
-          mode = Chassis::COMPLETE_AUTO_DRIVE;
-          break;
-        }
-        case control::DrivingAction::STOP:
-        case control::DrivingAction::RESET: {
-          // In COMPLETE_MANUAL mode
-          break;
-        }
-        default: {
-          AERROR << "No response for this action.";
-          break;
-        }
+  if (control_command.has_pad_msg() && control_command.pad_msg().action() != control::DrivingAction::INVALID) {
+    AINFO << "Canbus received pad msg: " << static_cast<int>(control_command.pad_msg().action());
+    Chassis::DrivingMode mode = Chassis::DrivingMode::COMPLETE_MANUAL;
+    switch (control_command.pad_msg().action()) {
+      case control::DrivingAction::START: {
+        mode = Chassis::DrivingMode::COMPLETE_AUTO_DRIVE;
+        break;
       }
-      auto error_code = SetDrivingMode(mode);
-      if (error_code != ErrorCode::OK) {
-        AERROR << "Failed to set driving mode.";
-      } else {
-        AINFO << "Set driving mode success.";
+      case control::DrivingAction::STOP:
+      case control::DrivingAction::RESET: {
+        // In COMPLETE_MANUAL mode clear code
+        set_chassis_error_code(Chassis::ErrorCode::NO_ERROR);
+        break;
+      }
+      default: {
+        AERROR << "No response for this action." << std::endl;
+        break;
       }
     }
+    auto error_code = SetDrivingMode(mode);
+    if (error_code != ErrorCode::OK) {
+      AERROR << "Failed to set driving mode." << std::endl;
+    }
+    UpdateVehicleState();
   }
 
-  if (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE ||
-      driving_mode() == Chassis::AUTO_SPEED_ONLY) {
-    Gear(control_command.gear_location());
-    Throttle(control_command.throttle());
-    Acceleration(control_command.acceleration());
-    Brake(control_command.brake());
+  if (driving_mode() == Chassis::DrivingMode::COMPLETE_AUTO_DRIVE ||
+      driving_mode() == Chassis::DrivingMode::AUTO_SPEED_ONLY) {
+    Gear(control_command.getGearLocation());
+    Throttle(control_command.getThrottle());
+    Acceleration(control_command.getAcceleration());
+    Brake(control_command.getBrake());
     SetEpbBreak(control_command);
     SetLimits();
   }
-
-  if (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE ||
-      driving_mode() == Chassis::AUTO_STEER_ONLY) {
+  SetExpectAction(control_command);
+  if (driving_mode() == Chassis::DrivingMode::COMPLETE_AUTO_DRIVE ||
+      driving_mode() == Chassis::DrivingMode::AUTO_STEER_ONLY) {
     const double steering_rate_threshold = 1.0;
     if (control_command.steering_rate() > steering_rate_threshold) {
       Steer(control_command.steering_target(), control_command.steering_rate());
@@ -140,14 +130,15 @@ ErrorCode VehicleController<SensorType>::Update(
     }
   }
 
-  if ((driving_mode() == Chassis::COMPLETE_AUTO_DRIVE ||
-       driving_mode() == Chassis::AUTO_SPEED_ONLY ||
-       driving_mode() == Chassis::AUTO_STEER_ONLY) &&
+  if ((driving_mode() == Chassis::DrivingMode::COMPLETE_AUTO_DRIVE ||
+       driving_mode() == Chassis::DrivingMode::AUTO_SPEED_ONLY ||
+       driving_mode() == Chassis::DrivingMode::AUTO_STEER_ONLY) &&
       control_command.has_signal()) {
     SetHorn(control_command);
     SetTurningSignal(control_command);
     SetBeam(control_command);
     SetEmergencyLight(control_command);
+    SetBrakeLightFlashing(control_command);
     SetFrontWiper(control_command);
     setBrakeLight(control_command);
     setAcTemperature(control_command);
@@ -209,8 +200,8 @@ void VehicleController<SensorType>::SaveControlMessageState(
   // debug_.Builder().setHeaderControlCmd(control_command.getHeader());
   // debug_.Builder().setThrottle(control_command.getThrottle());
   // debug_.Builder().setBrake(control_command.getBrake());
-  // debug_.Builder().setSteeringRate(control_command.getSteeringRate());
-  // debug_.Builder().setSteeringTarget(control_command.getSteeringTarget());
+  // debug_.Builder().setSteeringRate(control_command.steering_rate());
+  // debug_.Builder().setSteeringTarget(control_command.steering_target());
   // debug_.Builder().setParkingBrake(control_command.getParkingBrake());
   // debug_.Builder().setSpeed(control_command.getSpeed());
   // debug_.Builder().setAcceleration(control_command.getAcceleration());
